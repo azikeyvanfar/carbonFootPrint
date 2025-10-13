@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/05/2023 13:09:32" ReportInfo.Modified="07/01/2024 08:40:51" ReportInfo.CreatorVersion="2023.2.0.0">
+  <Dictionary/>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" Watermark.Font="Arial, 60pt">
+    <PageHeaderBand Name="PageHeader1" Width="1047.06" Height="42.8">
+      <ShapeObject Name="Shape61" Left="7.45" Top="9" Width="1031.95" Height="28.35" Fill.Color="Gainsboro"/>
+      <TextObject Name="ReportHeaderName" Left="12.55" Top="12.45" Width="1021.2" Height="20.9" Fill.Color="Gainsboro" Text="گزارش" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Microsoft Sans Serif, 10pt"/>
+    </PageHeaderBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="44.4" Width="1047.06" Height="65.15">
+      <ShapeObject Name="Shape63" Left="7.56" Top="9.07" Width="1031.94" Height="28.35" Fill.Color="Gainsboro"/>
+      <TextObject Name="Text82" Left="970.9" Top="12.45" Width="53.25" Height="21.9" Anchor="Top, Bottom, Right" Fill.Color="Gainsboro" Text="تعداد کل :" HorzAlign="Right" VertAlign="Center" RightToLeft="true" Font="Microsoft Sans Serif, 10pt"/>
+      <TextObject Name="TotalCount" Left="593.35" Top="12.45" Width="374.1" Height="21.35" Anchor="Top, Bottom, Right" Fill.Color="Gainsboro" Text="bbbbb" VertAlign="Center" RightToLeft="true" Font="Microsoft Sans Serif, 10pt"/>
+    </ColumnFooterBand>
+    <PageFooterBand Name="PageFooter1" Top="111.15" Width="1047.06" Height="29.35"/>
+  </ReportPage>
+</Report>
