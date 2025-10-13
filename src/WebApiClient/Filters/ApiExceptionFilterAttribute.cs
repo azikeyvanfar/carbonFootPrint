@@ -6,6 +6,7 @@ using System.Linq;
 using ContractorBackend.Application.Common.Exceptions;
 using ContractorBackend.Common.Extensions;
 using ContractorBackend.Domain.Entities.Core;
+using ContractorBackend.Domain.Enums.Core;
 using ContractorBackend.Persistence.Context;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -342,10 +343,9 @@ namespace ContractorBackend.WebApiClient.Filters
                 LogEvent = context.ActionDescriptor.EndpointMetadata.OfType<ErrorCodeAttribute>().SingleOrDefault()?.ErrorCode ?? "",
                 Route = string.Join(":", context.RouteData.Values.Values),
                 Description = context.ActionDescriptor.DisplayName,
-                SystemName = _configuration.GetSection("SystemName").Value,
+                ProjectType = LogType.Admin,
                 TimeStamp = DateTime.Now,
                 UserId = userId
-
             };
 
             var setting = _dbContext.ErrorHistories.Add(errorHistory);

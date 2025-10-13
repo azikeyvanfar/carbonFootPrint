@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using ContractorBackend.Domain.Common;
+using ContractorBackend.Domain.Enums.Core;
 
 namespace ContractorBackend.Domain.Entities.Core
 {
@@ -17,8 +18,7 @@ namespace ContractorBackend.Domain.Entities.Core
         public string Level { get; set; }
         public string Exception { get; set; }
         public string LogEvent { get; set; }
-        [MaxLength(10)]
-        public string SystemName { get; set; }
+        public LogType ProjectType { get; set; }
 
         public long? UserId { get; set; }
         public DateTime? TimeStamp { get; set; } = DateTime.Now;
