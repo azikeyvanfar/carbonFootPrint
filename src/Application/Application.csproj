@@ -1,0 +1,136 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>ContractorBackend.Application</RootNamespace>
+    <AssemblyName>ContractorBackend.Application</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors>NU1605;</WarningsAsErrors>
+	<Nullable>disable</Nullable>
+    <NoWarn>1701;1702;1591</NoWarn>
+    <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ArtGroup\**" />
+    <Compile Remove="Art\**" />
+    <Compile Remove="Depandents\**" />
+    <Compile Remove="Eligibilitys\**" />
+    <Compile Remove="FileExtensionLimited\**" />
+    <Compile Remove="FormEntry\**" />
+    <Compile Remove="Form\**" />
+    <Compile Remove="GeneralMsgSettingsGeneralMsgSetting\**" />
+    <Compile Remove="GeneralMsgSettings\**" />
+    <Compile Remove="Institute\**" />
+    <Compile Remove="InternalLoans\**" />
+    <Compile Remove="InternalWorkHistory\**" />
+    <Compile Remove="IsSuiteSyncs\**" />
+    <Compile Remove="Message\**" />
+    <Compile Remove="NewFolder1\**" />
+    <Compile Remove="NotificationSetting\**" />
+    <Compile Remove="PayButtonStates\**" />
+    <Compile Remove="PostHistory\**" />
+    <Compile Remove="Profiles\**" />
+    <Compile Remove="SalaryDeductionCertificate\**" />
+    <Compile Remove="SmsSender\**" />
+    <Compile Remove="SportGroup\**" />
+    <Compile Remove="Sport\**" />
+    <Compile Remove="Users\Commands\**" />
+    <Compile Remove="Users\Query\GetAllUsers\NewFolder\**" />
+    <EmbeddedResource Remove="ArtGroup\**" />
+    <EmbeddedResource Remove="Art\**" />
+    <EmbeddedResource Remove="Depandents\**" />
+    <EmbeddedResource Remove="Eligibilitys\**" />
+    <EmbeddedResource Remove="FileExtensionLimited\**" />
+    <EmbeddedResource Remove="FormEntry\**" />
+    <EmbeddedResource Remove="Form\**" />
+    <EmbeddedResource Remove="GeneralMsgSettingsGeneralMsgSetting\**" />
+    <EmbeddedResource Remove="GeneralMsgSettings\**" />
+    <EmbeddedResource Remove="Institute\**" />
+    <EmbeddedResource Remove="InternalLoans\**" />
+    <EmbeddedResource Remove="InternalWorkHistory\**" />
+    <EmbeddedResource Remove="IsSuiteSyncs\**" />
+    <EmbeddedResource Remove="Message\**" />
+    <EmbeddedResource Remove="NewFolder1\**" />
+    <EmbeddedResource Remove="NotificationSetting\**" />
+    <EmbeddedResource Remove="PayButtonStates\**" />
+    <EmbeddedResource Remove="PostHistory\**" />
+    <EmbeddedResource Remove="Profiles\**" />
+    <EmbeddedResource Remove="SalaryDeductionCertificate\**" />
+    <EmbeddedResource Remove="SmsSender\**" />
+    <EmbeddedResource Remove="SportGroup\**" />
+    <EmbeddedResource Remove="Sport\**" />
+    <EmbeddedResource Remove="Users\Commands\**" />
+    <EmbeddedResource Remove="Users\Query\GetAllUsers\NewFolder\**" />
+    <None Remove="ArtGroup\**" />
+    <None Remove="Art\**" />
+    <None Remove="Depandents\**" />
+    <None Remove="Eligibilitys\**" />
+    <None Remove="FileExtensionLimited\**" />
+    <None Remove="FormEntry\**" />
+    <None Remove="Form\**" />
+    <None Remove="GeneralMsgSettingsGeneralMsgSetting\**" />
+    <None Remove="GeneralMsgSettings\**" />
+    <None Remove="Institute\**" />
+    <None Remove="InternalLoans\**" />
+    <None Remove="InternalWorkHistory\**" />
+    <None Remove="IsSuiteSyncs\**" />
+    <None Remove="Message\**" />
+    <None Remove="NewFolder1\**" />
+    <None Remove="NotificationSetting\**" />
+    <None Remove="PayButtonStates\**" />
+    <None Remove="PostHistory\**" />
+    <None Remove="Profiles\**" />
+    <None Remove="SalaryDeductionCertificate\**" />
+    <None Remove="SmsSender\**" />
+    <None Remove="SportGroup\**" />
+    <None Remove="Sport\**" />
+    <None Remove="Users\Commands\**" />
+    <None Remove="Users\Query\GetAllUsers\NewFolder\**" />
+  </ItemGroup>
+  
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+	<PackageReference Include="Dapper" Version="2.1.35" />
+	<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="EPPlus" Version="6.2.9" />
+    <PackageReference Include="FluentValidation" Version="10.3.4" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.4" />
+    <PackageReference Include="Gridify.EntityFramework" Version="2.4.4" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.27" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
+    <PackageReference Include="microsoft.entityframeworkcore.relational" Version="5.0.12" />	  
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" /> 
+    <PackageReference Include="MockQueryable.Moq" Version="5.0.2" /> 
+    <PackageReference Include="morelinq" Version="4.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp.Serializers.SystemTextJson" Version="106.15.0" />
+    <PackageReference Include="Serilog" Version="2.12.0" />
+    <PackageReference Include="System.Formats.Asn1" Version="8.0.0-rc.1.23419.4" />
+    <PackageReference Include="System.Globalization.Calendars" Version="4.3.0" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="7.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Account\Commands\CheckMscLogin\" />
+    <Folder Include="Account\Commands\RegisterAccountBatch\NewFolder\" />
+    <Folder Include="Account\Query\GetSignedUserInfo\" />
+    <Folder Include="Core\Lookups\Commands\" />
+    <Folder Include="Documents\Queries\GetFileExtensionAndLimited\" />
+    <Folder Include="GeneralClaims\Commands\" />
+    <Folder Include="OtpSettings\Commands\InsertData\" />
+    <Folder Include="OtpSettings\Queries\GetKeyValAll\NewFolder\" />
+    <Folder Include="UserRolePageRouteAccess\Queries\GetListRoles\" />
+    <Folder Include="UserRole\Commands\UpdateUserRole\" />
+  </ItemGroup>
+</Project>
