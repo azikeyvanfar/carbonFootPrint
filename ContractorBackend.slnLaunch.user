@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "src\\WebApiAdmin\\WebApiAdmin.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\WebApiClient\\WebApiClient.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
