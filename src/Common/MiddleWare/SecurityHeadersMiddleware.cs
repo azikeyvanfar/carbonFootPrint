@@ -17,7 +17,14 @@ namespace ContractorBackend.Common.MiddleWare
 
         public async Task InvokeAsync(HttpContext context)
         {
+            context.Response.OnStarting(() =>
+            {
+                context.Response.Headers.Remove("Server");
+                return Task.CompletedTask;
+            });
+
             var corsOrigins = _configuration.GetSection("CorsOrigins:AllowOrigins").Get<string[]>();
+
             context.Response.Headers.Add("X-Frame-Options", "DENY");
             context.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
             context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
@@ -26,8 +33,6 @@ namespace ContractorBackend.Common.MiddleWare
             context.Response.Headers.Add("Access-Control-Allow-origin", $"{corsOrigins};");
             context.Response.Headers.Add("Permissions-Policy", "geolocation=(self), microphone=(), camera=()");
 
-            context.Response.Headers.Add("Content-Security-Policy", $"default-src 'self'; connect-src 'self' {corsOrigins};");
-            context.Response.Headers.Add("Access-Control-Allow-origin", $"{corsOrigins};");
 
             context.Response.Cookies.Delete("cookiesession1");
 
