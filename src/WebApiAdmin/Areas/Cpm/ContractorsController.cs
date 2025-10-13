@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ContractorBackend.WebApiAdmin.Areas.Cpm
 {
-    [Area("Share")]
+    [Area("Cpm")]
     [Route("api/[area]/[controller]/[action]")]
     public class ContractorsController : ApiControllerBase
     {
