@@ -29,6 +29,8 @@
     <Compile Remove="Message\**" />
     <Compile Remove="NewFolder1\**" />
     <Compile Remove="NotificationSetting\**" />
+    <Compile Remove="Core\OtpSettings\Commands\InsertData\**" />
+    <Compile Remove="Core\OtpSettings\Queries\GetKeyValAll\**" />
     <Compile Remove="PayButtonStates\**" />
     <Compile Remove="PostHistory\**" />
     <Compile Remove="Profiles\**" />
@@ -36,8 +38,8 @@
     <Compile Remove="SmsSender\**" />
     <Compile Remove="SportGroup\**" />
     <Compile Remove="Sport\**" />
-    <Compile Remove="Users\Commands\**" />
-    <Compile Remove="Users\Query\GetAllUsers\NewFolder\**" />
+    <Compile Remove="Core\Users\Commands\**" />
+    <Compile Remove="Core\Users\Query\GetAllUsers\NewFolder\**" />
     <EmbeddedResource Remove="ArtGroup\**" />
     <EmbeddedResource Remove="Art\**" />
     <EmbeddedResource Remove="Depandents\**" />
@@ -54,6 +56,8 @@
     <EmbeddedResource Remove="Message\**" />
     <EmbeddedResource Remove="NewFolder1\**" />
     <EmbeddedResource Remove="NotificationSetting\**" />
+    <EmbeddedResource Remove="Core\OtpSettings\Commands\InsertData\**" />
+    <EmbeddedResource Remove="Core\OtpSettings\Queries\GetKeyValAll\**" />
     <EmbeddedResource Remove="PayButtonStates\**" />
     <EmbeddedResource Remove="PostHistory\**" />
     <EmbeddedResource Remove="Profiles\**" />
@@ -61,8 +65,8 @@
     <EmbeddedResource Remove="SmsSender\**" />
     <EmbeddedResource Remove="SportGroup\**" />
     <EmbeddedResource Remove="Sport\**" />
-    <EmbeddedResource Remove="Users\Commands\**" />
-    <EmbeddedResource Remove="Users\Query\GetAllUsers\NewFolder\**" />
+    <EmbeddedResource Remove="Core\Users\Commands\**" />
+    <EmbeddedResource Remove="Core\Users\Query\GetAllUsers\NewFolder\**" />
     <None Remove="ArtGroup\**" />
     <None Remove="Art\**" />
     <None Remove="Depandents\**" />
@@ -79,6 +83,8 @@
     <None Remove="Message\**" />
     <None Remove="NewFolder1\**" />
     <None Remove="NotificationSetting\**" />
+    <None Remove="Core\OtpSettings\Commands\InsertData\**" />
+    <None Remove="Core\OtpSettings\Queries\GetKeyValAll\**" />
     <None Remove="PayButtonStates\**" />
     <None Remove="PostHistory\**" />
     <None Remove="Profiles\**" />
@@ -86,8 +92,8 @@
     <None Remove="SmsSender\**" />
     <None Remove="SportGroup\**" />
     <None Remove="Sport\**" />
-    <None Remove="Users\Commands\**" />
-    <None Remove="Users\Query\GetAllUsers\NewFolder\**" />
+    <None Remove="Core\Users\Commands\**" />
+    <None Remove="Core\Users\Query\GetAllUsers\NewFolder\**" />
   </ItemGroup>
   
 
@@ -122,15 +128,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Account\Commands\CheckMscLogin\" />
-    <Folder Include="Account\Commands\RegisterAccountBatch\NewFolder\" />
-    <Folder Include="Account\Query\GetSignedUserInfo\" />
+    <Folder Include="Core\Account\Commands\CheckMscLogin\" />
+    <Folder Include="Core\Account\Commands\RegisterAccountBatch\NewFolder\" />
+    <Folder Include="Core\Account\Query\GetSignedUserInfo\" />
     <Folder Include="Core\Lookups\Commands\" />
-    <Folder Include="Documents\Queries\GetFileExtensionAndLimited\" />
-    <Folder Include="GeneralClaims\Commands\" />
-    <Folder Include="OtpSettings\Commands\InsertData\" />
-    <Folder Include="OtpSettings\Queries\GetKeyValAll\NewFolder\" />
-    <Folder Include="UserRolePageRouteAccess\Queries\GetListRoles\" />
-    <Folder Include="UserRole\Commands\UpdateUserRole\" />
+    <Folder Include="Core\Documents\Queries\GetFileExtensionAndLimited\" />
+    <Folder Include="Core\GeneralClaims\Commands\" />
+    <Folder Include="Core\UserRolePageRouteAccess\Queries\GetListRoles\" />
+    <Folder Include="Core\UserRole\Commands\UpdateUserRole\" />
   </ItemGroup>
 </Project>

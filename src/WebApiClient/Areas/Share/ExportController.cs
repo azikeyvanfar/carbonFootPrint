@@ -2,8 +2,8 @@
 using System.ComponentModel;
 using System.IO;
 using System.Threading.Tasks;
-using ContractorBackend.Application.Excel.Queries.GetExcelDataFromAction;
-using ContractorBackend.Application.Excel.Queries.GetPdfDataFromAction;
+using ContractorBackend.Application.Core.Excel.Queries.GetExcelDataFromAction;
+using ContractorBackend.Application.Core.Excel.Queries.GetPdfDataFromAction;
 using ContractorBackend.WebApiClient.Controllers;
 using ContractorBackend.WebApiClient.Filters;
 using Microsoft.AspNetCore.Authorization;

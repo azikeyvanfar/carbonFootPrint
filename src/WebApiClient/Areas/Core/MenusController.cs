@@ -2,9 +2,9 @@
 using System.ComponentModel;
 using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Models;
-using ContractorBackend.Application.Dtos;
-using ContractorBackend.Application.Menus.Queries.GetAllMenus;
-using ContractorBackend.Application.Menus.Queries.GetMenuById;
+using ContractorBackend.Application.Core.Menus.Queries.GetAllMenus;
+using ContractorBackend.Application.Core.Menus.Queries.GetPageById;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.WebApiClient.Controllers;
 using ContractorBackend.WebApiClient.Filters;
 using ContractorBackend.WebApiClient.Helpers;

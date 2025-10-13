@@ -1,30 +1,24 @@
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using ContractorBackend.Application.Documents.Queries.GetDocumentById;
-using ContractorBackend.Application.Documents.Queries.GetDocumentFile;
-using ContractorBackend.Application.Documents.Queries.GetDocumentImage;
-using ContractorBackend.Application.Documents.Queries.GetDocumentThumbnail;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Core.Documents.Queries.GetDocumentById;
+using ContractorBackend.Application.Core.Documents.Queries.GetDocumentFile;
+using ContractorBackend.Application.Core.Documents.Queries.GetDocumentImage;
+using ContractorBackend.Application.Core.Documents.Queries.GetDocumentThumbnail;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.WebApiClient.Controllers;
 using ContractorBackend.WebApiClient.Filters;
 using ContractorBackend.WebApiClient.Helpers;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContractorBackend.WebApiClient.Areas.Core.Controllers
+namespace ContractorBackend.WebApiClient.Areas.Core
 {
     [Area("Core")]
     [Route("api/cli/[area]/[controller]/[action]")]
 
     public class DocumentsController : ApiControllerBase
     {
-        private readonly IHttpContextAccessor _contextAccessor;
-        public DocumentsController(IHttpContextAccessor accessor)
-        {
-            _contextAccessor = accessor;
-        }
 
         /// <summary>
         /// نمایش فایل و پوشه بر اساس شناسه  

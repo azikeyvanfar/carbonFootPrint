@@ -3,11 +3,11 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Models;
 using ContractorBackend.Application.Dtos.Core;
-using ContractorBackend.Application.QuestionAnswers.Commands.CreateQA;
-using ContractorBackend.Application.QuestionAnswers.Commands.DeleteQA;
-using ContractorBackend.Application.QuestionAnswers.Commands.UpdateQA;
-using ContractorBackend.Application.QuestionAnswers.Queries.GetByIdQA;
-using ContractorBackend.Application.QuestionAnswers.Queries.OGetAllQA;
+using ContractorBackend.Application.Shared.QuestionAnswers.Commands.CreateQA;
+using ContractorBackend.Application.Shared.QuestionAnswers.Commands.DeleteQA;
+using ContractorBackend.Application.Shared.QuestionAnswers.Commands.UpdateQA;
+using ContractorBackend.Application.Shared.QuestionAnswers.Queries.GetByIdQA;
+using ContractorBackend.Application.Shared.QuestionAnswers.Queries.OGetAllQA;
 using ContractorBackend.Common.Extensions;
 using ContractorBackend.WebApiClient.Controllers;
 using ContractorBackend.WebApiClient.Filters;
@@ -15,7 +15,7 @@ using ContractorBackend.WebApiClient.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContractorBackend.WebApiClient.Areas.Core.Controllers
+namespace ContractorBackend.WebApiClient.Areas.Core
 {
     [Area("Core")]
     [Route("api/cli/[area]/[controller]/[action]")]

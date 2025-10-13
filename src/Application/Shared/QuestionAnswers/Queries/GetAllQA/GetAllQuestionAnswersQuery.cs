@@ -14,7 +14,7 @@ using Gridify.EntityFramework;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace ContractorBackend.Application.QuestionAnswers.Queries.GetAllQA
+namespace ContractorBackend.Application.Shared.QuestionAnswers.Queries.GetAllQA
 {
     public class GetAllQuestionAnswersQuery :
          SearchQueryRequest, IRequest<SearchQueryResponse<QuestionAnswersDto>>

@@ -1,9 +1,9 @@
 ﻿using System;
 using AutoMapper;
 using ContractorBackend.Application.Common.Services;
-using ContractorBackend.Application.Dtos;
-using ContractorBackend.Application.MenuItems.Commands.CreateMenuItem;
-using ContractorBackend.Application.MenuItems.Commands.UpdateMenuItem;
+using ContractorBackend.Application.Core.MenuItems.Commands.CreateMenuItem;
+using ContractorBackend.Application.Core.MenuItems.Commands.UpdateMenuItem;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.Domain.Entities.Core;
 using ContractorBackend.Domain.Enums.Core;
 

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using ReportServer.Persistance.Entity;
+using ContractorBackend.Application.Dtos.Core;
 
 namespace ContractorBackend.Application.Common.Interfaces
 {

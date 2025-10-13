@@ -10,7 +10,7 @@ using ContractorBackend.Application.Dtos.Core;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace ContractorBackend.Application.QuestionAnswers.Queries.GetByIdQA
+namespace ContractorBackend.Application.Shared.QuestionAnswers.Queries.GetByIdQA
 {
     public class GetByIdQuestionAnswersQuery : IRequest<QuestionAnswersDto>
     {

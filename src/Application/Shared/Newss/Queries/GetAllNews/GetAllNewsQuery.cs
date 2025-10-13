@@ -8,7 +8,7 @@ using AutoMapper.QueryableExtensions;
 using ContractorBackend.Application.Common.Identity;
 using ContractorBackend.Application.Common.Interfaces;
 using ContractorBackend.Application.Common.Models;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.Application.Dtos.Share;
 using ContractorBackend.Domain.Entities.Core;
 using ContractorBackend.Domain.Entities.Identity;

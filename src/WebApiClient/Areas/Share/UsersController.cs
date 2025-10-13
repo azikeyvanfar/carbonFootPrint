@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Models;
-using ContractorBackend.Application.Dtos;
-using ContractorBackend.Application.Users.Query.GetAllActiveUserByScopeId;
-using ContractorBackend.Application.Users.Query.GetAllActiveUsers;
-using ContractorBackend.Application.Users.Query.GetAllUsers;
+using ContractorBackend.Application.Core.Users.Query.GetAllActiveUser;
+using ContractorBackend.Application.Core.Users.Query.GetAllActiveUserByScopeId;
+using ContractorBackend.Application.Core.Users.Query.GetAllUsers;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.WebApiClient.Controllers;
 using ContractorBackend.WebApiClient.Filters;
 using ContractorBackend.WebApiClient.Helpers;

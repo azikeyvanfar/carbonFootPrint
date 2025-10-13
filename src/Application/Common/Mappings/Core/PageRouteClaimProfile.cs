@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using ContractorBackend.Application.Dtos;
-using ContractorBackend.Application.PageRouteClaims.Commands.UpdatePageRouteClaim;
+using ContractorBackend.Application.Core.PageRouteClaims.Commands.UpdatePageRouteClaim;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.Domain.Entities.Core;
 
 namespace ContractorBackend.Application.Mapping.Core

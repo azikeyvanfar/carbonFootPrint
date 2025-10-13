@@ -2,10 +2,10 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-using ContractorBackend.Application.ApplicationSettingPage.Commands.CreateApplicationSettingsClient;
-using ContractorBackend.Application.ApplicationSettingPage.Queries.CheckUserHasAccessToSettings;
-using ContractorBackend.Application.ApplicationSettingPage.Queries.GetApplicationSettingsClient;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Core.ApplicationSettingPage.Commands.CreateApplicationSettingsClient;
+using ContractorBackend.Application.Core.ApplicationSettingPage.Queries.CheckUserHasAccessToSettings;
+using ContractorBackend.Application.Core.ApplicationSettingPage.Queries.GetApplicationSettingsClient;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.Application.Dtos.Setting;
 using ContractorBackend.WebApiClient.Controllers;
 using ContractorBackend.WebApiClient.Filters;

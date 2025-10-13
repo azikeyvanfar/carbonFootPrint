@@ -8,7 +8,7 @@ using AutoMapper;
 using ContractorBackend.Application.Common.Exceptions;
 using ContractorBackend.Application.Common.Extensions;
 using ContractorBackend.Application.Common.Interfaces;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.Application.Resources;
 using ContractorBackend.Common.Extensions;
 using ContractorBackend.Domain.Entities.Core;

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Exceptions;
 using ContractorBackend.Application.Common.Extensions;
 using ContractorBackend.Application.Common.Interfaces;
-using ContractorBackend.Application.Dtos.scs;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.Common.Extensions;
 using ContractorBackend.Common.Models;
 using ContractorBackend.Domain.Entities.Identity;
@@ -1102,34 +1102,35 @@ namespace ContractorBackend.Application.Services
 
         public async Task<IsSuiteResponseDto> CallSensitiveApiOtpCheck()
         {
-            var row = IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.pds_per_contracts_viw];
+            //var row = IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.pds_per_contracts_viw];
 
-            if (row is null)
-            {
-                throw new ArgumentNullException($"url for given key not found.key : {IsSuiteUrlKeyEnum.pds_per_contracts_viw.ToString()}");
-            }
+            //if (row is null)
+            //{
+            //    throw new ArgumentNullException($"url for given key not found.key : {IsSuiteUrlKeyEnum.pds_per_contracts_viw.ToString()}");
+            //}
 
-            var url = row.Url;
-            var service = row.Service;
+            //var url = row.Url;
+            //var service = row.Service;
 
-            var userId = _accessor.HttpContext.GetUserId();
-            var user = _dbContext.Set<User>().FirstOrDefault(x => x.Id == userId);
-            if (user == null)
-            {
-                throw new ArgumentNullException(nameof(user));
-            }
-            var personnelCode = long.TryParse(user.PersonnelCode, out long code) ? code : throw new ArgumentNullException(nameof(user));
-            var pCode = (string)_memoryCache.Get(personnelCode + _accessor.HttpContext.GetCurrentUserIp() + "is-otp");
+            //var userId = _accessor.HttpContext.GetUserId();
+            //var user = _dbContext.Set<User>().FirstOrDefault(x => x.Id == userId);
+            //if (user == null)
+            //{
+            //    throw new ArgumentNullException(nameof(user));
+            //}
+            //var personnelCode = long.TryParse(user.PersonnelCode, out long code) ? code : throw new ArgumentNullException(nameof(user));
+            //var pCode = (string)_memoryCache.Get(personnelCode + _accessor.HttpContext.GetCurrentUserIp() + "is-otp");
 
-            var queryParams = new List<QueryParamModel>()
-            {
-                new QueryParamModel  { ParameterName  =  "P_NUM_PRSN" , ParameterValue = personnelCode.ToString()},
-                new QueryParamModel  { ParameterName  =  "P_COD" , ParameterValue = pCode},
-                new QueryParamModel  { ParameterName  =  "P_TYPE" , ParameterValue = "2"}
-            };
+            //var queryParams = new List<QueryParamModel>()
+            //{
+            //    new QueryParamModel  { ParameterName  =  "P_NUM_PRSN" , ParameterValue = personnelCode.ToString()},
+            //    new QueryParamModel  { ParameterName  =  "P_COD" , ParameterValue = pCode},
+            //    new QueryParamModel  { ParameterName  =  "P_TYPE" , ParameterValue = "2"}
+            //};
 
-            var response = await PostService<IsSuiteResponseDto>(url, queryParams, null, service);
-            return response;
+            //var response = await PostService<IsSuiteResponseDto>(url, queryParams, null, service);
+            //return response;
+            return null;
         }
 
 

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Dtos.Core;
 
 namespace ContractorBackend.Application.Mapping.Core
 {

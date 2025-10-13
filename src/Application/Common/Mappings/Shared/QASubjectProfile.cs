@@ -1,6 +1,6 @@
 ﻿using System;
 using AutoMapper;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Dtos.Share;
 using ContractorBackend.Application.QASubjects.Commands.CreateQASubject;
 using ContractorBackend.Application.QASubjects.Commands.UpdateQASubject;
 using ContractorBackend.Domain.Entities.Shared;

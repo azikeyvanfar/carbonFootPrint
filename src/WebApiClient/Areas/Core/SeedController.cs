@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 
-namespace ContractorBackend.WebApiAdmin.Areas.Core
+namespace ContractorBackend.WebApiClient.Areas.Core
 {
     [Area("Core")]
     [Route("api/cli/[area]/[controller]/[action]")]

@@ -6,7 +6,7 @@ using ContractorBackend.Application.Common.Interfaces;
 using ContractorBackend.Domain.Entities.Shared;
 using MediatR;
 
-namespace ContractorBackend.Application.QuestionAnswers.Commands.CreateQA
+namespace ContractorBackend.Application.Shared.QuestionAnswers.Commands.CreateQA
 {
     public class CreateQuestionAnswersCommand : IRequest
     {

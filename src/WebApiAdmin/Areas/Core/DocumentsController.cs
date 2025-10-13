@@ -1,11 +1,11 @@
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using ContractorBackend.Application.Documents.Queries.GetDocumentById;
-using ContractorBackend.Application.Documents.Queries.GetDocumentFile;
-using ContractorBackend.Application.Documents.Queries.GetDocumentImage;
-using ContractorBackend.Application.Documents.Queries.GetDocumentThumbnail;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Core.Documents.Queries.GetDocumentById;
+using ContractorBackend.Application.Core.Documents.Queries.GetDocumentFile;
+using ContractorBackend.Application.Core.Documents.Queries.GetDocumentImage;
+using ContractorBackend.Application.Core.Documents.Queries.GetDocumentThumbnail;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.WebApiAdmin.Controllers;
 using ContractorBackend.WebApiAdmin.Filters;
 using ContractorBackend.WebApiAdmin.Helpers;
@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContractorBackend.WebApiAdmin.Areas.Core.Controllers
+namespace ContractorBackend.WebApiAdmin.Areas.Core
 {
     [Area("Core")]
     [Route("api/[area]/[controller]/[action]")]

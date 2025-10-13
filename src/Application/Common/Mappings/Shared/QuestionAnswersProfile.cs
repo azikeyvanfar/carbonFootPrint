@@ -1,8 +1,8 @@
 ﻿using System;
 using AutoMapper;
 using ContractorBackend.Application.Dtos.Core;
-using ContractorBackend.Application.QuestionAnswers.Commands.CreateQA;
-using ContractorBackend.Application.QuestionAnswers.Commands.UpdateQA;
+using ContractorBackend.Application.Shared.QuestionAnswers.Commands.CreateQA;
+using ContractorBackend.Application.Shared.QuestionAnswers.Commands.UpdateQA;
 using ContractorBackend.Domain.Entities.Shared;
 using Microsoft.EntityFrameworkCore;
 

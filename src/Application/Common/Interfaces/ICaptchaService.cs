@@ -1,4 +1,4 @@
-﻿using ContractorBackend.Application.Dtos;
+﻿using ContractorBackend.Application.Dtos.Core;
 using Microsoft.AspNetCore.Http;
 
 namespace ContractorBackend.Application.Common.Interfaces

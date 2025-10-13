@@ -8,7 +8,7 @@ using ContractorBackend.Domain.Entities.Shared;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 
-namespace ContractorBackend.Application.QuestionAnswers.Commands.DeleteQA
+namespace ContractorBackend.Application.Shared.QuestionAnswers.Commands.DeleteQA
 {
     public class DeleteQuestionAnswersCommand : IRequest
     {

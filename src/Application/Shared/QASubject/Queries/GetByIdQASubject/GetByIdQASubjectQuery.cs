@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using ContractorBackend.Application.Common.Interfaces;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Dtos.Share;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

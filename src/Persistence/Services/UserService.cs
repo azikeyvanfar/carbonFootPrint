@@ -84,11 +84,11 @@ namespace ContractorBackend.Persistence.Services
 
                 var queryParams = new List<QueryParamModel>() { new QueryParamModel { ParameterName = "P_NUM_PRSN", ParameterValue = user.PersonnelCode } };
 
-                var isResult = await _isSuitHttp.GetAllEmployeeViewAsync(queryParams);
-                if (isResult.Items is null || isResult.Items.Count <= 0 || isResult.Items[0] is null)
-                {
-                    return false;
-                }
+                //var isResult = await _isSuitHttp.GetAllEmployeeViewAsync(queryParams);
+                //if (isResult.Items is null || isResult.Items.Count <= 0 || isResult.Items[0] is null)
+                //{
+                //    return false;
+                //}
                 var resUpdateEmployee = false;
                 //if (employee is null)
                 //{

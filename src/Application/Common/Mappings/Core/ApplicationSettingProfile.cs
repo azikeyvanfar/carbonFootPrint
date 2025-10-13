@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using ContractorBackend.Application.ApplicationSettingPage.Commands.CreateApplicationSettings;
-using ContractorBackend.Application.ApplicationSettingPage.Commands.CreateApplicationSettingsClient;
+using ContractorBackend.Application.Core.ApplicationSettingPage.Commands.CreateApplicationSettings;
+using ContractorBackend.Application.Core.ApplicationSettingPage.Commands.CreateApplicationSettingsClient;
 using ContractorBackend.Application.Dtos.Setting;
 using ContractorBackend.Domain.Entities.Core;
 

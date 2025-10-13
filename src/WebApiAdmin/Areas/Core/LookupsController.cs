@@ -17,7 +17,7 @@ using ContractorBackend.WebApiAdmin.Helpers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContractorBackend.WebApiAdmin.Areas.Core.Lookups
+namespace ContractorBackend.WebApiAdmin.Areas.Core
 {
     [Route("api/Core/[controller]/[action]")]
     [Area("Core")]

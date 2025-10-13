@@ -1,8 +1,8 @@
 ﻿using System;
 using AutoMapper;
-using ContractorBackend.Application.Dtos;
-using ContractorBackend.Application.Menus.Commands.CreateMenu;
-using ContractorBackend.Application.Menus.Commands.UpdateMenu;
+using ContractorBackend.Application.Core.Menus.Commands.CreateMenu;
+using ContractorBackend.Application.Core.Menus.Commands.UpdateMenu;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.Domain.Entities.Core;
 
 namespace ContractorBackend.Application.Common.Mappings.Core

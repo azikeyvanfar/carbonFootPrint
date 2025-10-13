@@ -2,7 +2,7 @@
 using System.IO;
 using ContractorBackend.Application.Common.Interfaces;
 using ContractorBackend.Application.Common.Token;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Dtos.Core;
 using Microsoft.AspNetCore.Http;
 using SixLabors.Fonts;
 using SixLabors.ImageSharp;

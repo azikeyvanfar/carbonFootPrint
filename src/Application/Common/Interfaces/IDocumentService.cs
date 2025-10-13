@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.Domain.Entities.Core;
 using Microsoft.AspNetCore.Http;
 

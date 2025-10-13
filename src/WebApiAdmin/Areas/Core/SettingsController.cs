@@ -2,10 +2,10 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-using ContractorBackend.Application.ApplicationSettingPage.Commands.CreateApplicationSettings;
-using ContractorBackend.Application.ApplicationSettingPage.Queries.GetApplicationActionsClient;
-using ContractorBackend.Application.ApplicationSettingPage.Queries.GetApplicationSettings;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Core.ApplicationSettingPage.Queries.GetApplicationActionsClient;
+using ContractorBackend.Application.Core.ApplicationSettingPage.Commands.CreateApplicationSettings;
+using ContractorBackend.Application.Core.ApplicationSettingPage.Queries.GetApplicationSettings;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.Application.Dtos.Setting;
 using ContractorBackend.WebApiAdmin.Controllers;
 using ContractorBackend.WebApiAdmin.Filters;

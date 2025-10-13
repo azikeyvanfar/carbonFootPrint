@@ -1,8 +1,8 @@
 using System;
 using AutoMapper;
-using ContractorBackend.Application.Documents.Commands.CreateDocument;
-using ContractorBackend.Application.Documents.Commands.UpdateDocument;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Core.Documents.Commands.CreateDocument;
+using ContractorBackend.Application.Core.Documents.Commands.UpdateDocument;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.Domain.Entities.Core;
 namespace ContractorBackend.Application.Mapping
 {

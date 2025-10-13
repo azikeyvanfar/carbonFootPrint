@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using ContractorBackend.Application.Common.Dtos;
+using ContractorBackend.Application.Dtos.Core;
 
 namespace ContractorBackend.Application.Dtos.Share
 {

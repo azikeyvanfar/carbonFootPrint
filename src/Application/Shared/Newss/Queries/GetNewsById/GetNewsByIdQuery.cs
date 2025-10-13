@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using ContractorBackend.Application.Common.Interfaces;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.Application.Dtos.Share;
 using ContractorBackend.Common.Extensions;
 using ContractorBackend.Domain.Entities.Core;

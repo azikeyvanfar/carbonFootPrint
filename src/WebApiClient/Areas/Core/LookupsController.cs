@@ -10,7 +10,7 @@ using ContractorBackend.WebApiClient.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContractorBackend.WebApiClient.Areas.Core.Lookups
+namespace ContractorBackend.WebApiClient.Areas.Core
 {
     [Area("Core")]
     [Route("api/cli/Core/[controller]/[action]")]

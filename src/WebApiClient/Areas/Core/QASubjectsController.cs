@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Models;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Dtos.Share;
 using ContractorBackend.Application.QASubjects.Queries.GetByIdQASubject;
 using ContractorBackend.Application.QASubjects.Queries.OGetAllQASubject;
 using ContractorBackend.WebApiClient.Controllers;
@@ -10,7 +10,7 @@ using ContractorBackend.WebApiClient.Filters;
 using ContractorBackend.WebApiClient.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContractorBackend.WebApiClient.Areas.Core.Controllers
+namespace ContractorBackend.WebApiClient.Areas.Core
 {
     [Area("Core")]
     [Route("api/cli/[area]/[controller]/[action]")]

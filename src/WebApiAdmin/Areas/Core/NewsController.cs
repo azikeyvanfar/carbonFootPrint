@@ -14,7 +14,7 @@ using ContractorBackend.WebApiAdmin.Filters;
 using ContractorBackend.WebApiAdmin.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContractorBackend.WebApiAdmin.Areas.Core.Controllers
+namespace ContractorBackend.WebApiAdmin.Areas.Core
 {
     [Area("Core")]
     [Route("api/[area]/[controller]/[action]")]

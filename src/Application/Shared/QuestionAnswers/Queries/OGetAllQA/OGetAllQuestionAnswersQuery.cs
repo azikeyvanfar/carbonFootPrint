@@ -12,7 +12,7 @@ using Gridify.EntityFramework;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 
-namespace ContractorBackend.Application.QuestionAnswers.Queries.OGetAllQA
+namespace ContractorBackend.Application.Shared.QuestionAnswers.Queries.OGetAllQA
 {
     /// <summary>
     /// پرسش های من

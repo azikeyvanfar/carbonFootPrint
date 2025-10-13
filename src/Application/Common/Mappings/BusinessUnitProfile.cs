@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using ContractorBackend.Application.Dtos.Ojc;
 
 namespace ContractorBackend.Application.Mapping.IsSuite
 {
@@ -29,23 +28,23 @@ namespace ContractorBackend.Application.Mapping.IsSuite
             //CreateMap<BusinessUnitDto, BusinessUnit>()
             ;
 
-            CreateMap<BusinessUnitWithCostCenterVM, BusinessUnitWithCostCenterDto>()
-                .ForMember(d => d.BusinessUnitId, m => m.MapFrom(s => s.business_unit_id))
-                .ForMember(d => d.BusinessUnitCode, m => m.MapFrom(s => s.cod_busun))
-                .ForMember(d => d.BusinessUnitName, m => m.MapFrom(s => s.des_busun))
-                .ForMember(d => d.CostCenterId, m => m.MapFrom(s => s.cost_center_id))
-                .ForMember(d => d.CostCenterCode, m => m.MapFrom(s => s.cod_cc_ccntr))
-                .ForMember(d => d.CostCenterName, m => m.MapFrom(s => s.des_cc_ccntr))
-                ;
+            //CreateMap<BusinessUnitWithCostCenterVM, BusinessUnitWithCostCenterDto>()
+            //    .ForMember(d => d.BusinessUnitId, m => m.MapFrom(s => s.business_unit_id))
+            //    .ForMember(d => d.BusinessUnitCode, m => m.MapFrom(s => s.cod_busun))
+            //    .ForMember(d => d.BusinessUnitName, m => m.MapFrom(s => s.des_busun))
+            //    .ForMember(d => d.CostCenterId, m => m.MapFrom(s => s.cost_center_id))
+            //    .ForMember(d => d.CostCenterCode, m => m.MapFrom(s => s.cod_cc_ccntr))
+            //    .ForMember(d => d.CostCenterName, m => m.MapFrom(s => s.des_cc_ccntr))
+            //    ;
 
-            CreateMap<ChildrenBusinessUnitVM, ChildrenBusinessUnitDto>()
-                .ForMember(d => d.BusinessUnitId, m => m.MapFrom(s => s.business_unit_id))
-                .ForMember(d => d.BusinessUnitCode, m => m.MapFrom(s => s.cod_busun))
-                .ForMember(d => d.BusinessUnitName, m => m.MapFrom(s => s.des_busun))
-                .ForMember(d => d.CostCenterId, m => m.MapFrom(s => s.cost_center_id_busun))
-                .ForMember(d => d.CostCenterCode, m => m.MapFrom(s => s.cod_cc_busun))
-                .ForMember(d => d.CostCenterName, m => m.MapFrom(s => s.des_cc_busun))
-                ;
+            //CreateMap<ChildrenBusinessUnitVM, ChildrenBusinessUnitDto>()
+            //    .ForMember(d => d.BusinessUnitId, m => m.MapFrom(s => s.business_unit_id))
+            //    .ForMember(d => d.BusinessUnitCode, m => m.MapFrom(s => s.cod_busun))
+            //    .ForMember(d => d.BusinessUnitName, m => m.MapFrom(s => s.des_busun))
+            //    .ForMember(d => d.CostCenterId, m => m.MapFrom(s => s.cost_center_id_busun))
+            //    .ForMember(d => d.CostCenterCode, m => m.MapFrom(s => s.cod_cc_busun))
+            //    .ForMember(d => d.CostCenterName, m => m.MapFrom(s => s.des_cc_busun))
+            //    ;
 
 
 

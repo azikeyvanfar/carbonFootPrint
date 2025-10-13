@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContractorBackend.WebApiClient.Areas.Core.Controllers
+namespace ContractorBackend.WebApiClient.Areas.Core
 {
     [Route("api/cli/[controller]")]
 

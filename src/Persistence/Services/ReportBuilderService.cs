@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using AutoMapper;
 using ContractorBackend.Application.Common.Interfaces;
+using ContractorBackend.Application.Dtos.Core;
 using FastReport;
 using FastReport.Export.PdfSimple;
 using FastReport.Table;
@@ -14,7 +15,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using ReportServer.Persistance.Entity;
 
 namespace ReportServer.Services
 {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Interfaces;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Dtos.Core;
 using ContractorBackend.Common.Extensions;
 using ContractorBackend.Common.Models.SiteSettings;
 using ContractorBackend.Domain.Entities.Core;

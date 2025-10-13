@@ -1,0 +1,45 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using AutoMapper;
+using ContractorBackend.Application.Common.Interfaces;
+using ContractorBackend.Application.Common.Models;
+using ContractorBackend.Application.Dtos.Cpm;
+using ContractorBackend.Application.Services;
+using ContractorBackend.Common.Models;
+using Gridify;
+using MediatR;
+
+namespace ContractorBackend.Application.Cpm.Contractors.Queries.GetAllContractor
+{
+    public class GetAllContractorQuery :
+         SearchQueryRequest, IRequest<SearchQueryResponse<CpmperEmployeesVM>>
+    {
+    }
+
+    public class GetAllContractorQueryHandler : IRequestHandler<GetAllContractorQuery,
+                  SearchQueryResponse<CpmperEmployeesVM>>
+    {
+        private readonly IMapper _mapper;
+        private readonly IApplicationDbContext _dbContext;
+        private readonly IsSuiteClientService _isSuitHttp;
+        public GetAllContractorQueryHandler(IMapper mapper, IApplicationDbContext dbContext, IsSuiteClientService isSuitHttp)
+        {
+            _mapper = mapper;
+            _dbContext = dbContext;
+            _isSuitHttp = isSuitHttp;
+        }
+        public async Task<SearchQueryResponse<CpmperEmployeesVM>> Handle(GetAllContractorQuery request, CancellationToken cancellationToken)
+        {
+            var queryParams = new List<QueryParamModel>()
+            {};
+
+            var isResult = await _isSuitHttp.GetCpmperEmployeesViwAsync(queryParams);
+
+            var query = isResult.Items.AsQueryable();
+            Paging<CpmperEmployeesVM> result = new(isResult.Count, query);
+            return new SearchQueryResponse<CpmperEmployeesVM>(request, result);
+        }
+    }
+}

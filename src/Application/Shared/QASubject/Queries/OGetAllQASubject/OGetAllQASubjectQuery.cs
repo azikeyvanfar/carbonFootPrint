@@ -6,7 +6,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using ContractorBackend.Application.Common.Interfaces;
 using ContractorBackend.Application.Common.Models;
-using ContractorBackend.Application.Dtos;
+using ContractorBackend.Application.Dtos.Share;
 using ContractorBackend.Domain.Entities.Shared;
 using Gridify;
 using Gridify.EntityFramework;
