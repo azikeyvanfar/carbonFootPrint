@@ -1,0 +1,840 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accept" xml:space="preserve">
+    <value>تایید</value>
+  </data>
+  <data name="CantEmpty" xml:space="preserve">
+    <value>{PropertyName} نمیتواند خالی باشد</value>
+  </data>
+  <data name="HasOverlapDateRange" xml:space="preserve">
+    <value>بازه های زمانی تداخل دارد</value>
+  </data>
+  <data name="StartDateLessThanEndDate" xml:space="preserve">
+    <value>تاریخ شروع باید از تاریخ پایان کمتر باشد</value>
+  </data>
+  <data name="OnlyOneAreaOrBusinessUnitRequired" xml:space="preserve">
+    <value>از ناحیه/ واحد فقط یک مورد انتخاب شود.</value>
+  </data>
+  <data name="OnlyOneMapperAllowed" xml:space="preserve">
+    <value>برای هر ناحیه/واحد فقط یک کمیته قابل انتخاب است.</value>
+  </data>
+  <data name="MustBeNull" xml:space="preserve">
+    <value>{PropertyName} باید خالی باشد</value>
+  </data>
+  <data name="CommitmentLetterAssessmentIsNotValid" xml:space="preserve">
+    <value>بازخورد نامعتبر است.</value>
+  </data>
+  <data name="CommitmentLetterNotFound" xml:space="preserve">
+    <value>تعهدنامه پیدا نشد.</value>
+  </data>
+  <data name="CreateNewsCommandBusinessUnitValidation" xml:space="preserve">
+    <value>ثبت خبر فقط در واحد کاربر مجاز است.</value>
+  </data>
+  <data name="DeleteNewsCategoryCommandHasNewsError" xml:space="preserve">
+    <value>این دسته بندی استفاده شده است.</value>
+  </data>
+  <data name="DeleteNewsCommandBusinessUnitValidation" xml:space="preserve">
+    <value>حذف خبر فقط در واحد کاربر مجاز است.</value>
+  </data>
+  <data name="DeleteRecordException" xml:space="preserve">
+    <value>خطا در حذف رکورد انتخابی.</value>
+  </data>
+  <data name="EntityIdIsNotGuid" xml:space="preserve">
+    <value>فرمت ایدی صحیح نمی باشد</value>
+  </data>
+  <data name="ExcelFileIsNotValid" xml:space="preserve">
+    <value>ساختار فایل وارد شده صحیح نیست</value>
+  </data>
+  <data name="FileFormatIsNotValid" xml:space="preserve">
+    <value>فرمت یا حجم فایل قابل قبول نیست</value>
+  </data>
+  <data name="GetEmployeePayrollFishesValidation" xml:space="preserve">
+    <value>لطفا پیام های الزامی را تایید کنید</value>
+  </data>
+  <data name="MessageHasHistory" xml:space="preserve">
+    <value>پیام دارای تاریخچه قابل حذف نیست</value>
+  </data>
+  <data name="MessageIsUsedBySetting" xml:space="preserve">
+    <value>برای این پیام تنظیمات نمایش پیام وارد شده است</value>
+  </data>
+  <data name="PayButtonStateIsInactive" xml:space="preserve">
+    <value>دکمه انتخابی غیرفعال است</value>
+  </data>
+  <data name="PayDateDuplicateError" xml:space="preserve">
+    <value>این {PropertyName} قبلا استفاده شده است</value>
+  </data>
+  <data name="PayDateFormatNotValid" xml:space="preserve">
+    <value>فرمت ورودی {PropertyName} صحیح نیست</value>
+  </data>
+  <data name="PersonnelCodeNotFound" xml:space="preserve">
+    <value>کد پرسنلی صحیح نیست</value>
+  </data>
+  <data name="EnterProperty" xml:space="preserve">
+    <value>لطفا {PropertyName} را وارد کنید</value>
+  </data>
+  <data name="IsWrong" xml:space="preserve">
+    <value>{PropertyName} صحیح نیست</value>
+  </data>
+  <data name="MustBeEmpty" xml:space="preserve">
+    <value>{PropertyName} باید خالی باشد</value>
+  </data>
+  <data name="HasWrongType" xml:space="preserve">
+    <value>نوع {PropertyName} اشتباه است.</value>
+  </data>
+  <data name="ProfileShareDuplicateAssistanceError" xml:space="preserve">
+    <value>قبلا برای این معاونت ثبت انجام شده است</value>
+  </data>
+  <data name="ProfileShareDuplicateCurrentUserError" xml:space="preserve">
+    <value>کاربر مقصد نمیتواند کاربر جاری باشد</value>
+  </data>
+  <data name="ProfileShareDuplicateJobLevelError" xml:space="preserve">
+    <value>قبلا برای این رده شغلی ثبت انجام شده است</value>
+  </data>
+  <data name="ProfileShareDuplicateUserError" xml:space="preserve">
+    <value>قبلا برای این یوزر ثبت انجام شده است</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>مطالعه کردم</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>رد</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>ثبت</value>
+  </data>
+  <data name="SelectedGroupIsNotValid" xml:space="preserve">
+    <value>گروه انتخابی معتبر نیست</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>نام کاربری</value>
+  </data>
+  <data name="ValidateAndSaveNotificationsValidation" xml:space="preserve">
+    <value>برای نمایش اطلاعات, پیام ها و تعهد نامه های الزامی باید تایید شوند</value>
+  </data>
+  <data name="YouDontHaveAccessToSeeUser" xml:space="preserve">
+    <value>شما دسترسی به مشاهده اطلاعات کاربر مربوطه را ندارید</value>
+  </data>
+  <data name="loginOtpText" xml:space="preserve">
+    <value>کد ورود به سیستم پرتال CPM : </value>
+  </data>
+  <data name="pageOtpText" xml:space="preserve">
+    <value>کد مشاهده صفحات شخصی سیستم پرتال CPM : </value>
+  </data>
+  <data name="deleteItemNotExists" xml:space="preserve">
+    <value>رکورد یافت نشد</value>
+  </data>
+  <data name="ConvertResponseStringToJTokenError" xml:space="preserve">
+    <value>خطا در تبدیل دیتای ورودی اکسل</value>
+  </data>
+  <data name="CreateDynamicListOfJTokenError" xml:space="preserve">
+    <value>خطا در تبدیل لیست داینامیک اکسل</value>
+  </data>
+  <data name="ListIsEmptyError" xml:space="preserve">
+    <value>لیست اکسل خالی است</value>
+  </data>
+  <data name="deleteError" xml:space="preserve">
+    <value>خطا درحذف</value>
+  </data>
+  <data name="SignInFailedError" xml:space="preserve">
+    <value>ورود ناموفق</value>
+  </data>
+  <data name="UserlockedOutError" xml:space="preserve">
+    <value>تعداد تلاش های ناموفق بیش از حد مجاز است.لطفا بعد از 15 دقیقه مجددا تلاش کنید</value>
+  </data>
+  <data name="WrongUsernamePassword" xml:space="preserve">
+    <value>نام کاربری یا کلمه عبور وارد شده معتبر نیست</value>
+  </data>
+  <data name="OtpCreateError" xml:space="preserve">
+    <value>ارور در ساخت کد</value>
+  </data>
+  <data name="OtpNotValid" xml:space="preserve">
+    <value>کد وارد شده صحیح نیست</value>
+  </data>
+  <data name="PhoneNumberNotFound" xml:space="preserve">
+    <value>شماره موبایل کاربر موجود نمی باشد</value>
+  </data>
+  <data name="WrongCaptcha" xml:space="preserve">
+    <value>کد امنیتی صحیح نمی باشد</value>
+  </data>
+  <data name="CurrentUserIsSponError" xml:space="preserve">
+    <value>امکان ضمانت وام خود را ندارید</value>
+  </data>
+  <data name="IsSuiteInternalLoanNoConflict" xml:space="preserve">
+    <value>مغايرتي وجود ندارد</value>
+  </data>
+  <data name="RateLimitCustomRules" xml:space="preserve">
+    <value>لیست قوانین</value>
+  </data>
+  <data name="RateLimitCustomRulesValidationError" xml:space="preserve">
+    <value>لیست قوانین صحیح نیست</value>
+  </data>
+  <data name="RateLimitMaxRequests" xml:space="preserve">
+    <value>حداکثر تعداد درخواست</value>
+  </data>
+  <data name="RateLimitTimeWindow" xml:space="preserve">
+    <value>مدت زمان(بر حسب دقیقه)</value>
+  </data>
+  <data name="ValidationNotEmpty" xml:space="preserve">
+    <value>لطفا {PropertyName} را وارد کنید</value>
+  </data>
+  <data name="RateLimitRangeError" xml:space="preserve">
+    <value>رنج وارد شده قابل قبول نیست</value>
+  </data>
+  <data name="RefererId" xml:space="preserve">
+    <value>شماره ارجاع</value>
+  </data>
+  <data name="NotAllowToTakeLoan" xml:space="preserve">
+    <value>شما بدلیل داشتن وام قبلی مجاز به گرفتن وام نمی باشید</value>
+  </data>
+  <data name="DeleteEligibilityLevelError" xml:space="preserve">
+    <value>سطح انتخابی قابل حذف نیست</value>
+  </data>
+  <data name="NoAccess" xml:space="preserve">
+    <value>دسترسی ندارید</value>
+  </data>
+  <data name="SelectEducationGrade" xml:space="preserve">
+    <value>لطفا مقطع تحصیلی را انتخاب کنید</value>
+  </data>
+  <data name="SelectEducationInstituteType" xml:space="preserve">
+    <value>لطفا نوع موسسه را انتخاب کنید</value>
+  </data>
+  <data name="SelectEducationMajor" xml:space="preserve">
+    <value>لطفا رشته تحصیلی را انتخاب کنید</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="InvalidFormat" xml:space="preserve">
+    <value>فرمت ورودی نامعتبر</value>
+  </data>
+  <data name="GroupId" xml:space="preserve">
+    <value>ایدی گروه</value>
+  </data>
+  <data name="GroupIdInvalid" xml:space="preserve">
+    <value>ایدی گروه نامعتبر است</value>
+  </data>
+  <data name="DescriptionIsRequred" xml:space="preserve">
+    <value>توضیحات الزامی است</value>
+  </data>
+  <data name="InvalidEntityId" xml:space="preserve">
+    <value>ایدی نامعتبر است</value>
+  </data>
+  <data name="RecordNotFound" xml:space="preserve">
+    <value>رکورد مورد نظر یافت نشد</value>
+  </data>
+  <data name="OwnerUserNotSet" xml:space="preserve">
+    <value>کاربری برای اشتراک گذاری انتخاب نشده است</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>کد</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>ایدی</value>
+  </data>
+  <data name="AlreadyApproved" xml:space="preserve">
+    <value>رکورد مورد نظر تایید شده است</value>
+  </data>
+  <data name="AlreadyNotApproved" xml:space="preserve">
+    <value>رکورد مورد نظر عدم تایید شده است</value>
+  </data>
+  <data name="ApproveError" xml:space="preserve">
+    <value>خطا در عملیات تایید</value>
+  </data>
+  <data name="DuplicateTitles" xml:space="preserve">
+    <value>عنوان مورد نظر وجود دارد</value>
+  </data>
+  <data name="NewInternalPhone" xml:space="preserve">
+    <value>تلفن داخلی جدید</value>
+  </data>
+  <data name="NewOrganizationPhone" xml:space="preserve">
+    <value>تلفن سازمان جدید</value>
+  </data>
+  <data name="NewSOSPhone" xml:space="preserve">
+    <value>تلفن مواقع اضطراری جدید</value>
+  </data>
+  <data name="NewSOSPhoneSameAsUserPhoneNumber" xml:space="preserve">
+    <value>شماره اضطراری نباید با شماره موبایل شخصی یکی باشد</value>
+  </data>
+  <data name="OldInternalPhone" xml:space="preserve">
+    <value>تلفن داخلی قدیم</value>
+  </data>
+  <data name="OldOrganizationPhone" xml:space="preserve">
+    <value>تلفن سازمان قدیم</value>
+  </data>
+  <data name="OldSOSPhone" xml:space="preserve">
+    <value>تلفن مواقع اضطراری قدیم</value>
+  </data>
+  <data name="MinimumGeoPositionId" xml:space="preserve">
+    <value>ایدی موقعیت</value>
+  </data>
+  <data name="GeoPositionIdNotValid" xml:space="preserve">
+    <value>اطللاعات وارد شده شهر/دهستان/آبادی صحیح نمی باشد</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>کاربر مورد نظر یافت نشد</value>
+  </data>
+  <data name="FormatNotValid" xml:space="preserve">
+    <value>خطا در فرمت ورودی</value>
+  </data>
+  <data name="EligibilityDuplicateError" xml:space="preserve">
+    <value>شایستگی با سطح مربوطه وجود دارد</value>
+  </data>
+  <data name="AssessmentsIdError" xml:space="preserve">
+    <value>ایدی های وارد شده صحیح نیست</value>
+  </data>
+  <data name="DuplicateEndorseRequest" xml:space="preserve">
+    <value>درخواست تکراری است</value>
+  </data>
+  <data name="NotDeleteHasDependencies" xml:space="preserve">
+    <value>امکان حذف این رکورد بدلیل وابستگی وجود ندارد</value>
+  </data>
+  <data name="SelfEndorsementNotAllowed" xml:space="preserve">
+    <value>نمیتوانید برای خود توصیه ثبت کنید</value>
+  </data>
+  <data name="ForgotPasswordSMSText" xml:space="preserve">
+    <value>کد جهت تغییر رمز عبور :</value>
+  </data>
+  <data name="PasswordNotConfirmRepeated" xml:space="preserve">
+    <value>کلمه عبور و تکرار آن یکسان نیست</value>
+  </data>
+  <data name="OtpTimeOut" xml:space="preserve">
+    <value>رمز یکبار مصرف منقضی شده است</value>
+  </data>
+  <data name="OtpWrong" xml:space="preserve">
+    <value>رمز یکبار مصرف صحیح نمی باشد</value>
+  </data>
+  <data name="AccessDenied" xml:space="preserve">
+    <value>شما دسترسی به انجام این عملیات را ندارید</value>
+  </data>
+  <data name="FromYearLessThanToYearError" xml:space="preserve">
+    <value>تاریخ شروع باید از تاریخ پایان کمتر یا مساوی باشد</value>
+  </data>
+  <data name="DeleteSubjectError" xml:space="preserve">
+    <value>حذف امکان‌پذیر نیست. موضوع انتخابی دارای سوال متداول است.</value>
+  </data>
+  <data name="RequestIsReadOnly" xml:space="preserve">
+    <value>درخواست قابل تغییر نمی‌باشد</value>
+  </data>
+  <data name="DuplicateDynamicKeyword" xml:space="preserve">
+    <value>کلید مورد نظر برای شخص انتخابی قبلا ثبت شده است</value>
+  </data>
+  <data name="ExcelError" xml:space="preserve">
+    <value>خطا در قالب فایل اکسل ارسالی</value>
+  </data>
+  <data name="PayrollForCurrentMonthNotFound" xml:space="preserve">
+    <value>برای ماه انتخابی رکورد موجود نیست</value>
+  </data>
+  <data name="ChangePasswordConfirm" xml:space="preserve">
+    <value>رمز عبور شما در پرتال CPM تغییر داده شد</value>
+  </data>
+  <data name="DeleteGeneralMSGHasHistory" xml:space="preserve">
+    <value>این پیام به دلیل نمایش به کاربر قابل ویرایش نیست</value>
+  </data>
+  <data name="CantChangePasswordMoreThanOneInDay" xml:space="preserve">
+    <value>از آخرین زمان تغییر رمز می بایست {0} ساعت گذشته باشد</value>
+  </data>
+  <data name="NewPassAndCurrentCantEqual" xml:space="preserve">
+    <value>رمز عبور قبلا استفاده شده است</value>
+  </data>
+  <data name="OldPassNotCorrect" xml:space="preserve">
+    <value>رمز عبور فعلی این کاربر صحیح نمی باشد</value>
+  </data>
+  <data name="ActiveUserInSystem" xml:space="preserve">
+    <value>دسترسی شما در سیستم پرتال CPM فعال شد</value>
+  </data>
+  <data name="InActiveUserInSystem" xml:space="preserve">
+    <value>دسترسی شما در سیستم پرتال CPM غیر فعال شد</value>
+  </data>
+  <data name="LastUserPasswordTooOld" xml:space="preserve">
+    <value>در طی زمان مشخص شده کاربر دوباره باید رمز عبور را تغییر دهد</value>
+  </data>
+  <data name="UserHasNoRoleError" xml:space="preserve">
+    <value>برای کاربر وارد شده دسترسی تعریف نشده است</value>
+  </data>
+  <data name="NotificationCommitmentChecklistValidation" xml:space="preserve">
+    <value>لطفا حداقل یکی از موارد انتخابی را انتخاب نمایید</value>
+  </data>
+  <data name="DuplicatePersonalMessage" xml:space="preserve">
+    <value>برای این شخص پیام ثبت شده است.</value>
+  </data>
+  <data name="DeActiveUser" xml:space="preserve">
+    <value>کاربر مورد نظر غیرفعال می باشد لطفا با پشتیبانی تماس بگیرید</value>
+  </data>
+  <data name="FileMaxCountIsNotValid" xml:space="preserve">
+    <value>تعداد فایل های آپلودی بیش از حد مجاز است</value>
+  </data>
+  <data name="PageCallsIsSuteError" xml:space="preserve">
+    <value>صفحه مورد نظر دارای OTP سمت Is-Suite است</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>کدپستی</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>شماره تلفن</value>
+  </data>
+  <data name="PostalCodeNotValid" xml:space="preserve">
+    <value>کدپستی صحیح نیست</value>
+  </data>
+  <data name="PhoneNumberNotValid" xml:space="preserve">
+    <value>شماره تلفن صحیح نیست</value>
+  </data>
+  <data name="NotAllowForNewPersonnel" xml:space="preserve">
+    <value>همکار گرامی بدلیل اینکه سابقه شما به حد نصاب 6 ماه نرسیده امکان دریافت تسهیلات حقوقی ندارید.</value>
+  </data>
+  <data name="ChecklistIsApproved" xml:space="preserve">
+    <value>امکان حذف/ویرایش چکلیست/کاربرگ وجود ندارد.</value>
+  </data>
+  <data name="ChecklistAssessmentIsApproved" xml:space="preserve">
+    <value>ارزیابی تایید شده است.</value>
+  </data>
+  <data name="CriterionId" xml:space="preserve">
+    <value>ایدی معیار</value>
+  </data>
+  <data name="IncidentDate" xml:space="preserve">
+    <value> تاریخ حادثه</value>
+  </data>
+  <data name="ChecklistHasQuestionWithNoOption" xml:space="preserve">
+    <value>سوالات تستی باید حداقل یک گزینه داشته باشند.</value>
+  </data>
+  <data name="ChecklistGroupScoreInvalid" xml:space="preserve">
+    <value>مجموع امتیازات گروه سوالات زیرمجموعه با بارم کل چک لیست همخوانی ندارد.</value>
+  </data>
+  <data name="ChecklistGroupScoreSubInvalid" xml:space="preserve">
+    <value>مجموع امتیازات گروه سوالات زیرمجموعه با بارم مجموعه همخوانی ندارد.</value>
+  </data>
+  <data name="UserHasNoRole" xml:space="preserve">
+    <value>کاربر جاری دارای نقش نیست</value>
+  </data>
+  <data name="AssessmentAnswerAllQuestions" xml:space="preserve">
+    <value>لطفا نمره ارزیابی/گزینه های ارزیابی را کامل کنید.</value>
+  </data>
+  <data name="AssessmentSendAllQuestions" xml:space="preserve">
+    <value>لطفا ارزیابی را کامل کنید.</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>تاریخ پایان</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>تاریخ شروع</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>ناحیه</value>
+  </data>
+  <data name="BusinessUnit" xml:space="preserve">
+    <value>واحد سازمانی</value>
+  </data>
+  <data name="ChecklistQuestionHasAssessment" xml:space="preserve">
+    <value>سوال مورد نظر دارای ارزیابی است.</value>
+  </data>
+  <data name="TokenIsEmpty" xml:space="preserve">
+    <value>خطای دسترسی. توکن یافت نشد.</value>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>تاریخ شروع</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>تاریخ پایان</value>
+  </data>
+  <data name="Scope" xml:space="preserve">
+    <value>حوزه سیستم</value>
+  </data>
+  <data name="UserScopeIsNotValid" xml:space="preserve">
+    <value>حوزه سیستم انتخابی در حوزه کاربر جاری نیست</value>
+  </data>
+  <data name="CommitteeIdNotFound" xml:space="preserve">
+    <value>ایدی کمیته مورد نظر یافت نشد. لطفا تنظیمات را چک کنید.</value>
+  </data>
+  <data name="ContractDate" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="ChecklistSISettingNotFound" xml:space="preserve">
+    <value>برای ماه و واحد (های) درخواستی چکلیست SI تنظیم نشده.</value>
+  </data>
+  <data name="ChecklistSINotFound" xml:space="preserve">
+    <value>چکلیست SI پیدا نشد.</value>
+  </data>
+  <data name="ChecklistSIInactive" xml:space="preserve">
+    <value>چکلیست SI غیرفعال است.</value>
+  </data>
+  <data name="FileCorrupt" xml:space="preserve">
+    <value>رکورد فایل ناسالم.</value>
+  </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>فایل مورد نظر پیدا نشد.</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="FirstAddContractorWorkingHour" xml:space="preserve">
+    <value>لطفا ساعت کارکرد پیمانکار را ثبت کنید.</value>
+  </data>
+  <data name="BusinessUnitNotInsideArea" xml:space="preserve">
+    <value>مکان در ناحیه انتخابی تعریف نشده.</value>
+  </data>
+  <data name="MissedDays" xml:space="preserve">
+    <value> تعداد روزهای از دست رفته</value>
+  </data>
+  <data name="ScopeNotFound" xml:space="preserve">
+    <value>حوزه سیستم پیدا نشد.</value>
+  </data>
+  <data name="PerformanceCoefficientsNotFound" xml:space="preserve">
+    <value>ضرایب کارنامه پیدا نشد.</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>قسمت</value>
+  </data>
+  <data name="Commitee" xml:space="preserve">
+    <value>کمیته</value>
+  </data>
+  <data name="Contractor" xml:space="preserve">
+    <value> قرارداد</value>
+  </data>
+  <data name="InjuredUser" xml:space="preserve">
+    <value> شخص حادثه دیده</value>
+  </data>
+  <data name="IncidentPlace" xml:space="preserve">
+    <value> محل وقوع حادثه (واحد سازمانی)</value>
+  </data>
+  <data name="IncidentShift" xml:space="preserve">
+    <value> شیفت وقوع حادثه</value>
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value> تیم کاری (تقویم کاری)</value>
+  </data>
+  <data name="InjurySpot" xml:space="preserve">
+    <value> موضع اسیب</value>
+  </data>
+  <data name="InjuryResult" xml:space="preserve">
+    <value>نوع یا نتیجه اسیب</value>
+  </data>
+  <data name="IncidentReason" xml:space="preserve">
+    <value> علت وقوع حادثه</value>
+  </data>
+  <data name="IncidentType" xml:space="preserve">
+    <value> نوع حادثه</value>
+  </data>
+  <data name="MedicalServices" xml:space="preserve">
+    <value> طب صنعتی و خدمات درمانی</value>
+  </data>
+  <data name="Workstation" xml:space="preserve">
+    <value> ایستگاه کاری</value>
+  </data>
+  <data name="Severity" xml:space="preserve">
+    <value>شدت</value>
+  </data>
+  <data name="WorkHistory" xml:space="preserve">
+    <value>  سابقه کاری</value>
+  </data>
+  <data name="TotalWorkHistory" xml:space="preserve">
+    <value>  سابقه کاری کل</value>
+  </data>
+  <data name="Symbol" xml:space="preserve">
+    <value>نماد</value>
+  </data>
+  <data name="DataCategory" xml:space="preserve">
+    <value>دسته بندی داده</value>
+  </data>
+  <data name="HarmfulFactorCategory" xml:space="preserve">
+    <value>دسته بندی عوامل زیان آور</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>چکلیست ارزیابی عملکرد برای ناحیه/واحد انتخابی تکمیل نشده است</value>
+  </data>
+  <data name="ListHasDuplicate" xml:space="preserve">
+    <value>موارد تکراری در لیست دسترسی غیر مجاز است.</value>
+  </data>
+  <data name="ListInvalid" xml:space="preserve">
+    <value>لیست غیر مجاز است.</value>
+  </data>
+  <data name="RiskFacilitationAccessesMustBeEmpty" xml:space="preserve">
+    <value>در حالت انتخاب همه لیست دسترسی باید خالی باشد</value>
+  </data>
+  <data name="ParentBusinessUnit" xml:space="preserve">
+    <value>واحد سازمانی والد</value>
+  </data>
+  <data name="InitialReviewReason" xml:space="preserve">
+    <value>دلیل بازنگری اولیه</value>
+  </data>
+  <data name="Risk" xml:space="preserve">
+    <value>ریسک</value>
+  </data>
+  <data name="LatestVersionRisk" xml:space="preserve">
+    <value>اخرین ورژن ریسک</value>
+  </data>
+  <data name="ActionPlannings" xml:space="preserve">
+    <value>طرح ریزی اقدام ارزیابی ریسک</value>
+  </data>
+  <data name="RiskNumberIsNOTInBusinessUnitSection" xml:space="preserve">
+    <value>ریسک(های) انتخابی در واحد سازمانی/قسمت انتخاب شده نیست.</value>
+  </data>
+  <data name="SelectBusinessUnitOrSection" xml:space="preserve">
+    <value>فقط واحد سازمانی یا قسمت مجاز است.</value>
+  </data>
+  <data name="ListHasDuplicateNumbers" xml:space="preserve">
+    <value>لیست ریسک های انتخاب شده دارای عضو تکراری است.</value>
+  </data>
+  <data name="RiskTransferDetails" xml:space="preserve">
+    <value>لیست انتقال ریسک</value>
+  </data>
+  <data name="ErrorCalculateChancePriority" xml:space="preserve">
+    <value>خطا در محاسبه اولویت فرصت.</value>
+  </data>
+  <data name="ImpactOnRiskLevel" xml:space="preserve">
+    <value>تاثیر بر سطح ریسک</value>
+  </data>
+  <data name="Practicality" xml:space="preserve">
+    <value>کاربردی بودن</value>
+  </data>
+  <data name="ReturnInvestment" xml:space="preserve">
+    <value>هزینه /بازگشت سرمایه</value>
+  </data>
+  <data name="ReviewReason" xml:space="preserve">
+    <value>دلیل بازنگری</value>
+  </data>
+  <data name="MustBeUnique" xml:space="preserve">
+    <value>{PropertyName} نباید تکراری باشد</value>
+  </data>
+  <data name="MustUnique" xml:space="preserve">
+    <value>{PropertyName} باید منحصر به فرد باشد.</value>
+  </data>
+  <data name="ChanceDefinition" xml:space="preserve">
+    <value>شرح فرصت</value>
+  </data>
+  <data name="AccessUsers" xml:space="preserve">
+    <value>لیست دسترسی کاربران</value>
+  </data>
+  <data name="MustEmpty" xml:space="preserve">
+    <value>{PropertyName} باید خالی باشد.</value>
+  </data>
+  <data name="FrTargetIsNull" xml:space="preserve">
+    <value>مقدار هدف FR برای ناحیه/واحد و تاریخ مورد نظر وارد نشده است.</value>
+  </data>
+  <data name="SrTargetIsNull" xml:space="preserve">
+    <value>مقدار هدف Sr برای ناحیه/واحد و تاریخ مورد نظر وارد نشده است.</value>
+  </data>
+  <data name="AssessmentScoreIsInvalid" xml:space="preserve">
+    <value>امتیاز ارزیابی نباید از امتیاز سوال بیشتر باشد.</value>
+  </data>
+  <data name="IsSuiteFrSrGetError" xml:space="preserve">
+    <value>خطا در دریافت اطلاعات fr/sr از سیستم.</value>
+  </data>
+  <data name="IndustrialAccountingAreaCode" xml:space="preserve">
+    <value>کد ناحیه حسابداری صنعتی</value>
+  </data>
+  <data name="UnitCode" xml:space="preserve">
+    <value>کد یکا</value>
+  </data>
+  <data name="UnitName" xml:space="preserve">
+    <value>نام یکا</value>
+  </data>
+  <data name="UnitFactor" xml:space="preserve">
+    <value>ضریب یکا</value>
+  </data>
+  <data name="DestinationUnitId" xml:space="preserve">
+    <value>یکای مقصد</value>
+  </data>
+  <data name="SourceUnitId" xml:space="preserve">
+    <value>یکای مبدا</value>
+  </data>
+  <data name="IsInvalid" xml:space="preserve">
+    <value>{PropertyName} نامعتبر است.</value>
+  </data>
+  <data name="IndicatorId" xml:space="preserve">
+    <value>ایدی شاخص</value>
+  </data>
+  <data name="IndicatorName" xml:space="preserve">
+    <value>نام شاخص</value>
+  </data>
+  <data name="MustNotBeH2O" xml:space="preserve">
+    <value>شاخص اب غیرمجاز است</value>
+  </data>
+  <data name="IndicatorRange" xml:space="preserve">
+    <value>بازه زمانی شاخص</value>
+  </data>
+  <data name="Target" xml:space="preserve">
+    <value>مقدار هدف</value>
+  </data>
+  <data name="HasNegativeValue" xml:space="preserve">
+    <value>{PropertyName} نباید دارای مقادیر منفی باشد.</value>
+  </data>
+  <data name="ChecklistSIEmptyForReport" xml:space="preserve">
+    <value>چکلیست ارزیابی عملکرد برای ناحیه انتخابی تکمیل نشده است.</value>
+  </data>
+  <data name="Materials" xml:space="preserve">
+    <value>قلم هزینه</value>
+  </data>
+  <data name="ChecklistDuplicateCriteria" xml:space="preserve">
+    <value>معیار/زیرمعیار تکراری مجاز نیست.</value>
+  </data>
+  <data name="IndicatorNotFound" xml:space="preserve">
+    <value>شاخص پیدا نشد</value>
+  </data>
+  <data name="ContractWorkingHourIdUsed" xml:space="preserve">
+    <value>برای این رکورد حادثه ثبت شده است.قابل حذف نیست.</value>
+  </data>
+  <data name="UnitSourceDestinationIdenticalError" xml:space="preserve">
+    <value>مقادیر مبدا و مقصد نباید برابر باشد.</value>
+  </data>
+  <data name="currentMaterials" xml:space="preserve">
+    <value>متریال مصرفی</value>
+  </data>
+  <data name="ChecklistGroupHasQuestionOrAssessment" xml:space="preserve">
+    <value>گروه مورد نظر دارای سوال یا ارزیابی است.</value>
+  </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>{PropertyName} صحیح نیست</value>
+  </data>
+  <data name="Percent" xml:space="preserve">
+    <value>لیست درصد</value>
+  </data>
+  <data name="CostCenterCoefficientHasOverlapDateRange" xml:space="preserve">
+    <value>در بازه زمانی جاری ضریب مرکز هزینه تعریف شده.</value>
+  </data>
+  <data name="RiskFacilitationAccesses" xml:space="preserve">
+    <value>لیست دسترسی تسهیلگران.</value>
+  </data>
+  <data name="HasNotExistingId" xml:space="preserve">
+    <value>دیتا ناقص است.</value>
+  </data>
+  <data name="AssessmentAlreadyCreated" xml:space="preserve">
+    <value>ارزیابی قبلا انجام شده</value>
+  </data>
+  <data name="Probability" xml:space="preserve">
+    <value>احتمال</value>
+  </data>
+  <data name="RemainingSeverity" xml:space="preserve">
+    <value>شدت باقیمانده</value>
+  </data>
+  <data name="RemainingProbability" xml:space="preserve">
+    <value>احتمال باقیمانده</value>
+  </data>
+  <data name="RemainingMustLess" xml:space="preserve">
+    <value>شدت/احتمال باقیمانده باید کمتر یا مساوی شدت/احتمال وارد شده باشد</value>
+  </data>
+  <data name="DuplicateRiskNumbersOnDestination" xml:space="preserve">
+    <value>واحدسازمانی/ناحیه مقصد دارای شماره ریسک های همسان با شماره های انتقالی است.</value>
+  </data>
+  <data name="ContractorBusinessUnitNotFound" xml:space="preserve">
+    <value>واحد سازمانی برای این قرارداد تعریف نشده.</value>
+  </data>
+</root>
