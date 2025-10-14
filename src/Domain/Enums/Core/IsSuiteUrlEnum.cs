@@ -7,11 +7,15 @@ namespace ContractorBackend.Domain.Enums.Core
         /// <summary>
         /// پیمانکاران
         /// </summary>
-        cpmCpmperEmployeesViw, // http://services.msc.ir/in/eis/ords/cpm/cpmper/cpm_cpmper_employees_viw/
+        cpm_cpmper_employees_viw, // https://services.msc.ir/in/eis/ords/cpm/cpmper/cpm_cpmper_employees_viw/
         /// <summary>
         /// چک Otp ارسال شده به کاربر
         /// </summary>
         check_cod_fun,// http://services.msc.ir/ords/wse/per/check_cod_fun
+        /// <summary>
+        ///تحت تکفل پیمانکاران
+        /// </summary>
+        emp_cont_familys_viw, // https://services.msc.ir/in/eis/ords/cpm/cpmper/emp_cont_familys_viw/
 
     }
 
@@ -35,11 +39,15 @@ namespace ContractorBackend.Domain.Enums.Core
             /// <summary>
             /// پیمانکاران
             /// </summary>
-            { IsSuiteUrlKeyEnum.cpmCpmperEmployeesViw,  new (){ Url = "ords/cpm/cpmper/cpm_cpmper_employees_viw/"  ,  Service = ServiceEnum. CPM}}, 
+            { IsSuiteUrlKeyEnum.cpm_cpmper_employees_viw,  new (){ Url = "ords/cpm/cpmper/cpm_cpmper_employees_viw/"  ,  Service = ServiceEnum. CPM}}, 
              /// <summary>
             /// چک Otp ارسال شده به کاربر
             /// </summary>
             { IsSuiteUrlKeyEnum.check_cod_fun,    new (){ Url = "ords/wse/per/check_cod_fun"  ,  Service = ServiceEnum. WSE}}, 
+            /// <summary>
+            ///تحت تکفل پیمانکاران
+            /// </summary>
+            { IsSuiteUrlKeyEnum.emp_cont_familys_viw,  new (){ Url = "ords/cpm/cpmper/emp_cont_familys_viw/"  ,  Service = ServiceEnum. CPM}}, 
 
             ///  *********************    Insert new Is-Suite APIs HERE   *********************************
         

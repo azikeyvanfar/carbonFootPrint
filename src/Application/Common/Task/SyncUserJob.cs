@@ -84,7 +84,7 @@ namespace ContractorBackend.Application.Common.Task
 
             #endregion
 
-            var queryIssuite = await _httpClient.GetService(new ContractorDto(), IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.cpmCpmperEmployeesViw].ToString(), lst, ServiceEnum.CPM);
+            var queryIssuite = await _httpClient.GetService(new ContractorDto(), IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.cpm_cpmper_employees_viw].ToString(), lst, ServiceEnum.CPM);
 
             #endregion
 
@@ -244,7 +244,7 @@ namespace ContractorBackend.Application.Common.Task
                   new ServiceInputModel() { ParameterName = "offset", ParameterValue = offset },
             };
 
-            var queryIssuite = await _httpClient.GetService(new ContractorDto(), IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.cpmCpmperEmployeesViw].ToString(), lst, ServiceEnum.CPM);
+            var queryIssuite = await _httpClient.GetService(new ContractorDto(), IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.cpm_cpmper_employees_viw].ToString(), lst, ServiceEnum.CPM);
             var Items = queryIssuite.Items.GroupBy(x => x.num_prsn_emplc);
             #endregion
 

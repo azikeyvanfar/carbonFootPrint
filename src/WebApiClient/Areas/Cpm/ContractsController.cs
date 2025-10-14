@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Models;
 using ContractorBackend.Application.Cpm.Contractors.Queries.GetAllContractor;
-using ContractorBackend.Application.Cpm.Contractors.Queries.GetFamilesAllQuery;
 using ContractorBackend.Application.Dtos.Cpm;
 using ContractorBackend.WebApiClient.Controllers;
 using ContractorBackend.WebApiClient.Helpers;
@@ -13,37 +12,27 @@ namespace ContractorBackend.WebApiClient.Areas.Cpm
 {
     [Area("Cpm")]
     [Route("api/[area]/[controller]/[action]")]
-    public class ContractorsController : ApiControllerBase
+    public class ContractsController : ApiControllerBase
     {
         private readonly IBackgroundJobClient _backgroundJob;
-        public ContractorsController(IBackgroundJobClient backgroundJob)
+        public ContractsController(IBackgroundJobClient backgroundJob)
         {
             _backgroundJob = backgroundJob;
         }
 
 
         /// <summary>
-        /// لیست پیمانکار ها
+        /// لیست قرارداد ها
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
         [HttpGet]
-        [DisplayName("لیست پیمانکار ها")]
+        [DisplayName("لیست قرارداد ها")]
         public async Task<OkApiResult<SearchQueryResponse<CpmperEmployeesVM>>> GetAll([FromQuery] GetAllContractorQuery query)
         {
             return new OkApiResult<SearchQueryResponse<CpmperEmployeesVM>>(await Mediator.Send(query));
         }
-        /// <summary>
-        /// لیست افراد تحت تکفل پیمانکار ها
-        /// </summary>
-        /// <param name="query"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [DisplayName("لیست افراد تحت تکفل پیمانکار ها")]
-        public async Task<OkApiResult<SearchQueryResponse<ContractFamiliesVM>>> GetFamilesAll([FromQuery] GetFamilesAllQuery query)
-        {
-            return new OkApiResult<SearchQueryResponse<ContractFamiliesVM>>(await Mediator.Send(query));
-        }
+
 
         ///// <summary>
         ///// UI CODE :35-02

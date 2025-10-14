@@ -50,8 +50,18 @@ namespace ContractorBackend.Application.Services
         /// </summary>
         public async Task<IsSuiteResponse<CpmperEmployeesVM>> GetCpmperEmployeesViwAsync(List<QueryParamModel> queryParams)
         {
-            var (url, service) = FetchIsSuiteUrlForApi(IsSuiteUrlKeyEnum.cpmCpmperEmployeesViw);
+            var (url, service) = FetchIsSuiteUrlForApi(IsSuiteUrlKeyEnum.cpm_cpmper_employees_viw);
             var response = await _clientMethods.GetService<IsSuiteResponse<CpmperEmployeesVM>>(url, queryParams, service);
+
+            return response;
+        }
+        /// <summary>
+        /// لیست افراد تحت تکفل پیمانکاران
+        /// </summary>
+        public async Task<IsSuiteResponse<ContractFamiliesVM>> GetContractorFamiliesViwAsync(List<QueryParamModel> queryParams)
+        {
+            var (url, service) = FetchIsSuiteUrlForApi(IsSuiteUrlKeyEnum.emp_cont_familys_viw);
+            var response = await _clientMethods.GetService<IsSuiteResponse<ContractFamiliesVM>>(url, queryParams, service);
 
             return response;
         }
