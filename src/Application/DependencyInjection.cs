@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using ContractorBackend.Application.Common.Behaviours;
 using ContractorBackend.Application.Common.Interfaces;
+using ContractorBackend.Application.Common.Task;
 using ContractorBackend.Application.Services;
 using FluentValidation;
 using Gridify;
@@ -23,6 +24,10 @@ namespace ContractorBackend.Application
             services.AddTransient<HttpClientFactory>();
             services.AddTransient<HttpClientMethods>();
             services.AddScoped<IsSuiteClientService>();
+            
+            
+            //services.AddScoped<SyncUserJob>();
+
             services.AddScoped<ICustomLogRepository, CustomLogRepository>();
             //services.AddScoped(provider => new MapperConfiguration(cfg => cfg.AddProfile(new IndicatorProfile(provider.GetService<IApplicationDbContext>()))).CreateMapper());
             GridifyGlobalConfiguration.EnableEntityFrameworkCompatibilityLayer();
