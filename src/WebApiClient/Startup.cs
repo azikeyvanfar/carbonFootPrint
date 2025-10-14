@@ -90,7 +90,12 @@ namespace ContractorBackend.WebApiClient
                 options.Cookie.HttpOnly = true;
             });
 
-
+            services.AddHsts(Options =>
+            {
+                Options.MaxAge = TimeSpan.FromDays(365);
+                Options.IncludeSubDomains = true;
+                Options.Preload = true;
+            });
 
             #region service for admin didnt login for more than 90 days
             RecurringJob.AddOrUpdate<ServiceUserManager>(x => x.UserDeActive(), Cron.Daily, TimeZoneInfo.Local);
@@ -117,23 +122,19 @@ namespace ContractorBackend.WebApiClient
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseAllowedHttpMethods();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCustomSwagger(Configuration);
             }
             else
             {
+                app.UseAllowedHttpMethods();
                 app.UseHsts();
+                app.UseHttpsRedirection();
             }
             app.UseCors("CorsPolicy");
-            //app.UseHttpsRedirection();
-
-            //if (env.IsDevelopment())
-            //{
-            app.UseCustomSwagger(Configuration);
-            //}
-
+           
             app.UseSession();
 
             //app.UserCustomStaticFileStorage(Configuration);

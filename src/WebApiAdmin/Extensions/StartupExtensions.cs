@@ -301,11 +301,11 @@ namespace ContractorBackend.WebApiAdmin.Extensions
 
         public static void AddCustomCors(this IServiceCollection services, IConfiguration configuration)
         {
-            var corsOrigins = configuration["CorsOrigins"];
-
             const string allowedCorsPolicyName = "CorsPolicy";
 
-            if (string.IsNullOrWhiteSpace(corsOrigins) || corsOrigins == "*")
+            var corsOrigins = configuration.GetSection("CorsOrigins:AllowOrigins").Get<string[]>();
+
+            if (corsOrigins == null || corsOrigins.Length == 0)
             {
                 services.AddCors(options =>
                 {
@@ -319,20 +319,14 @@ namespace ContractorBackend.WebApiAdmin.Extensions
             }
             else
             {
-                var origins = corsOrigins
-                    .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                    .Select(o => o.RemoveFromEnd("/"))
-                    .ToArray();
-
                 services.AddCors(options =>
                 {
                     options.AddPolicy(allowedCorsPolicyName,
-                        builder => builder
-                            .WithOrigins(origins) //Note:  The URL must be specified without a trailing slash (/).
-                            .AllowAnyMethod()
-                            .AllowAnyHeader()
-                            .SetIsOriginAllowed((host) => true)
-                            .AllowCredentials());
+                    builder => builder
+                    .WithOrigins(corsOrigins) //Note:  The URL must be specified without a trailing slash (/).
+                          .AllowAnyMethod()
+                          .AllowAnyHeader()
+                          .AllowCredentials());
                 });
             }
         }
