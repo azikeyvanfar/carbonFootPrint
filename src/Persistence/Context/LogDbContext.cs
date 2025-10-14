@@ -1,6 +1,6 @@
 ﻿using ContractorBackend.Application.Common.Interfaces;
-using ContractorBackend.Domain.Entities.Core;
 using ContractorBackend.Domain.Entities.Identity;
+using ContractorBackend.Domain.Entities.Log;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContractorBackend.Persistence.Context
@@ -16,7 +16,8 @@ namespace ContractorBackend.Persistence.Context
         public DbSet<AppLogEvent> AppLogEvents { get; set; } = null!;
         public DbSet<UserSignIn> UserSignIns { get; set; }
         #endregion
-
+        public DbSet<BackgroundTaskHistory> BackgroundTaskHistories { get; set; } = null!;
+        public DbSet<UserSyncLog> UserSyncLogs { get; set; } = null!;
 
 
 

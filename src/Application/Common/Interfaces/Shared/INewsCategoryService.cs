@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ContractorBackend.Application.Common.Interfaces
+namespace ContractorBackend.Application.Common.Interfaces.Shared
 {
     public interface INewsCategoryService
     {

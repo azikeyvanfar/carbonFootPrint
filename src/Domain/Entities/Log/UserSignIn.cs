@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ContractorBackend.Domain.Entities.Identity
+namespace ContractorBackend.Domain.Entities.Log
 {
     public class UserSignIn
     {
@@ -20,7 +20,7 @@ namespace ContractorBackend.Domain.Entities.Identity
         [MaxLength(500)]
         public string ErrorReason { get; set; }
         [MaxLength(10)]
-        public string? SystemName { get; set; }
+        public string SystemName { get; set; }
 
     }
 }

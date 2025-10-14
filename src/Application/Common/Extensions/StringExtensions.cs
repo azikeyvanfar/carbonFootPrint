@@ -135,7 +135,15 @@ namespace ContractorBackend.Application.Common.Extensions
 
             return newDate;
         }
-
+        public static string ToShamsiDateTime2(this DateTime dateTime)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            int year, month, day;
+            year = pc.GetYear(dateTime);
+            month = pc.GetMonth(dateTime);
+            day = pc.GetDayOfMonth(dateTime);
+            return string.Format("{0}/{1}/{2}", year, month < 10 ? "0" + month : month, day < 10 ? "0" + day : day);
+        }
 
 
         public static string Decrypt(this string strEncry)

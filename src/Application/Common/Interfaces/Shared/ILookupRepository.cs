@@ -20,8 +20,8 @@ namespace ContractorBackend.Application.Common.Interfaces.Shared
         Task<LookupItemDto> CreateItem(AddLookupItemDto addLookupItemDto);
         Task<LookupItemDto> UpdateItem(UpdateLookupItemDto updateLookupItemDto);
         Task<List<LookupItemDto>> GetItemsByType(string Code);
-        Task DeleteList(Guid Id);
-        Task DeleteItem(Guid Id);
+        System.Threading.Tasks.Task DeleteList(Guid Id);
+        System.Threading.Tasks.Task DeleteItem(Guid Id);
     }
 
 }

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using ContractorBackend.Domain.Common;
 using ContractorBackend.Domain.Entities.Core;
 using ContractorBackend.Domain.Entities.Shared;
+using ContractorBackend.Domain.Enums.Core;
 using Microsoft.AspNetCore.Identity;
 
 namespace ContractorBackend.Domain.Entities.Identity
@@ -44,6 +45,12 @@ namespace ContractorBackend.Domain.Entities.Identity
         /// آدرس پست الکترونيکي
         /// </summary>
         public string? Email { get; set; }
+        public string MobileNumber { get; set; }
+        public bool Gender { get; set; } = true;
+        /// <summary>
+        /// نوع یوزر
+        /// </summary>
+        public UserType UserType { get; set; }
         /// <summary>
         /// مسئول بالاتر
         /// </summary>

@@ -7,6 +7,7 @@ namespace ContractorBackend.Application.Common.Identity
 {
     public interface ISmsSender
     {
+        Task<bool> SendCustomSms(SmsRequest smsRequest, SmsType type);
         #region BaseClass
 
         Task<bool> SendSmsAsync(User user, SmsRequest smsRequest, SmsType type);

@@ -7,7 +7,7 @@ namespace ContractorBackend.Application.Common.Identity
     public interface IUsedPasswordsService
     {
         Task<bool> IsPreviouslyUsedPasswordAsync(User user, string newPassword);
-        Task AddToUsedPasswordsListAsync(User user);
+        System.Threading.Tasks.Task AddToUsedPasswordsListAsync(User user);
         Task<bool> IsLastUserPasswordTooOldAsync(long userId);
         Task<DateTime?> GetLastUserPasswordChangeDateAsync(long userId);
 

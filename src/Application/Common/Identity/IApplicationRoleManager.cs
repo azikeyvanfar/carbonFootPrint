@@ -173,7 +173,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// <returns>
         /// The <see cref="Task"/> that represents the asynchronous operation.
         /// </returns>
-        Task UpdateNormalizedRoleNameAsync(Domain.Entities.Identity.Role role);
+        System.Threading.Tasks.Task UpdateNormalizedRoleNameAsync(Domain.Entities.Identity.Role role);
 
         /// <summary>
         /// Gets the name of the specified <paramref name="role"/>.

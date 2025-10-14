@@ -65,7 +65,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// </summary>
         /// <param name="user">The user whose sign-in cookie should be refreshed.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        Task RefreshSignInAsync(User user);
+        System.Threading.Tasks.Task RefreshSignInAsync(User user);
 
         /// <summary>
         /// Signs in the specified <paramref name="user"/>.
@@ -74,7 +74,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// <param name="isPersistent">Flag indicating whether the sign-in cookie should persist after the browser is closed.</param>
         /// <param name="authenticationMethod">Name of the method used to authenticate the user.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        Task SignInAsync(User user, bool isPersistent, string authenticationMethod = null);
+        System.Threading.Tasks.Task SignInAsync(User user, bool isPersistent, string authenticationMethod = null);
 
         /// <summary>
         /// Signs in the specified <paramref name="user"/>.
@@ -83,12 +83,12 @@ namespace ContractorBackend.Application.Common.Identity
         /// <param name="authenticationProperties">Properties applied to the login and authentication cookie.</param>
         /// <param name="authenticationMethod">Name of the method used to authenticate the user.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        Task SignInAsync(User user, Microsoft.AspNetCore.Authentication.AuthenticationProperties authenticationProperties, string authenticationMethod = null);
+        System.Threading.Tasks.Task SignInAsync(User user, Microsoft.AspNetCore.Authentication.AuthenticationProperties authenticationProperties, string authenticationMethod = null);
 
         /// <summary>
         /// Signs the current user out of the application.
         /// </summary>
-        Task SignOutAsync();
+        System.Threading.Tasks.Task SignOutAsync();
 
         /// <summary>
         /// Validates the security stamp for the specified <paramref name="principal"/> against
@@ -153,13 +153,13 @@ namespace ContractorBackend.Application.Common.Identity
         /// </summary>
         /// <param name="user">The user who choose "remember this browser".</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        Task RememberTwoFactorClientAsync(User user);
+        System.Threading.Tasks.Task RememberTwoFactorClientAsync(User user);
 
         /// <summary>
         /// Clears the "Remember this browser flag" from the current browser, as an asynchronous operation.
         /// </summary>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        Task ForgetTwoFactorClientAsync();
+        System.Threading.Tasks.Task ForgetTwoFactorClientAsync();
 
         /// <summary>
         /// Signs in the user without two factor authentication using a two factor recovery code.
@@ -286,7 +286,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// </summary>
         /// <param name="user">The user</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation, containing the <see cref="IdentityResult"/> of the operation.</returns>
-        Task ResetLockout(User user);
+        System.Threading.Tasks.Task ResetLockout(User user);
 
         #endregion
 

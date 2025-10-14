@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Identity;
 using ContractorBackend.Application.Common.Interfaces;
 using ContractorBackend.Domain.Entities.Identity;
+using ContractorBackend.Domain.Entities.Log;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

@@ -92,7 +92,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// <param name="roleName">The name of the role.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
-        Task SetRoleNameAsync(ContractorBackend.Domain.Entities.Identity.Role role, string roleName, CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task SetRoleNameAsync(ContractorBackend.Domain.Entities.Identity.Role role, string roleName, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Finds the role who has the specified ID as an asynchronous operation.
@@ -133,7 +133,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// <param name="claim">The claim to remove from the role.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
-        Task RemoveClaimAsync(ContractorBackend.Domain.Entities.Identity.Role role, Claim claim, CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task RemoveClaimAsync(ContractorBackend.Domain.Entities.Identity.Role role, Claim claim, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set a role's normalized name as an asynchronous operation.
@@ -142,7 +142,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// <param name="normalizedName">The normalized name to set</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
-        Task SetNormalizedRoleNameAsync(ContractorBackend.Domain.Entities.Identity.Role role, string normalizedName, CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task SetNormalizedRoleNameAsync(ContractorBackend.Domain.Entities.Identity.Role role, string normalizedName, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Updates a role in a store as an asynchronous operation.

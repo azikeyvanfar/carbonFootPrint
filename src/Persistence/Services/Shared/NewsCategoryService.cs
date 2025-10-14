@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Interfaces;
+using ContractorBackend.Application.Common.Interfaces.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContractorBackend.Persistence.Services.Shared

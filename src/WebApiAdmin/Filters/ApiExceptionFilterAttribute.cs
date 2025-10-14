@@ -6,6 +6,7 @@ using System.Linq;
 using ContractorBackend.Application.Common.Exceptions;
 using ContractorBackend.Common.Extensions;
 using ContractorBackend.Domain.Entities.Core;
+using ContractorBackend.Domain.Entities.Log;
 using ContractorBackend.Domain.Enums.Core;
 using ContractorBackend.Persistence.Context;
 using Microsoft.AspNetCore.Hosting;

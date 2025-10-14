@@ -279,7 +279,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// </summary>
         /// <param name="user">The user whose user name should be normalized and updated.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
-        Task UpdateNormalizedUserNameAsync(User user);
+        System.Threading.Tasks.Task UpdateNormalizedUserNameAsync(User user);
 
         /// <summary>
         /// Gets the user name for the specified <paramref name="user"/>.
@@ -617,7 +617,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// </summary>
         /// <param name="user">The user whose email address should be normalized and updated.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        Task UpdateNormalizedEmailAsync(User user);
+        System.Threading.Tasks.Task UpdateNormalizedEmailAsync(User user);
 
         /// <summary>
         /// Generates an email confirmation token for the specified user.
@@ -1074,7 +1074,7 @@ namespace ContractorBackend.Application.Common.Identity
 
         #region Jwt
 
-        Task UpdateUserLastActivityDateAsync(long userId);
+        System.Threading.Tasks.Task UpdateUserLastActivityDateAsync(long userId);
 
         #endregion
 

@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Interfaces;
 using ContractorBackend.Application.Common.Models;
-using ContractorBackend.Domain.Entities.Core;
+using ContractorBackend.Domain.Entities.Log;
 using Gridify;
 using Gridify.EntityFramework;
 using MediatR;

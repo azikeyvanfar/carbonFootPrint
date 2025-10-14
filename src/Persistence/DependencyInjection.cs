@@ -35,7 +35,7 @@ namespace ContractorBackend.Persistence
             services.AddScoped<INewsCategoryService, NewsCategoryService>();
             services.AddScoped<ISeedService, SeedService>();
 
-            services.AddTransient(typeof(IMaterialSyncService<>), typeof(MaterialSyncService<>));
+            
 
 
             // Needed for jwt auth.

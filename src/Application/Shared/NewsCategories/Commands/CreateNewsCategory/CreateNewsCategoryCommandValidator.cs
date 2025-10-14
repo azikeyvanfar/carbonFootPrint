@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using ContractorBackend.Application.Common.Interfaces;
+using ContractorBackend.Application.Common.Interfaces.Shared;
 using FluentValidation;
 
 namespace ContractorBackend.Application.Shared.NewsCategories.Commands.CreateNewsCategory

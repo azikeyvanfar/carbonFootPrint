@@ -44,12 +44,16 @@ namespace ContractorBackend.Application.Services
         private readonly IHttpContextAccessor _accessor;
         private readonly IApplicationDbContext _dbContext;
 
-        private readonly string baseUrl = "http://services.msc.ir/";
+        private readonly string DataDiodeBaseUrl = "http://res.msc.ir/getAction";// "http://172.17.19.200/getAction";
+        private readonly string DataDiodeLoginUrl = "https://services.msc.ir/in/eis/ords/fnd/public/ords_issuite_login";
+        private readonly string DataDiodePreProdLoginUrl = "https://testservices.msc.ir/in/eis/ords/fnd/public/ords_issuite_login";
+        
+        private string baseUrl = "http://services.msc.ir/";
         private readonly string baseUrlCPM = "http://cpm.msc.ir/";
         private readonly string BPMSBaseUrl = "http://services.msc.ir/";
         private readonly string baseUrlWithoutAuth = "http://services.msc.ir/";
         private readonly string loginUrl = "http://services.msc.ir/ords/fnd/public/ords_issuite_login";
-        private readonly string authUrl = "http://services.msc.ir/ords/oauth/token";
+        private string authUrl = "http://services.msc.ir/ords/oauth/token";
         private readonly string bpmsAuthUrl = "http://services.msc.ir/bpms/oauth/token";
         private readonly string oaAuthUrl = "http://services.msc.ir/ords/oauth/token";
 
@@ -241,6 +245,7 @@ namespace ContractorBackend.Application.Services
             }
         }
 
+
         /// <summary>
         /// Login to Is-Suite with project Username and Password
         /// </summary>
@@ -336,6 +341,63 @@ namespace ContractorBackend.Application.Services
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        public async Task<IsSuiteResponse<T>> GetService<T>(T Data, string url, List<ServiceInputModel> inputParameters, ServiceEnum system) where T : class
+
+        {
+
+            string apiResponse, token = string.Empty;
+            FouladClientCredentialsService serv = new FouladClientCredentialsService(_configuration);
+            var credentials = serv.GetClientCredentials(system);
+            if (_memoryCache.TryGetValue(system, out MemoryCacheToken memoryCacheToken))
+            {
+                token = memoryCacheToken.Access_Token;
+                SetUrl(credentials);
+            }
+            else
+            {
+                if (credentials.IsDataDiode)
+                {
+                    token = await GetTokenAsyncDataDiode(system);
+                }
+                else
+                {
+                    token = (await GetTokenAsync(system)).AccessToken;
+                }
+
+            }
+
+
+            var client = _client.GetClient();
+
+            string finalUrl = inputParameters?.Count == 0 ? $"{url}" : $"{url}?";
+            foreach (var item in inputParameters)
+            {
+                if (item.ParameterValue != null)
+                {
+                    finalUrl += $"{item.ParameterName}={item.ParameterValue}&";
+                }
+
+            }
+
+            finalUrl = inputParameters.Count == 0 ? finalUrl : finalUrl.Substring(0, finalUrl.Length - 1);
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            client.DefaultRequestHeaders.Add("content_type", "application/json");
+            client.DefaultRequestHeaders.Add("client_authentication", "header");
+
+           // client.GenerateCurlInFile(HttpMethod.Get, baseUrl + finalUrl);
+            using (var response = await client.GetAsync(baseUrl + finalUrl))
+            {
+                var stringResponse = await response.Content.ReadAsStringAsync();
+                //_logger.LogInformation($"Is-Suite {nameof(GetService)} Method Response body : {response.Content}");
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    throw new AccessViolationException($"{nameof(GetService)} Error With Code: {response.StatusCode} - ErrorMessage {await response.Content.ReadAsStringAsync()}");
+                }
+                return JsonConvert.DeserializeObject<IsSuiteResponse<T>>(stringResponse);
             }
         }
 
@@ -1151,8 +1213,121 @@ namespace ContractorBackend.Application.Services
             return queryParams;
         }
 
+        public void SetUrl(ClientCredentials credentials)
+        {
+            if (credentials.IsDataDiode)
+            {
+                if (credentials.IsPreProd)
+                {
+                    baseUrl = "https://testservices.msc.ir/in/eis/";
+                    authUrl = "https://testservices.msc.ir/in/eis/ords/oauth/token";
+                }
+                else
+                {
+                    baseUrl = "https://services.msc.ir/in/eis/";
+                    authUrl = "https://services.msc.ir/in/eis/ords/oauth/token";
+                }
+            }
+            else
+            {
+                baseUrl = "http://services.msc.ir/";
+                authUrl = "http://services.msc.ir/ords/oauth/token";
+            }
+        }
+
+        public async Task<string> GetTokenAsyncDataDiode(ServiceEnum system)
+        {
+            string apiResponse, token = string.Empty;
+            FouladClientCredentialsService serv = new FouladClientCredentialsService(_configuration);
+            var credentials = serv.GetClientCredentials(system);
+            SetUrl(credentials);
+            
+            var client = _client.GetClient();
+            // var stringContent = new StringContent(null, Encoding.UTF8, MediaTypeNames.Application.Json);
+            var authenticationString = $"{credentials.ClientId}:{credentials.ClientSecret}";
+            var base64EncodedAuthenticationString = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(authenticationString));
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", base64EncodedAuthenticationString);
+            client.DefaultRequestHeaders.Add("content_type", "application/x-www-form-urlencoded");
+            client.DefaultRequestHeaders.Add("client_authentication", "header");
+
+            var dict = new Dictionary<string, string>();
+            //dict.Add("clientId", credentials.ClientId);
+            //dict.Add("clientSecret", credentials.ClientSecret);
+            client.DefaultRequestHeaders.Add("grant_type", "client_credentials");
+            client.DefaultRequestHeaders.Add("clientSecret", credentials.ClientSecret);
+            client.DefaultRequestHeaders.Add("clientId", credentials.ClientId);
+            //client.DefaultRequestHeaders.Add("addTokenTo", "header");
+            // client.DefaultRequestHeaders.Add("accessTokenUrl", "http://services.msc.ir/ords/oauth/token");
+            var collection = new List<KeyValuePair<string, string>>();
+            collection.Add(new("grant_type", "client_credentials"));
+            var content = new FormUrlEncodedContent(collection);
+
+            // var requestContent = new FormUrlEncodedContent(dict);
+            using (var response = await client.PostAsync(authUrl, content))
+            {
+                token = await response.Content.ReadAsStringAsync();
+            }
+            var DeserializeRsponse = new AccessToken();
+            
+            DeserializeRsponse = JsonConvert.DeserializeObject<AccessToken>(token);
+            var login = JsonConvert.DeserializeObject<Login>(await LoginToIsSuite(system, DeserializeRsponse.Access_Token));
+            if (!login.Result.Equals("true"))
+                throw new Exception("خطای لاگین به isSuite" + "\n " + login.Result);
+
+            //end n.goudarzi
+
+            var cacheEntryOptions = new MemoryCacheEntryOptions()
+                 .SetSlidingExpiration(TimeSpan.FromSeconds(1200))
+                 .SetAbsoluteExpiration(TimeSpan.FromSeconds(1200))
+                 .SetPriority(CacheItemPriority.Normal)
+                 .SetSize(1024);
+            var memoryCacheToken = new MemoryCacheToken() { Access_Token = DeserializeRsponse.Access_Token };
+            _memoryCache.Set(system, memoryCacheToken, cacheEntryOptions);
+            return DeserializeRsponse.Access_Token;
 
 
+        }
+        private async Task<string> LoginToIsSuite(ServiceEnum system, string accessToken)
+        {
+            string apiResponse, token, url = string.Empty;
+            FouladClientCredentialsService serv = new FouladClientCredentialsService(_configuration);
+            var credentials = serv.GetClientCredentials(system);
+            var dict = new Dictionary<string, string>();
+            if (credentials.IsDataDiode)
+            {
+                if (credentials.IsPreProd)
+                {
+                    url = DataDiodePreProdLoginUrl;
+                }
+                else
+                {
+                    url = DataDiodeLoginUrl;
+                }
+            }
+            else
+            {
+                url = loginUrl;
+            }
+            var client = _client.GetClient();
+            client.DefaultRequestHeaders.Add("content_type", "application/x-www-form-urlencoded");
+            client.DefaultRequestHeaders.Add("client_authentication", "header");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            Dictionary<string, string> jsonValues = new Dictionary<string, string>();
+            //jsonValues.Add("P_USER_NAME", "1100195981");
+            //jsonValues.Add("P_PASS", "@MIRH@MId1");
+            jsonValues.Add("P_USER_NAME", "portal_tee_ords_usr");
+            jsonValues.Add("P_PASS", "Tee$54!25");
+            //jsonValues.Add("P_USER_NAME", "RSA@123456789");
+            //jsonValues.Add("P_PASS", "qazwsx@123");
+            var requestContent = new StringContent(JsonConvert.SerializeObject(jsonValues), null, "application/json");
+           // client.GenerateCurlInFile(HttpMethod.Post, url, httpContent: requestContent);
+            using (var response = await client.PostAsync(url, requestContent))
+            {
+                token = await response.Content.ReadAsStringAsync();
+            }
+            return token;
+        }
     }
 
     public class CpmTokenResponseObject
@@ -1167,7 +1342,16 @@ namespace ContractorBackend.Application.Services
         public string expires_in { get; set; }
 
     }
-
+    public class AccessToken
+    {
+        public string Access_Token { get; set; }
+        public string Token_Type { get; set; }
+        public string Expires_In { get; set; }
+    }
+    public class Login
+    {
+        public string Result { get; set; }
+    }
     public class OATokenResponseObject
     {
         public string token { get; set; }
@@ -1233,5 +1417,9 @@ namespace ContractorBackend.Application.Services
     }
 
 
+    public class MemoryCacheToken
+    {
+        public string Access_Token { get; set; }
+    }
 
 }

@@ -1,9 +1,7 @@
-﻿using System.Threading.Tasks;
-
-namespace ContractorBackend.Application.Common.Interfaces
+﻿namespace ContractorBackend.Application.Common.Interfaces
 {
     public interface IServiceUserManager
     {
-        Task UserDeActive();
+        System.Threading.Tasks.Task UserDeActive();
     }
 }

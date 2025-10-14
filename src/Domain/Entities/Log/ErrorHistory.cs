@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using ContractorBackend.Domain.Common;
 using ContractorBackend.Domain.Enums.Core;
 
-namespace ContractorBackend.Domain.Entities.Core
+namespace ContractorBackend.Domain.Entities.Log
 {
     public class ErrorHistory : BaseEntity, ICreationTrackingEntity, IModificationTrackingEntity
     {

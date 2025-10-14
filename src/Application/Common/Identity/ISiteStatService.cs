@@ -9,6 +9,6 @@ namespace ContractorBackend.Application.Common.Identity
     {
         Task<List<User>> GetOnlineUsersListAsync(int numbersToTake, int minutesToTake);
 
-        Task UpdateUserLastVisitDateTimeAsync(ClaimsPrincipal claimsPrincipal);
+        System.Threading.Tasks.Task UpdateUserLastVisitDateTimeAsync(ClaimsPrincipal claimsPrincipal);
     }
 }

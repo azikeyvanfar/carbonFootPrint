@@ -158,7 +158,55 @@ namespace ContractorBackend.Application.Services
                 throw;
             }
         }
+        /// <summary>
+        /// ارسال اس ام اس دلخواه
+        /// </summary>
+        /// <param name="smsRequest"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public async Task<bool> SendCustomSms(SmsRequest smsRequest, SmsType type)
+        {
+            #region save sms Request before call foulad sms service
+            var smsRequestPersist = new SmsResponse();
+            smsRequestPersist.IsSuccessful = true;
+            smsRequestPersist.Message = "Message Request Text:" + smsRequest.SmsText + " At DateTimeOffset:" + DateTimeOffset.Now.ToString();
+            await PersistCustomSmsResponse(smsRequest, smsRequestPersist);
+            #endregion
 
+            var smsResponse = new SmsResponse();
+            try
+            {
+                smsResponse = await SendSMS(smsRequest);
+            }
+            catch (Exception e)
+            {
+                smsResponse.IsSuccessful = false;
+                smsResponse.Message = e.Message;
+                smsResponse.StatusCode = 500;
+            }
+            var res = await PersistCustomSmsResponse(smsRequest, smsResponse);
+            return res;
+        }
+        public async Task<bool> PersistCustomSmsResponse(SmsRequest smsRequest, SmsResponse smsResponse)
+        {
+            //عد صفر به این معنی است که سیستم ارسال کننده پیام می باشد
+
+            SmsHistory sms = new SmsHistory
+            {
+
+                IsActive = true,
+                UserId = 0,
+                Message = smsRequest.SmsText,
+                PhoneNumber = smsRequest.Receivers,
+                IsSuccessful = smsResponse.IsSuccessful,
+                StatusCode = smsResponse.StatusCode,
+                SmsResponseMessage = smsResponse.Message,
+
+            };
+
+            var res = _repository.InsertEntity(sms);
+            return res;
+        }
         public bool PersistSmsResponse(SmsRequest smsRequest, SmsResponse smsResponse, User? user)
         {
             SmsHistory sms = new SmsHistory

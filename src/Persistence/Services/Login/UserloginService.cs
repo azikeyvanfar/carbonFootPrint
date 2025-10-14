@@ -7,6 +7,7 @@ using ContractorBackend.Application.Common.Interfaces;
 using ContractorBackend.Application.Common.Interfaces.Login;
 using ContractorBackend.Application.Resources;
 using ContractorBackend.Domain.Entities.Identity;
+using ContractorBackend.Domain.Entities.Log;
 using ContractorBackend.Domain.Enums.Core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;

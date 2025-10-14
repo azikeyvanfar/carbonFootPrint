@@ -6,13 +6,13 @@ namespace ContractorBackend.Application.Common.Identity
     {
         #region BaseClass
 
-        Task SendEmailAsync(string email, string subject, string message);
+        System.Threading.Tasks.Task SendEmailAsync(string email, string subject, string message);
 
         #endregion
 
         #region CustomMethods
 
-        Task SendEmailAsync<T>(string email, string subject, string viewNameOrPath, T model);
+        System.Threading.Tasks.Task SendEmailAsync<T>(string email, string subject, string viewNameOrPath, T model);
 
         #endregion
     }

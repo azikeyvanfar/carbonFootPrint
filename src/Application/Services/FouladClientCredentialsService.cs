@@ -68,6 +68,8 @@ namespace ContractorBackend.Application.Services
     {
         public string ClientId { get; set; }
         public string ClientSecret { get; set; }
+        public bool IsDataDiode { get; set; }
+        public bool IsPreProd { get; set; }
     }
 
     public class ClientUsernamePassword

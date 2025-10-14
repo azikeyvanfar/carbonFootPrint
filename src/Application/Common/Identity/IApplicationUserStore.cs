@@ -121,7 +121,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// <param name="normalizedRoleName">The role to add.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
-        Task AddToRoleAsync(User user, string normalizedRoleName, CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task AddToRoleAsync(User user, string normalizedRoleName, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Removes the given <paramref name="normalizedRoleName"/> from the specified <paramref name="user"/>.
@@ -130,7 +130,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// <param name="normalizedRoleName">The role to remove.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
-        Task RemoveFromRoleAsync(User user, string normalizedRoleName, CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task RemoveFromRoleAsync(User user, string normalizedRoleName, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves the roles the specified <paramref name="user"/> is a member of.
@@ -165,7 +165,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// <param name="claims">The claim to add to the user.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
-        Task AddClaimsAsync(User user, IEnumerable<Claim> claims, CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task AddClaimsAsync(User user, IEnumerable<Claim> claims, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Replaces the <paramref name="claim"/> on the specified <paramref name="user"/>, with the <paramref name="newClaim"/>.
@@ -175,7 +175,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// <param name="newClaim">The new claim replacing the <paramref name="claim"/>.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
-        Task ReplaceClaimAsync(User user, Claim claim, Claim newClaim, CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task ReplaceClaimAsync(User user, Claim claim, Claim newClaim, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Removes the <paramref name="claims"/> given from the specified <paramref name="user"/>.
@@ -184,7 +184,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// <param name="claims">The claim to remove.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
-        Task RemoveClaimsAsync(User user, IEnumerable<Claim> claims, CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task RemoveClaimsAsync(User user, IEnumerable<Claim> claims, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Adds the <paramref name="login"/> given to the specified <paramref name="user"/>.
@@ -193,7 +193,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// <param name="login">The login to add to the user.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
-        Task AddLoginAsync(User user, UserLoginInfo login, CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task AddLoginAsync(User user, UserLoginInfo login, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Removes the <paramref name="loginProvider"/> given from the specified <paramref name="user"/>.
@@ -203,7 +203,7 @@ namespace ContractorBackend.Application.Common.Identity
         /// <param name="providerKey">The key provided by the <paramref name="loginProvider"/> to identify a user.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
-        Task RemoveLoginAsync(User user, string loginProvider, string providerKey, CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task RemoveLoginAsync(User user, string loginProvider, string providerKey, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves the associated logins for the specified <param ref="user"/>.
@@ -271,14 +271,14 @@ namespace ContractorBackend.Application.Common.Identity
         /// </summary>
         /// <param name="token">The token to be added.</param>
         /// <returns></returns>
-        Task AddUserTokenAsync(UserToken token);
+        System.Threading.Tasks.Task AddUserTokenAsync(UserToken token);
 
         /// <summary>
         /// Remove a new user token.
         /// </summary>
         /// <param name="token">The token to be removed.</param>
         /// <returns></returns>
-        Task RemoveUserTokenAsync(UserToken token);
+        System.Threading.Tasks.Task RemoveUserTokenAsync(UserToken token);
 
         #endregion
 

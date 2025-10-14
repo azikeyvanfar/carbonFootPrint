@@ -5,9 +5,6 @@
         OTP,
         ForgetPassword,
         ChangePassword,
-        CreateForm,
-        SubmitForm,
-        CheckForViewForm,
-        AssessmentSchedulingNotification
+        Notify
     }
 }
