@@ -313,6 +313,7 @@ namespace ContractorBackend.WebApiAdmin.Extensions
                         builder => builder
                             .AllowAnyOrigin()
                             .AllowAnyMethod()
+                            .SetIsOriginAllowed((host) => true)
                             .AllowAnyHeader());
                 });
             }
