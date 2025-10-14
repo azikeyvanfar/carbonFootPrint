@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Models;
 using ContractorBackend.Application.Cpm.Contractors.Queries.GetAllContractor;
 using ContractorBackend.Application.Dtos.Cpm;
-using ContractorBackend.WebApiAdmin.Controllers;
-using ContractorBackend.WebApiAdmin.Helpers;
+using ContractorBackend.WebApiClient.Controllers;
+using ContractorBackend.WebApiClient.Helpers;
 using Hangfire;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContractorBackend.WebApiAdmin.Areas.Cpm
+namespace ContractorBackend.WebApiClient.Areas.Cpm
 {
     [Area("Cpm")]
     [Route("api/[area]/[controller]/[action]")]
