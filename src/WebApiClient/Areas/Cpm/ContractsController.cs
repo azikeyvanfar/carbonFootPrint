@@ -1,25 +1,18 @@
 ﻿using System.ComponentModel;
 using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Models;
+using ContractorBackend.Application.Cpm.Contract.Queries.GetAllContract;
 using ContractorBackend.Application.Cpm.Contractors.Queries.GetAllContractor;
 using ContractorBackend.Application.Dtos.Cpm;
 using ContractorBackend.WebApiClient.Controllers;
 using ContractorBackend.WebApiClient.Helpers;
-using Hangfire;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContractorBackend.WebApiClient.Areas.Cpm
 {
-    [Area("Cpm")]
-    [Route("api/[area]/[controller]/[action]")]
+    [Route("api/cli/core/[controller]/[action]")]
     public class ContractsController : ApiControllerBase
     {
-        private readonly IBackgroundJobClient _backgroundJob;
-        public ContractsController(IBackgroundJobClient backgroundJob)
-        {
-            _backgroundJob = backgroundJob;
-        }
-
 
         /// <summary>
         /// لیست قرارداد ها
@@ -28,26 +21,10 @@ namespace ContractorBackend.WebApiClient.Areas.Cpm
         /// <returns></returns>
         [HttpGet]
         [DisplayName("لیست قرارداد ها")]
-        public async Task<OkApiResult<SearchQueryResponse<CpmperEmployeesVM>>> GetAll([FromQuery] GetAllContractorQuery query)
+        public async Task<OkApiResult<SearchQueryResponse<PerContractVM>>> GetAll([FromQuery] GetAllContractQuery query)
         {
-            return new OkApiResult<SearchQueryResponse<CpmperEmployeesVM>>(await Mediator.Send(query));
+            return new OkApiResult<SearchQueryResponse<PerContractVM>>(await Mediator.Send(query));
         }
-
-
-        ///// <summary>
-        ///// UI CODE :35-02
-        ///// سینک ناحیه ها
-        ///// </summary> 
-        ///// <returns></returns>
-        //[HttpGet]
-        //[DisplayName("سینک ناحیه ها")]
-        //[ErrorCode("35-02")]
-        //public OkApiResult<bool> SyncContractor()
-        //{
-        //    _backgroundJob.Schedule<IHangFireSyncService<Contractor>>((x) => x.SyncDataContractor(), TimeSpan.FromSeconds(2));
-
-        //    return new OkApiResult<bool>(true);
-        //}
 
 
     }

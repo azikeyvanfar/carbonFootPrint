@@ -16,6 +16,10 @@ namespace ContractorBackend.Domain.Enums.Core
         ///تحت تکفل پیمانکاران
         /// </summary>
         emp_cont_familys_viw, // https://services.msc.ir/in/eis/ords/cpm/cpmper/emp_cont_familys_viw/
+        /// <summary>
+        ///قرارداها
+        /// </summary>
+        cpm_cpmper_contract_info_viw, // https://services.msc.ir/in/eis/ords/cpm/cpmper/cpm_cpmper_contract_info_viw/
 
     }
 
@@ -47,8 +51,12 @@ namespace ContractorBackend.Domain.Enums.Core
             /// <summary>
             ///تحت تکفل پیمانکاران
             /// </summary>
-            { IsSuiteUrlKeyEnum.emp_cont_familys_viw,  new (){ Url = "ords/cpm/cpmper/emp_cont_familys_viw/"  ,  Service = ServiceEnum. CPM}}, 
-
+            { IsSuiteUrlKeyEnum.emp_cont_familys_viw,  new (){ Url = "ords/cpm/cpmper/emp_cont_familys_viw/"  ,  Service = ServiceEnum. CPM}},
+            /// <summary>
+            ///قراردادها
+            /// </summary>
+            { IsSuiteUrlKeyEnum.cpm_cpmper_contract_info_viw,  new (){ Url = "ords/cpm/cpmper/cpm_cpmper_contract_info_viw/"  ,  Service = ServiceEnum. CPM}},
+            
             ///  *********************    Insert new Is-Suite APIs HERE   *********************************
         
         };

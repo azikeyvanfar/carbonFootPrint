@@ -65,7 +65,16 @@ namespace ContractorBackend.Application.Services
 
             return response;
         }
+        /// <summary>
+        /// لیست قراردادها
+        /// </summary>
+        public async Task<IsSuiteResponse<PerContractVM>> GetPerContractInfoViwAsync(List<QueryParamModel> queryParams)
+        {
+            var (url, service) = FetchIsSuiteUrlForApi(IsSuiteUrlKeyEnum.cpm_cpmper_contract_info_viw);
+            var response = await _clientMethods.GetService<IsSuiteResponse<PerContractVM>>(url, queryParams, service);
 
+            return response;
+        }
 
 
 

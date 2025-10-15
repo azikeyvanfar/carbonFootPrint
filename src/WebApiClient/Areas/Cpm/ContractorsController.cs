@@ -11,8 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ContractorBackend.WebApiClient.Areas.Cpm
 {
-    [Area("Cpm")]
-    [Route("api/[area]/[controller]/[action]")]
+    [Route("api/cli/core/[controller]/[action]")]
     public class ContractorsController : ApiControllerBase
     {
         private readonly IBackgroundJobClient _backgroundJob;
