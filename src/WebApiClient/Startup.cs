@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using ContractorBackend.Application;
 using ContractorBackend.Application.Common.Interfaces;
+using ContractorBackend.Application.Common.Task;
 using ContractorBackend.Application.Services;
 using ContractorBackend.Common.MiddleWare;
 using ContractorBackend.Infrastructure;
@@ -100,7 +101,9 @@ namespace ContractorBackend.WebApiClient
             #region service for admin didnt login for more than 90 days
             RecurringJob.AddOrUpdate<ServiceUserManager>(x => x.UserDeActive(), Cron.Daily, TimeZoneInfo.Local);
             #endregion
-
+            #region service for user update Weekly 
+            RecurringJob.AddOrUpdate<SyncUserJob>(x => x.SyncUsersByHangFire(), "30 23 * * *");
+            #endregion
             #region service for Register New Users to System and Update them
             //RecurringJob.AddOrUpdate<IHangFireSyncUserService>("RegisterNewUsersDaily",x => x.SyncRegisterUsers(), Cron.Daily(1,0), TimeZoneInfo.Local); 
             //RecurringJob.AddOrUpdate<IHangFireSyncUserService>("UpdateUsersDaily",x => x.SyncUpdateUsers(), Cron.Daily(2,0), TimeZoneInfo.Local); 

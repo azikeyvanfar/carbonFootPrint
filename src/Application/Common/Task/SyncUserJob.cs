@@ -36,17 +36,15 @@ namespace ContractorBackend.Application.Common.Task
         private readonly HttpClientMethods _httpClient;
         private readonly IConfiguration _configuration;
         private readonly ICustomLogRepository _logRepository;
-        private readonly IApplicationDbContext _dbContext;
         private readonly ILogDbContext _logdbContext;
         private readonly ISmsSender _smsSender;
-        public SyncUserJob(IUserService userService, HttpClientMethods httpClient, IConfiguration configuration, ICustomLogRepository logRepository, ISmsSender smsSender, IApplicationDbContext dbContext, ILogDbContext logdbContext)
+        public SyncUserJob(IUserService userService, HttpClientMethods httpClient, IConfiguration configuration, ICustomLogRepository logRepository, ISmsSender smsSender, ILogDbContext logdbContext)
         {
             _userService = userService;
             _httpClient = httpClient;
             _configuration = configuration;
             _logRepository = logRepository;
             _smsSender = smsSender;
-            _dbContext = dbContext;
             _logdbContext = logdbContext;
         }
 
@@ -84,7 +82,7 @@ namespace ContractorBackend.Application.Common.Task
 
             #endregion
 
-            var queryIssuite = await _httpClient.GetService(new ContractorDto(), IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.cpm_cpmper_employees_viw].ToString(), lst, ServiceEnum.CPM);
+            var queryIssuite = await _httpClient.GetService(new ContractorDto(), IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.cpm_cpmper_employees_viw].Url, lst, ServiceEnum.CPM);
 
             #endregion
 
@@ -244,7 +242,7 @@ namespace ContractorBackend.Application.Common.Task
                   new ServiceInputModel() { ParameterName = "offset", ParameterValue = offset },
             };
 
-            var queryIssuite = await _httpClient.GetService(new ContractorDto(), IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.cpm_cpmper_employees_viw].ToString(), lst, ServiceEnum.CPM);
+            var queryIssuite = await _httpClient.GetService(new ContractorDto(), IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.cpm_cpmper_employees_viw].Url, lst, ServiceEnum.CPM);
             var Items = queryIssuite.Items.GroupBy(x => x.num_prsn_emplc);
             #endregion
 

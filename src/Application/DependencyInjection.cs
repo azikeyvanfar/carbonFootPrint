@@ -26,7 +26,7 @@ namespace ContractorBackend.Application
             services.AddScoped<IsSuiteClientService>();
             
             
-            //services.AddScoped<SyncUserJob>();
+            services.AddScoped<SyncUserJob>();
 
             services.AddScoped<ICustomLogRepository, CustomLogRepository>();
             //services.AddScoped(provider => new MapperConfiguration(cfg => cfg.AddProfile(new IndicatorProfile(provider.GetService<IApplicationDbContext>()))).CreateMapper());

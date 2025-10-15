@@ -53,9 +53,9 @@ namespace ContractorBackend.Application.Services
         private readonly string BPMSBaseUrl = "http://services.msc.ir/";
         private readonly string baseUrlWithoutAuth = "http://services.msc.ir/";
         private readonly string loginUrl = "http://services.msc.ir/ords/fnd/public/ords_issuite_login";
-        private string authUrl = "http://services.msc.ir/ords/oauth/token";
+        private string authUrl = "https://services.msc.ir/in/eis/ords/oauth/token";
         private readonly string bpmsAuthUrl = "http://services.msc.ir/bpms/oauth/token";
-        private readonly string oaAuthUrl = "http://services.msc.ir/ords/oauth/token";
+        private readonly string oaAuthUrl = "https://services.msc.ir/in/eis/ords/oauth/token";
 
         private readonly HttpClientFactory _client;
         public HttpClientMethods(
@@ -1230,8 +1230,8 @@ namespace ContractorBackend.Application.Services
             }
             else
             {
-                baseUrl = "http://services.msc.ir/";
-                authUrl = "http://services.msc.ir/ords/oauth/token";
+                baseUrl = "https://services.msc.ir/in/eis";
+                authUrl = "https://services.msc.ir/in/eis/ords/oauth/token";
             }
         }
 
@@ -1258,7 +1258,7 @@ namespace ContractorBackend.Application.Services
             client.DefaultRequestHeaders.Add("clientSecret", credentials.ClientSecret);
             client.DefaultRequestHeaders.Add("clientId", credentials.ClientId);
             //client.DefaultRequestHeaders.Add("addTokenTo", "header");
-            // client.DefaultRequestHeaders.Add("accessTokenUrl", "http://services.msc.ir/ords/oauth/token");
+            // client.DefaultRequestHeaders.Add("accessTokenUrl", "https://services.msc.ir/in/eis/ords/oauth/token");
             var collection = new List<KeyValuePair<string, string>>();
             collection.Add(new("grant_type", "client_credentials"));
             var content = new FormUrlEncodedContent(collection);

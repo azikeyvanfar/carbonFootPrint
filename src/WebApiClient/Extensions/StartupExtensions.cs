@@ -7,7 +7,6 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Interfaces;
 using ContractorBackend.Application.Dtos.Core;
-using ContractorBackend.Common.Extensions;
 using ContractorBackend.Common.Models.SiteSettings;
 using ContractorBackend.Domain.Entities.Core;
 using ContractorBackend.Domain.Enums.Core;
@@ -29,7 +28,6 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Swashbuckle.AspNetCore.SwaggerUI;
-//using DocumentFormat.OpenXml.Office2021.DocumentTasks;
 
 namespace ContractorBackend.WebApiClient.Extensions
 {
@@ -37,8 +35,6 @@ namespace ContractorBackend.WebApiClient.Extensions
     {
         public static void AddCustomOptions(this IServiceCollection services, IConfiguration configuration)
         {
-
-
             services.Configure<SiteSettings>(options => configuration.Bind(options));
 
             services.AddOptions<BearerTokensSettings>()
@@ -63,20 +59,9 @@ namespace ContractorBackend.WebApiClient.Extensions
                 {
                     options.UseYeKeModelBinder();
 
-                    //از حالت‌های امنی مانند GET و HEAD صرفنظر می‌کند
-                    //به تمام اکشن متدهای HttpPost برنامه به صورت خودکار اعمال میشود
-                    //AutoValidateAntiforgeryTokenAttribute allows to apply Anti-forgery token validation
-                    //globally to all unsafe methods e.g. POST, PUT, PATCH and DELETE.
-                    //Thus you don't need to add [ValidateAntiForgeryToken] attribute to each and every action that requires it.
-                    //options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
-
-                    //options.Filters.Add(new AuthorizeFilter());
                     options.Filters.Add(typeof(DynamicAuthorizeFilter));
 
                     options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
-                    //options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                    //options.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status400BadRequest));
-                    //options.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status406NotAcceptable));
                     options.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status200OK));
                     options.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
                     options.Filters.Add(new ProducesDefaultResponseTypeAttribute());
@@ -157,73 +142,9 @@ namespace ContractorBackend.WebApiClient.Extensions
                 var xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, "*.xml", SearchOption.TopDirectoryOnly).ToList();
                 xmlFiles.ForEach(xmlFile => c.IncludeXmlComments(xmlFile));
 
-                //c.SwaggerDoc(
-                // name: "LibraryOpenAPISpecification",
-                // info: new OpenApiInfo()
-                // {
-                //     Title = "ContractorBackend : Admin",
-                //     Version = "1",
-                //     Description = "WebApiClient Swagger : Through this API you can access the site's capabilities.",
-                //     Contact = new OpenApiContact()
-                //     {
-                //         Email = "name@site.com",
-                //         Name = "ContractorBackend",
-                //     },
-                //     License = new OpenApiLicense()
-                //     {
-                //         Name = "MIT License",
-                //         Url = new Uri("https://opensource.org/licenses/MIT")
-                //     }
-                // });
 
             });
 
-            //services.AddSwaggerGen(setupAction =>
-            //{
-            //    setupAction.SupportNonNullableReferenceTypes();
-            //    setupAction.DocumentFilter<IgnoreControllerDocumentFilter>();
-            //    setupAction.SchemaFilter<RequiredButNullableSchemaFilter>();
-            //    setupAction.SchemaFilter<RequiredNotNullableSchemaFilter>();
-            //    setupAction.SchemaFilter<EnumSchemaFilter>();
-            //    setupAction.SwaggerDoc(
-            //       name: "LibraryOpenAPISpecification",
-            //       info: new OpenApiInfo()
-            //       {
-            //           Title = "ContractorBackend : Admin",
-            //           Version = "1",
-            //           Description = "WebApiClient Swagger : Through this API you can access the site's capabilities.",
-            //           Contact = new OpenApiContact()
-            //           {
-            //               Email = "name@site.com",
-            //               Name = "ContractorBackend",
-            //           },
-            //           License = new OpenApiLicense()
-            //           {
-            //               Name = "MIT License",
-            //               Url = new Uri("https://opensource.org/licenses/MIT")
-            //           }
-            //       });
-            //    // setupAction.AddSecurityDefinition(
-            //    //"LibraryOpenAPISpecification", CreateSecurityScheme());
-
-            //    var xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, "*.xml", SearchOption.TopDirectoryOnly).ToList();
-            //    xmlFiles.ForEach(xmlFile => setupAction.IncludeXmlComments(xmlFile));
-
-            //    //setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-            //    //{
-            //    //    Type = SecuritySchemeType.ApiKey,
-            //    //    Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
-            //    //    In = ParameterLocation.Header,
-            //    //    Name = "Authorization",
-            //    //    Scheme = JwtBearerDefaults.AuthenticationScheme,
-            //    //    BearerFormat = "JWT"
-            //    //});
-
-            //    setupAction.OperationFilter<AuthorizationOperationFilter>();
-
-            //    setupAction.CustomSchemaIds(x => x.FullName);//Use fully qualified object names
-            //    setupAction.SchemaFilter<NamespaceSchemaFilter>();//Makes the namespaces hidden for the schemas
-            //});
 
         }
 
@@ -278,21 +199,6 @@ namespace ContractorBackend.WebApiClient.Extensions
                 setupAction.EnableDeepLinking();
                 setupAction.DisplayOperationId();
             });
-
-            //var swaggerUrl = configuration["swaggerUrl"];
-            //app.UseSwaggerUI(setupAction =>
-            //{
-            //    setupAction.SwaggerEndpoint(
-            //        url: swaggerUrl,
-            //        name: "ContractorBackend");
-            //    //setupAction.RoutePrefix = ""; //--> To be able to access it from this URL: https://localhost:5001/swagger/index.html
-
-            //    setupAction.DefaultModelExpandDepth(2);
-            //    setupAction.DefaultModelRendering(ModelRendering.Model);
-            //    setupAction.DocExpansion(DocExpansion.None);
-            //    setupAction.EnableDeepLinking();
-            //    setupAction.DisplayOperationId();
-            //});
         }
 
         public static void AddCustomCors(this IServiceCollection services, IConfiguration configuration)
@@ -301,7 +207,7 @@ namespace ContractorBackend.WebApiClient.Extensions
             const string allowedCorsPolicyName = "CorsPolicy";
 
             var corsOrigins = configuration.GetSection("CorsOrigins:AllowOrigins").Get<string[]>();
-            if (corsOrigins==null || corsOrigins.Length == 0)
+            if (corsOrigins == null || corsOrigins.Length == 0)
             {
                 services.AddCors(options =>
                 {
@@ -326,7 +232,6 @@ namespace ContractorBackend.WebApiClient.Extensions
                 });
             }
         }
-
 
         public static Task AddActionList(this IApplicationBuilder app)
         {
@@ -421,9 +326,5 @@ namespace ContractorBackend.WebApiClient.Extensions
                 }
             });
         }
-
-
-
-
     }
 }

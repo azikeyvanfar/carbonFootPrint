@@ -7,7 +7,6 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using ContractorBackend.Application.Common.Interfaces;
 using ContractorBackend.Application.Dtos.Core;
-using ContractorBackend.Common.Extensions;
 using ContractorBackend.Common.Models.SiteSettings;
 using ContractorBackend.Domain.Entities.Core;
 using ContractorBackend.Domain.Enums.Core;
@@ -29,7 +28,6 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Swashbuckle.AspNetCore.SwaggerUI;
-//using DocumentFormat.OpenXml.Office2021.DocumentTasks;
 
 namespace ContractorBackend.WebApiAdmin.Extensions
 {
@@ -48,8 +46,6 @@ namespace ContractorBackend.WebApiAdmin.Extensions
                     return bearerTokens.AccessTokenExpirationMinutes < bearerTokens.RefreshTokenExpirationMinutes;
                 }, "RefreshTokenExpirationMinutes is less than AccessTokenExpirationMinutes. Obtaining new tokens using the refresh token should happen only if the access token has expired.");
 
-            //services.AddOptions<ApiSettings>()
-            //    .Bind(configuration.GetSection("ApiSettings"));
         }
 
         public static void AddCustomAntiforgery(this IServiceCollection services)
@@ -63,20 +59,11 @@ namespace ContractorBackend.WebApiAdmin.Extensions
                 {
                     options.UseYeKeModelBinder();
 
-                    //از حالت‌های امنی مانند GET و HEAD صرفنظر می‌کند
-                    //به تمام اکشن متدهای HttpPost برنامه به صورت خودکار اعمال میشود
-                    //AutoValidateAntiforgeryTokenAttribute allows to apply Anti-forgery token validation
-                    //globally to all unsafe methods e.g. POST, PUT, PATCH and DELETE.
-                    //Thus you don't need to add [ValidateAntiForgeryToken] attribute to each and every action that requires it.
-                    //options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
-
                     //options.Filters.Add(new AuthorizeFilter());
                     options.Filters.Add(typeof(DynamicAuthorizeFilter));
 
                     options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
-                    //options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                    //options.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status400BadRequest));
-                    //options.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status406NotAcceptable));
+                   
                     options.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status200OK));
                     options.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
                     options.Filters.Add(new ProducesDefaultResponseTypeAttribute());
@@ -154,85 +141,14 @@ namespace ContractorBackend.WebApiAdmin.Extensions
                     new List<string>()
                   }
                 });
-                //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                //c.IncludeXmlComments(xmlPath);
+                
 
                 var xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, "*.xml", SearchOption.TopDirectoryOnly).ToList();
                 xmlFiles.ForEach(xmlFile => c.IncludeXmlComments(xmlFile));
-
-
-                //c.SwaggerDoc(
-                // name: "LibraryOpenAPISpecification",
-                // info: new OpenApiInfo()
-                // {
-                //     Title = "ContractorBackend : Admin",
-                //     Version = "1",
-                //     Description = "WebApiAdmin Swagger : Through this API you can access the site's capabilities.",
-                //     Contact = new OpenApiContact()
-                //     {
-                //         Email = "name@site.com",
-                //         Name = "ContractorBackend",
-                //     },
-                //     License = new OpenApiLicense()
-                //     {
-                //         Name = "MIT License",
-                //         Url = new Uri("https://opensource.org/licenses/MIT")
-                //     }
-                // });
-
+                
             });
-
-            //services.AddSwaggerGen(setupAction =>
-            //{
-            //    setupAction.SupportNonNullableReferenceTypes();
-            //    setupAction.DocumentFilter<IgnoreControllerDocumentFilter>();
-            //    setupAction.SchemaFilter<RequiredButNullableSchemaFilter>();
-            //    setupAction.SchemaFilter<RequiredNotNullableSchemaFilter>();
-            //    setupAction.SchemaFilter<EnumSchemaFilter>();
-            //    setupAction.SwaggerDoc(
-            //       name: "LibraryOpenAPISpecification",
-            //       info: new OpenApiInfo()
-            //       {
-            //           Title = "ContractorBackend : Admin",
-            //           Version = "1",
-            //           Description = "WebApiAdmin Swagger : Through this API you can access the site's capabilities.",
-            //           Contact = new OpenApiContact()
-            //           {
-            //               Email = "name@site.com",
-            //               Name = "ContractorBackend",
-            //           },
-            //           License = new OpenApiLicense()
-            //           {
-            //               Name = "MIT License",
-            //               Url = new Uri("https://opensource.org/licenses/MIT")
-            //           }
-            //       });
-            //    // setupAction.AddSecurityDefinition(
-            //    //"LibraryOpenAPISpecification", CreateSecurityScheme());
-
-            //    var xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, "*.xml", SearchOption.TopDirectoryOnly).ToList();
-            //    xmlFiles.ForEach(xmlFile => setupAction.IncludeXmlComments(xmlFile));
-
-            //    //setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-            //    //{
-            //    //    Type = SecuritySchemeType.ApiKey,
-            //    //    Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
-            //    //    In = ParameterLocation.Header,
-            //    //    Name = "Authorization",
-            //    //    Scheme = JwtBearerDefaults.AuthenticationScheme,
-            //    //    BearerFormat = "JWT"
-            //    //});
-
-            //    setupAction.OperationFilter<AuthorizationOperationFilter>();
-
-            //    setupAction.CustomSchemaIds(x => x.FullName);//Use fully qualified object names
-            //    setupAction.SchemaFilter<NamespaceSchemaFilter>();//Makes the namespaces hidden for the schemas
-            //});
-
+           
         }
-
-
 
         public static void UserCustomStaticFileStorage(this IApplicationBuilder app,
             IConfiguration configuration)
@@ -271,11 +187,6 @@ namespace ContractorBackend.WebApiAdmin.Extensions
             app.UseSwagger();
             app.UseSwaggerUI(setupAction =>
             {
-                //setupAction.SwaggerEndpoint(
-                //    url: swaggerUrl,
-                //    name: "ContractorBackend");
-                ////setupAction.RoutePrefix = ""; //--> To be able to access it from this URL: https://localhost:5001/swagger/index.html
-
                 setupAction.DefaultModelExpandDepth(1);
                 setupAction.DefaultModelRendering(ModelRendering.Model);
                 setupAction.DocExpansion(DocExpansion.None);
@@ -283,20 +194,6 @@ namespace ContractorBackend.WebApiAdmin.Extensions
                 setupAction.DisplayOperationId();
             });
 
-            //var swaggerUrl = configuration["swaggerUrl"];
-            //app.UseSwaggerUI(setupAction =>
-            //{
-            //    setupAction.SwaggerEndpoint(
-            //        url: swaggerUrl,
-            //        name: "ContractorBackend");
-            //    //setupAction.RoutePrefix = ""; //--> To be able to access it from this URL: https://localhost:5001/swagger/index.html
-
-            //    setupAction.DefaultModelExpandDepth(2);
-            //    setupAction.DefaultModelRendering(ModelRendering.Model);
-            //    setupAction.DocExpansion(DocExpansion.None);
-            //    setupAction.EnableDeepLinking();
-            //    setupAction.DisplayOperationId();
-            //});
         }
 
         public static void AddCustomCors(this IServiceCollection services, IConfiguration configuration)
@@ -330,9 +227,6 @@ namespace ContractorBackend.WebApiAdmin.Extensions
                 });
             }
         }
-
-
-
         public static Task AddActionList(this IApplicationBuilder app)
         {
             return Task.Run(async () =>
@@ -426,8 +320,5 @@ namespace ContractorBackend.WebApiAdmin.Extensions
                 }
             });
         }
-
-
-
     }
 }
