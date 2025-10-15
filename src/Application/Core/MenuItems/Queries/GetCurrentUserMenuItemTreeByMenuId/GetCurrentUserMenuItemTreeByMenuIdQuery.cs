@@ -99,14 +99,8 @@ namespace ContractorBackend.Application.Core.MenuItems.Queries.GetCurrentUserMen
                 .Where(x => x.RoleAccessType == request.RequestedRoleType)
                 .Where(x => x.IsActive)
                 .Where(x =>
-                        
-                            
-                                x.PageRoute.PageRouteClaims.Any(c => userClaims.Any(b => b.ClaimValue == c.GeneralClaim.ClaimValue))
-                             &&
-                            
-                                pageRouteIds.Contains(x.PageRouteId.ToString())
-                            
-                        
+                        x.PageRoute.PageRouteClaims.Any(c => userClaims.Any(b => b.ClaimValue == c.GeneralClaim.ClaimValue))&&
+                        pageRouteIds.Contains(x.PageRouteId.ToString())
                       );
 
             var result = menuItems
@@ -121,8 +115,8 @@ namespace ContractorBackend.Application.Core.MenuItems.Queries.GetCurrentUserMen
                            Description = x.Description,
                            MenuType = x.MenuType,
                            PageRouteId = x.PageRouteId,
-                           Route = x.PageRoute.Route,
-                           RouteName = x.PageRoute.RouteName,
+                           Route = (x.PageRoute == null)?"":x.PageRoute.Route,
+                           RouteName = (x.PageRoute == null) ? "" : x.PageRoute.RouteName,
                            DocumentId = x.DocumentId,
                            BaseUrl = x.BaseUrl,
                            PageId = x.PageId,
@@ -131,8 +125,8 @@ namespace ContractorBackend.Application.Core.MenuItems.Queries.GetCurrentUserMen
                            IsActive = x.IsActive,
                            IsOpen = x.IsOpen,
                            Priority = x.Priority,
-                           MenuName = x.Menu.Name,
-                           MenuTitle = x.Menu.Title,
+                           MenuName = (x.Menu == null) ? "" : x.Menu.Name,
+                           MenuTitle = (x.Menu == null) ? "" : x.Menu.Title,
                            Icon = x.Icon,
                            HasClaim = userClaims.Where(c => c.PageRouteId == x.PageRouteId).ToList().Count > 0,
                            Children = GetChildren(menuItems.ProjectTo<MenuItemDto>(_mapper.ConfigurationProvider).ToList(), x.Id, userClaims.ToList())

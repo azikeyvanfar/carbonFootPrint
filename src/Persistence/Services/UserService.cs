@@ -187,7 +187,7 @@ namespace ContractorBackend.Persistence.Services
         }
 
         [Display(Name = "بروز رسانی کاربر در سیستم بر اساس اطلاعات issuite")]
-        public async Task<User> UpdateUserByIssuiteData(User user, ContractorDto issuiteUser)
+        public async Task<User> UpdateUserByIssuiteData(User user, CpmperEmployeesVM issuiteUser)
         {
             if (user != null)
             {
@@ -250,41 +250,14 @@ namespace ContractorBackend.Persistence.Services
         {
             switch (issuiteRole)
             {
-                //مدرس خارجی
-                case "EX":
-                    return new(273, "ExternalTeacher");
+                //پیمانکار
+                case "1":
+                    return new(1, "Contractor");
 
-                //مدرس داخلی
-                case "IN":
-                    return new(272, "InternalTeacher");
-
-                //تسهیلگران آموزش
-                case "ASSESOR":
-                    return (270, "EducationFacilitate");
-
-                //هماهنگ کننده
-                case "CORDINATOR":
-                    return (268, "Coordinator");
-
-                //فراگیران
-                case "PRSN":
-                    return new(267, "Learner");
-
-                //موسسات
-                case "INSTITUTE":
-                    return new(275, "Institutes");
-
-                //مسئولین ارزیابی عملکرد
-                case "EVLMNG":
-                    return new(262, "Evaluate");
-
-                //مسئول دوره-رابط دوره
-                case "MEDIATOR":
-                    return new(271, "Mediator");
-
-                //ذینفعان
-                case "STSFACE":
-                    return new(292, "StsFace");
+                //شرکتی
+                case "2":
+                    return new(2, "Company");
+                
 
                 // default            
                 default:
@@ -332,8 +305,13 @@ namespace ContractorBackend.Persistence.Services
             return TableUserRoles.Where(x => x.UserId == userId).AsQueryable();
         }
         [Display(Name = "افزودن کاربر جدید با اطلاعات issuite")]
-        public async Task<User> AddNewUserByIssuiteUserData(ContractorDto issuiteUserData)
+        public async Task<User> AddNewUserByIssuiteUserData(CpmperEmployeesVM issuiteUserData)
         {
+            //bool isExistUser = await CheckExistUserByPersonnelCode(issuiteUserData.num_prsn_emplc,cancellationToken);
+            //if (isExistUser)
+            //{
+            //    return null;
+            //}
             try
             {
                 var user = new User();
@@ -362,7 +340,7 @@ namespace ContractorBackend.Persistence.Services
 
                 user.IsActive = true;
                 user.IsPasswordChangeForce = true;
-                var pwdf = AESService.Decrypt("h7Nk5QGr7T6pFbrhFi6d7w==");
+                var pwdf = AESService.Decrypt("njm9UgwFaxS5jTmCi4wDxg==");
                 var result = await _userManager.CreateAsync(user, pwdf);
 
                 if (!result.Succeeded) throw new Exception($"خطا در افزودن کاربر {issuiteUserData.nam_first_emplc + " " + issuiteUserData.nam_last_emplc} با پرسنلی / کد ملی {issuiteUserData.num_mobil_emplc} ");

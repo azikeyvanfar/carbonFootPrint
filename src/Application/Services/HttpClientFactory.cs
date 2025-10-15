@@ -345,12 +345,10 @@ namespace ContractorBackend.Application.Services
         }
 
         public async Task<IsSuiteResponse<T>> GetService<T>(T Data, string url, List<ServiceInputModel> inputParameters, ServiceEnum system) where T : class
-
         {
-
             string apiResponse, token = string.Empty;
             FouladClientCredentialsService serv = new FouladClientCredentialsService(_configuration);
-            var credentials = serv.GetClientCredentials(system);
+           var credentials = serv.GetClientCredentials(system);
             if (_memoryCache.TryGetValue(system, out MemoryCacheToken memoryCacheToken))
             {
                 token = memoryCacheToken.Access_Token;
@@ -369,7 +367,7 @@ namespace ContractorBackend.Application.Services
 
             }
 
-
+            var loginResult = await IsISSuiteLogin(token);
             var client = _client.GetClient();
 
             string finalUrl = inputParameters?.Count == 0 ? $"{url}" : $"{url}?";
@@ -1245,7 +1243,7 @@ namespace ContractorBackend.Application.Services
             var client = _client.GetClient();
             // var stringContent = new StringContent(null, Encoding.UTF8, MediaTypeNames.Application.Json);
             var authenticationString = $"{credentials.ClientId}:{credentials.ClientSecret}";
-            var base64EncodedAuthenticationString = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(authenticationString));
+            var base64EncodedAuthenticationString = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(authenticationString));
 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", base64EncodedAuthenticationString);
             client.DefaultRequestHeaders.Add("content_type", "application/x-www-form-urlencoded");
@@ -1290,6 +1288,8 @@ namespace ContractorBackend.Application.Services
         }
         private async Task<string> LoginToIsSuite(ServiceEnum system, string accessToken)
         {
+            var username = "RSA@123456789";
+            var password = "qazwsx@123";
             string apiResponse, token, url = string.Empty;
             FouladClientCredentialsService serv = new FouladClientCredentialsService(_configuration);
             var credentials = serv.GetClientCredentials(system);
@@ -1316,8 +1316,8 @@ namespace ContractorBackend.Application.Services
             Dictionary<string, string> jsonValues = new Dictionary<string, string>();
             //jsonValues.Add("P_USER_NAME", "1100195981");
             //jsonValues.Add("P_PASS", "@MIRH@MId1");
-            jsonValues.Add("P_USER_NAME", "portal_tee_ords_usr");
-            jsonValues.Add("P_PASS", "Tee$54!25");
+            jsonValues.Add("P_USER_NAME", username);
+            jsonValues.Add("P_PASS", password);
             //jsonValues.Add("P_USER_NAME", "RSA@123456789");
             //jsonValues.Add("P_PASS", "qazwsx@123");
             var requestContent = new StringContent(JsonConvert.SerializeObject(jsonValues), null, "application/json");

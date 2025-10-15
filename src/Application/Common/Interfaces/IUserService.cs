@@ -13,14 +13,14 @@ namespace ContractorBackend.Application.Common.Interfaces
     {
         Task<IEnumerable<User>> GetAll();
         Task<User> SearchIssuiteUserByPerNum(string perNum);
-        Task<User> UpdateUserByIssuiteData(User user, ContractorDto issuiteUser);
+        Task<User> UpdateUserByIssuiteData(User user, CpmperEmployeesVM issuiteUser);
         Task<(long roleId, string roleName)> GetRoleIdbyIssuiteRoleName(string issuiteRole);
         Task<bool> UserHasRole(long roleId, long userId);
         Task<bool> AddUserRole(User user, string roleName);
         System.Threading.Tasks.Task AddUserRoles(User user, List<string> roleNames);
         IQueryable<UserRole> TableUserRoles { get; }
         IQueryable<UserRole> GetAllUserRole(long userId);
-        Task<User> AddNewUserByIssuiteUserData(ContractorDto issuiteUserData);
+        Task<User> AddNewUserByIssuiteUserData(CpmperEmployeesVM issuiteUserData);
 
         //Task<bool> UpdateUserFromIsSuiteAfterThresholdTime(long userId);
 

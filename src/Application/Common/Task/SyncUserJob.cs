@@ -69,20 +69,20 @@ namespace ContractorBackend.Application.Common.Task
 
             var days = _configuration["JobParams:LastFewDays"];
             int fewDays = Convert.ToInt32(days);
-            string date = DateTime.Now.AddDays(-fewDays).ToShamsiDateTime2();
-            string limit = "50000";
-            string offset = "0";
+            //string date = DateTime.Now.AddDays(-fewDays).ToShamsiDateTime2();
+            //string limit = "50000";
+            //string offset = "0";
 
             var lst = new List<ServiceInputModel>
             {
-                  new ServiceInputModel() { ParameterName = "P_date", ParameterValue = date },
-                  new ServiceInputModel() { ParameterName = "limit", ParameterValue = limit },
-                  new ServiceInputModel() { ParameterName = "offset", ParameterValue = offset },
+            //      new ServiceInputModel() { ParameterName = "P_date", ParameterValue = date },
+            //      new ServiceInputModel() { ParameterName = "limit", ParameterValue = limit },
+            //      new ServiceInputModel() { ParameterName = "offset", ParameterValue = offset },
             };
 
             #endregion
-
-            var queryIssuite = await _httpClient.GetService(new ContractorDto(), IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.cpm_cpmper_employees_viw].Url, lst, ServiceEnum.CPM);
+            
+            var queryIssuite = await _httpClient.GetService(new CpmperEmployeesVM(), IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.cpm_cpmper_employees_viw].Url, lst, ServiceEnum.CPM);
 
             #endregion
 
@@ -242,7 +242,7 @@ namespace ContractorBackend.Application.Common.Task
                   new ServiceInputModel() { ParameterName = "offset", ParameterValue = offset },
             };
 
-            var queryIssuite = await _httpClient.GetService(new ContractorDto(), IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.cpm_cpmper_employees_viw].Url, lst, ServiceEnum.CPM);
+            var queryIssuite = await _httpClient.GetService(new CpmperEmployeesVM(), IsSuiteUrlClass.dict[IsSuiteUrlKeyEnum.cpm_cpmper_employees_viw].Url, lst, ServiceEnum.CPM);
             var Items = queryIssuite.Items.GroupBy(x => x.num_prsn_emplc);
             #endregion
 
