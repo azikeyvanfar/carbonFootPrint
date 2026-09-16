@@ -35,5 +35,10 @@ namespace ContractorBackend.Application.Core.UserRole.Commands.DeleteByUserId
             _repository.DeleteRange(entity);
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<DeleteByUserIdCommand>.Handle(DeleteByUserIdCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

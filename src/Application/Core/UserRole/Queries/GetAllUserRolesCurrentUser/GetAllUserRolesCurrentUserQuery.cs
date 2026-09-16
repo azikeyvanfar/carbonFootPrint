@@ -6,7 +6,6 @@ using ContractorBackend.Application.Common.Identity;
 using ContractorBackend.Application.Common.Interfaces;
 using ContractorBackend.Application.Common.Models;
 using ContractorBackend.Application.Dtos.Core;
-using ContractorBackend.Domain.Entities.Identity;
 using ContractorBackend.Domain.Enums.Core;
 using Gridify;
 using Gridify.EntityFramework;
@@ -50,7 +49,7 @@ namespace ContractorBackend.Application.Core.UserRole.Queries.GetAllUserRolesCur
                  .Where(c => c.User.Id == user.Id);
 
 
-            var lst = query.AsEnumerable()
+            var lst = query
                 .GroupBy(_ => _.UserId)
                 .Select(UserRole => new UserWithRoleDto
                 {
@@ -72,7 +71,7 @@ namespace ContractorBackend.Application.Core.UserRole.Queries.GetAllUserRolesCur
                         })
                 });
 
-            var list = lst.BuildMock();
+            var list = lst;//.BuildMock();
 
             QueryablePaging<UserWithRoleDto> qp1 = await list.AsQueryable().GridifyQueryableAsync(request, null, cancellationToken);
             Paging<UserWithRoleDto> result = new(qp1.Count, qp1.Query);

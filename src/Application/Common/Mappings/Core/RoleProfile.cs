@@ -17,7 +17,7 @@ namespace ContractorBackend.Application.Mapping.Core
               .ForMember(d => d.RoleType, m => m.MapFrom(s => s.RoleType))
               .ForMember(d => d.RoleScopeId, m => m.MapFrom(s => s.RoleScopeId))
               .ForMember(d => d.RoleScopeName, m => m.MapFrom(s => s.RoleScope != null ? s.RoleScope.FaName : string.Empty))
-              .ForAllOtherMembers(x => x.Ignore());
+              .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
         }
     }
 }

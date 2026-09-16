@@ -40,7 +40,50 @@ namespace ContractorBackend.Application.Core.Account.Commands.UpdateAllUsersFrom
         }
 
 
-        public async Task<Unit> Handle(UpdateAllUsersFromIsSuiteCommand request, CancellationToken cancellationToken)
+        //public async Task<Unit> Handle(UpdateAllUsersFromIsSuiteCommand request, CancellationToken cancellationToken)
+        //{
+        //    if (request.PersonnelCodes != null && request.PersonnelCodes.Any())
+        //    {
+        //        var users = _dbContext.Set<User>().AsNoTracking()//.Where(x => x.IsActive)
+        //            .Where(x => request.PersonnelCodes.Any(l => l == x.PersonnelCode)).ToList();
+        //        foreach (var user in users)
+        //        {
+        //            try
+        //            {
+        //                await _userService.UpdateAllUserInfoFromIsSuite(user.Id);
+        //            }
+        //            catch (Exception e)
+        //            {
+        //                throw new Exception(e.Message + " inner " + e.InnerException?.Message ?? "");
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+
+
+        //        var users = _dbContext.Set<User>().AsNoTracking()//.Where(x => x.IsActive)
+        //                                                         .Skip(request.Skip).Take(request.Take).ToList();
+
+
+        //        foreach (var user in users)
+        //        {
+        //            try
+        //            {
+        //                await _userService.UpdateAllUserInfoFromIsSuite(user.Id);
+
+        //            }
+        //            catch (Exception e)
+        //            {
+        //                throw new Exception(e.Message + " inner " + e.InnerException?.Message ?? "");
+        //            }
+        //        }
+        //    }
+
+        //    return Unit.Value;
+        //}
+
+        async Task IRequestHandler<UpdateAllUsersFromIsSuiteCommand>.Handle(UpdateAllUsersFromIsSuiteCommand request, CancellationToken cancellationToken)
         {
             if (request.PersonnelCodes != null && request.PersonnelCodes.Any())
             {
@@ -80,7 +123,6 @@ namespace ContractorBackend.Application.Core.Account.Commands.UpdateAllUsersFrom
                 }
             }
 
-            return Unit.Value;
         }
     }
 

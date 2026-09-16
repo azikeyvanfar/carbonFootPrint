@@ -33,5 +33,10 @@ namespace ContractorBackend.Application.Core.Role.Commands.DeleteRole
             await _roleManager.DeleteAsync(roleEntity);
             return await Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<DeleteRoleCommand>.Handle(DeleteRoleCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

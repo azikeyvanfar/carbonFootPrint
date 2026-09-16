@@ -114,6 +114,11 @@ namespace ContractorBackend.Persistence.Configurations
             });
             #endregion
 
+
+            #region Ghg (Carbon Footprint - ISO 14064-1 / ISO 14067)
+            modelBuilder.ConfigureGhgEntities();
+            #endregion
+
         }
     }
 }

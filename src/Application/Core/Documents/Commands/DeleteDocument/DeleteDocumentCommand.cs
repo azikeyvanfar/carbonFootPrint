@@ -35,5 +35,10 @@ namespace ContractorBackend.Application.Core.Documents.Commands.DeleteDocument
 
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<DeleteDocumentCommand>.Handle(DeleteDocumentCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

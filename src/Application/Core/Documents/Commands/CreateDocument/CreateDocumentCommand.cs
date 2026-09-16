@@ -118,6 +118,9 @@ namespace ContractorBackend.Application.Core.Documents.Commands.CreateDocument
             return Unit.Value;
         }
 
-
+        Task IRequestHandler<CreateDocumentCommand>.Handle(CreateDocumentCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

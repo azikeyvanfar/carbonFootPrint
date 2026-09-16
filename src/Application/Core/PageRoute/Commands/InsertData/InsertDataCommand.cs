@@ -42,5 +42,10 @@ namespace ContractorBackend.Application.Core.PageRoute.Commands.InsertData
 
             return await Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<InsertDataCommand>.Handle(InsertDataCommand request, CancellationToken cancellationToken)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -54,5 +54,10 @@ namespace ContractorBackend.Application.QASubjects.Commands.DeleteQASubject
 
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<DeleteQASubjectCommand>.Handle(DeleteQASubjectCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

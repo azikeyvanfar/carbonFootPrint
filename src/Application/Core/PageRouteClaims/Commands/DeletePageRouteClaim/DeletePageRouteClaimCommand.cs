@@ -35,5 +35,10 @@ namespace ContractorBackend.Application.Core.PageRouteClaims.Commands.DeletePage
             _repository.DeleteRange(entities);
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<DeletePageRouteClaimCommand>.Handle(DeletePageRouteClaimCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

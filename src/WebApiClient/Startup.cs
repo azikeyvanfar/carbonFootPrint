@@ -158,6 +158,7 @@ namespace ContractorBackend.WebApiClient
             if (!env.IsDevelopment())
             {
                 app.UseSecurityHeaders();
+                app.UseSecurityHeadersRun();
                 app.UseSpaFallback();
             }
             app.UseRouting();

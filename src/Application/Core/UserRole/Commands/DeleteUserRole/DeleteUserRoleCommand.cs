@@ -34,5 +34,10 @@ namespace ContractorBackend.Application.Core.UserRole.Commands.DeleteUserRole
             _repository.DeleteRange(entities);
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<DeleteUserRoleCommand>.Handle(DeleteUserRoleCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

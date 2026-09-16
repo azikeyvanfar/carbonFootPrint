@@ -122,5 +122,10 @@ namespace ContractorBackend.Application.Shared.Newss.Commands.DeleteNews
 
             return Unit.Value;
         }
+
+        Task IRequestHandler<DeleteNewsCommand>.Handle(DeleteNewsCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

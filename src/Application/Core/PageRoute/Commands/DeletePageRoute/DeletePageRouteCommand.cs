@@ -32,5 +32,10 @@ namespace ContractorBackend.Application.Core.PageRoute.Commands.DeletePageRoute
             _pgRepository.Delete(entity);
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<DeletePageRouteCommand>.Handle(DeletePageRouteCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

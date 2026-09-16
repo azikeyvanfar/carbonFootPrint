@@ -17,7 +17,7 @@ namespace ContractorBackend.Application.Mapping
             .ForMember(d => d.Description, m => m.MapFrom(s => s.Description))
             .ForMember(d => d.Alt, m => m.MapFrom(s => s.Alt))
             .ForMember(d => d.RootId, m => m.MapFrom(s => s.RootId))
-            .ForAllOtherMembers(x => x.Ignore());
+            .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
 
             CreateMap<Document, DocumentDto>()
@@ -37,7 +37,7 @@ namespace ContractorBackend.Application.Mapping
             .ForMember(d => d.UserPersonnelCode, m => m.MapFrom(s => s.Owner != null ? s.Owner.PersonnelCode : string.Empty))
             //.ForMember(d => d.UserAvatar, m => m.MapFrom(s => s.Owner != null && s.Owner.UserDetails != null ? s.Owner.UserDetails.ProfileImage : null))
             .ForMember(d => d.UserFullName, m => m.MapFrom(s => s.Owner != null ? s.Owner.FirstName + " " + s.Owner.LastName : string.Empty))
-            .ForAllOtherMembers(x => x.Ignore());
+            .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
             // DO NOT REMOVE THIS COMMENT:NG02
 
@@ -51,7 +51,7 @@ namespace ContractorBackend.Application.Mapping
             .ForMember(d => d.Type, m => m.MapFrom(s => s.Type))
             .ForMember(d => d.Description, m => m.MapFrom(s => s.Description))
             .ForMember(d => d.Alt, m => m.MapFrom(s => s.Alt))
-            .ForAllOtherMembers(opt => opt.Ignore());
+            .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
             // DO NOT REMOVE THIS COMMENT:NG04
 
             CreateMap<UpdateDocumentCommand, Document>()
@@ -62,7 +62,7 @@ namespace ContractorBackend.Application.Mapping
             .ForMember(d => d.Name, m => m.MapFrom(s => s.Name))
             .ForMember(d => d.Description, m => m.MapFrom(s => s.Description))
             .ForMember(d => d.Alt, m => m.MapFrom(s => s.Alt))
-            .ForAllOtherMembers(x => x.Ignore());
+            .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
             // DO NOT REMOVE THIS COMMENT:NG06
 

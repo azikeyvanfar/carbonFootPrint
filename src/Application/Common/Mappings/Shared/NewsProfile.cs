@@ -31,7 +31,7 @@ namespace ContractorBackend.Application.Mappings.Shared
 
             //.ForMember(c => c.LastModifiedByUserId, x => x.MapFrom(d => EF.Property<long?>(d, "ModifiedByUserId")))
             //.ForMember(c => c.LastModifiedDateTime, x => x.MapFrom(d => EF.Property<DateTimeOffset?>(d, "ModifiedDateTime")))
-            .ForAllOtherMembers(x => x.Ignore());
+            .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
             CreateMap<CreateNewsCommand, News>()
                 ;

@@ -26,6 +26,18 @@ namespace ContractorBackend.Persistence.DependencyInjectionExtensions
                     dbInitializer.Initialize();
                     dbInitializer.SeedData();
                 }
+
+                // بذر داده‌های مرجع ردپای کربن (نواحی، ضرایب، فرمول‌ها و ...)
+                try
+                {
+                    var ghgSeeder = scope.ServiceProvider.GetRequiredService<Services.GhgReferenceSeeder>();
+                    ghgSeeder.SeedAsync().GetAwaiter().GetResult();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"GhgReferenceSeeder error: {ex}");
+                    try { System.IO.File.WriteAllText(System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ghg-seed-error.log"), ex.ToString()); } catch { }
+                }
             }
         }
 

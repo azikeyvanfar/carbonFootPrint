@@ -51,5 +51,10 @@ namespace ContractorBackend.Application.Shared.QuestionAnswers.Commands.DeleteQA
 
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<DeleteQuestionAnswersCommand>.Handle(DeleteQuestionAnswersCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

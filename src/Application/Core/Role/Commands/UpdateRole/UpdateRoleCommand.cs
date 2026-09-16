@@ -41,5 +41,10 @@ namespace ContractorBackend.Application.Core.Role.Commands.UpdateRole
             await _roleManager.UpdateAsync(roleEntity);
             return await Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<UpdateRoleCommand>.Handle(UpdateRoleCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

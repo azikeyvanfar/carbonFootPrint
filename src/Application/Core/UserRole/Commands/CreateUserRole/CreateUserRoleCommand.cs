@@ -70,7 +70,9 @@ namespace ContractorBackend.Application.Core.UserRole.Commands.CreateUserRole
             return await Task.FromResult(Unit.Value);
         }
 
-
-
+        Task IRequestHandler<CreateUserRoleCommand>.Handle(CreateUserRoleCommand request, CancellationToken cancellationToken)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

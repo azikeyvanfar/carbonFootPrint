@@ -62,5 +62,10 @@ namespace ContractorBackend.Application.Core.PageRouteClaims.Commands.CreatePage
             return await Task.FromResult(Unit.Value);
 
         }
+
+        Task IRequestHandler<CreatePageRouteClaimCommand>.Handle(CreatePageRouteClaimCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

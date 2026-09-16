@@ -1,17 +1,18 @@
-
+﻿
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>ContractorBackend.Common</RootNamespace>
     <AssemblyName>ContractorBackend.Common</AssemblyName>
 	<Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DNTCommon.Web.Core" Version="2.9.5" />
-    <PackageReference Include="DNTPersianUtils.Core" Version="5.3.1" />
+    <PackageReference Include="DNTCommon.Web.Core" Version="11.8.5" />
+    <PackageReference Include="DNTPersianUtils.Core" Version="6.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.10" />
   </ItemGroup>
 
 </Project>

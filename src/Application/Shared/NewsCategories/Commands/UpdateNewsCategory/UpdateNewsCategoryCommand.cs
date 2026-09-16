@@ -70,5 +70,9 @@ namespace ContractorBackend.Application.Shared.NewsCategories.Commands.UpdateNew
             return Task.FromResult(Unit.Value);
         }
 
+        Task IRequestHandler<UpdateNewsCategoryCommand>.Handle(UpdateNewsCategoryCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

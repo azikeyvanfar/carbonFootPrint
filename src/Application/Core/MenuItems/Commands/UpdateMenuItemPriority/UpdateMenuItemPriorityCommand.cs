@@ -74,5 +74,10 @@ namespace ContractorBackend.Application.Core.MenuItems.Commands.UpdateMenuItemPr
             _repository.Update(entity);
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<UpdateMenuItemPriorityCommand>.Handle(UpdateMenuItemPriorityCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

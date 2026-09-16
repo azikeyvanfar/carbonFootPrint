@@ -29,6 +29,11 @@ namespace ContractorBackend.Application.Common.Behaviours
             return await next();
         }
 
+        public Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+        {
+            return Handle(request, cancellationToken, next);
+        }
+
         private bool IsPotentiallyMalicious(string input)
         {
             // الگوهای خطرناک ساده برای جلوگیری از XSS / Command Injection

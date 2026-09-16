@@ -150,7 +150,7 @@ namespace ContractorBackend.Persistence.Services.Token
                 new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64, _configuration.Value.Issuer),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString(), ClaimValueTypes.String, _configuration.Value.Issuer),
                 new Claim(ClaimTypes.Name, user.UserName, ClaimValueTypes.String, _configuration.Value.Issuer),
-                new Claim("PCode", user.PersonnelCode, ClaimValueTypes.String, _configuration.Value.Issuer),
+                new Claim("PCode", user.PersonnelCode ?? string.Empty, ClaimValueTypes.String, _configuration.Value.Issuer),
                 // custom data
                 new Claim(ClaimTypes.UserData, user.Id.ToString(), ClaimValueTypes.String, _configuration.Value.Issuer),
                 new Claim("ClientIP", IPClient, _configuration.Value.Issuer),
@@ -342,13 +342,13 @@ namespace ContractorBackend.Persistence.Services.Token
                 catch (Exception)
                 {
 
-                    ip = httpContextAccessor?.HttpContext?.Connection.RemoteIpAddress.ToString();
+                    try { ip = httpContextAccessor?.HttpContext?.Connection.RemoteIpAddress?.ToString() ?? "::1"; } catch { ip = "::1"; }
                 }
 
             }
             else
             {
-                ip = httpContextAccessor?.HttpContext?.Connection.RemoteIpAddress.ToString();
+                try { ip = httpContextAccessor?.HttpContext?.Connection.RemoteIpAddress?.ToString() ?? "::1"; } catch { ip = "::1"; }
             }
             return ip;
         }

@@ -6,7 +6,7 @@ namespace ContractorBackend.Common.MiddleWare
 {
     public static class SecurityHeadersMiddlewareExtensions
     {
-        public static IApplicationBuilder UseSecurityHeaders(this IApplicationBuilder app)
+        public static IApplicationBuilder UseSecurityHeadersRun(this IApplicationBuilder app)
         {
             return app.UseMiddleware<SecurityHeadersMiddleware>();
         }

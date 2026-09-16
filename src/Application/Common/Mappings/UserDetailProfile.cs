@@ -62,7 +62,7 @@
     //            .ForMember(d => d.BusunMoavenatId, m => m.MapFrom(s => s.BusunMoavenatId))
 
     //            .ForMember(d => d.Sign, m => m.MapFrom(s => s.Sign))
-    //            .ForAllOtherMembers(opt => opt.Ignore());
+    //            .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
     //        CreateMap<UserInfoDto, UserDetail>()
     //                   .ForMember(d => d.Image, m => m.MapFrom(s => s.image_prsn_emply))
@@ -125,7 +125,7 @@
     //                   .ForMember(d => d.BusunManageId, m => m.MapFrom(s => s.id_busun_manage))
     //                   .ForMember(d => d.CodManage, m => m.MapFrom(s => s.cod_manage))
     //                   .ForMember(d => d.DesManage, m => m.MapFrom(s => s.des_manage))
-    //                   .ForAllOtherMembers(opt => opt.Ignore());
+    //                   .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
 
 
@@ -188,7 +188,7 @@
     //            .ForMember(d => d.CodManage, m => m.MapFrom(s => s.cod_manage))
     //            .ForMember(d => d.DesManage, m => m.MapFrom(s => s.des_manage))
 
-    //            .ForAllOtherMembers(opt => opt.Ignore());
+    //            .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
 
     //        CreateMap<UserDetail, UserInfoDto>()
@@ -255,7 +255,7 @@
     //                   .ForMember(d => d.cod_manage, m => m.MapFrom(s => s.CodManage))
     //                   .ForMember(d => d.des_manage, m => m.MapFrom(s => s.DesManage))
 
-    //            .ForAllOtherMembers(opt => opt.Ignore());
+    //            .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
     //        CreateMap<UserDetail, UserProfileDto>()
     //          .ForMember(d => d.image_prsn_emply, m => m.MapFrom(s => s.Image))
@@ -294,7 +294,7 @@
     //           .ForMember(d => d.des_cod_emplt, m => m.MapFrom(s => s.DesRecuitmentType))
     //           .ForMember(d => d.des_lkp_grp_obg_emply, m => m.MapFrom(s => s.DesReward))
     //           .ForMember(d => d.num_team_teams, m => m.MapFrom(s => s.CodTeam))
-    //           .ForAllOtherMembers(opt => opt.Ignore());
+    //           .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
     //        CreateMap<UserDetail, UserVM>()
     //         .ForMember(d => d.DesCategoryJob, m => m.MapFrom(s => s.DesCategoryJob))
@@ -306,7 +306,7 @@
     //         .ForMember(d => d.DesAssistance, m => m.MapFrom(s => s.DesAssistance))
     //         .ForMember(d => d.DesPost, m => m.MapFrom(s => s.DesPost))
     //         .ForMember(d => d.ProfileImage, m => m.MapFrom(s => s.ProfileImage != null ? Convert.ToBase64String(s.ProfileImage) : string.Empty))
-    //         .ForAllOtherMembers(x => x.Ignore());
+    //         .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
     //        CreateMap<UserDetail, UserLovDto>() 
     //            ;

@@ -60,5 +60,10 @@ namespace ContractorBackend.Application.Core.MenuItems.Commands.DeleteMenuItem
                 _repository.Delete(entity);
             }
         }
+
+        Task IRequestHandler<DeleteMenuItemCommand>.Handle(DeleteMenuItemCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -121,5 +121,10 @@ namespace ContractorBackend.Application.Shared.Newss.Commands.DeleteNewsPhoto
             }
             return Unit.Value;
         }
+
+        Task IRequestHandler<DeleteNewsPhotoCommand>.Handle(DeleteNewsPhotoCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

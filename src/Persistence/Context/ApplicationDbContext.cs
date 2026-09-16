@@ -77,7 +77,7 @@ namespace ContractorBackend.Persistence.Context
                 foreach (var navigation in navigationProperties)
                 {
                     // Get the related entity type
-                    var relatedEntityType = navigation.GetTargetType();
+                    var relatedEntityType = navigation.TargetEntityType;
 
                     // Create a parameter expression for the related entity
                     var parameter = Expression.Parameter(relatedEntityType.ClrType, "e");
@@ -178,6 +178,22 @@ namespace ContractorBackend.Persistence.Context
 
         #region fr-sr
         public DbSet<Contractor> Contractors { get; set; }
+
+        #region Ghg (Carbon Footprint)
+        public DbSet<Domain.Entities.Ghg.GhgArea> GhgAreas { get; set; }
+        public DbSet<Domain.Entities.Ghg.CostCenter> CostCenters { get; set; }
+        public DbSet<Domain.Entities.Ghg.GhgGas> GhgGases { get; set; }
+        public DbSet<Domain.Entities.Ghg.GlobalWarmingPotential> GlobalWarmingPotentials { get; set; }
+        public DbSet<Domain.Entities.Ghg.EmissionCategory> EmissionCategories { get; set; }
+        public DbSet<Domain.Entities.Ghg.GhgParameter> GhgParameters { get; set; }
+        public DbSet<Domain.Entities.Ghg.Fuel> Fuels { get; set; }
+        public DbSet<Domain.Entities.Ghg.EmissionFactor> EmissionFactors { get; set; }
+        public DbSet<Domain.Entities.Ghg.CalculationFormula> CalculationFormulas { get; set; }
+        public DbSet<Domain.Entities.Ghg.GhgPeriod> GhgPeriods { get; set; }
+        public DbSet<Domain.Entities.Ghg.ActivityDataEntry> ActivityDataEntries { get; set; }
+        public DbSet<Domain.Entities.Ghg.EmissionResult> EmissionResults { get; set; }
+        public DbSet<Domain.Entities.Ghg.ProductFootprint> ProductFootprints { get; set; }
+        #endregion
         #endregion
 
 

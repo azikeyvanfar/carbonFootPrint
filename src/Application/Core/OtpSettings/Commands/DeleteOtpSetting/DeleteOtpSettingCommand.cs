@@ -33,5 +33,10 @@ namespace ContractorBackend.Application.Core.OtpSettings.Commands.DeleteOtpSetti
             _otpRepository.Delete(entity);
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<DeleteOtpSettingCommand>.Handle(DeleteOtpSettingCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

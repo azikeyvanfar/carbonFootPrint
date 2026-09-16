@@ -72,7 +72,9 @@ namespace ContractorBackend.WebApiAdmin.Filters
             if (_exceptionHandlers.ContainsKey(type))
             {
                 _exceptionHandlers[type].Invoke(context);
-                if (type == typeof(CustomException) || type == typeof(ValidationException))
+                if (type == typeof(CustomException) ||
+                    type == typeof(ValidationException) ||
+                    type == typeof(UnauthorizedAccessException))
                 {
                     AttachFullErrorTextToExceptionResult(context);
                 }
@@ -173,10 +175,11 @@ namespace ContractorBackend.WebApiAdmin.Filters
             var details = new ProblemDetails
             {
                 Type = "https://tools.ietf.org/html/rfc7235#section-3.1",
-                Status = StatusCodes.Status500InternalServerError
+                Status = StatusCodes.Status401Unauthorized,
+                Title = context.Exception.Message
             };
 
-            context.Result = new ObjectResult(details);
+            context.Result = new UnauthorizedObjectResult(details);
 
             context.ExceptionHandled = true;
         }

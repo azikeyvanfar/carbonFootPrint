@@ -59,6 +59,11 @@ namespace ContractorBackend.Application.Shared.QuestionAnswers.Commands.CreateQA
             _repository.Insert(entity);
             return Unit.Value;
         }
+
+        Task IRequestHandler<CreateQuestionAnswersCommand>.Handle(CreateQuestionAnswersCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

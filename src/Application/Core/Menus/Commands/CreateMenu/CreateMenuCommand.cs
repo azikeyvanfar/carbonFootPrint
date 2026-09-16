@@ -41,5 +41,10 @@ namespace ContractorBackend.Application.Core.Menus.Commands.CreateMenu
 
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<CreateMenuCommand>.Handle(CreateMenuCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

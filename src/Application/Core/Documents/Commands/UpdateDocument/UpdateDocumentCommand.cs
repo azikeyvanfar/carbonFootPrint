@@ -48,5 +48,10 @@ namespace ContractorBackend.Application.Core.Documents.Commands.UpdateDocument
 
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<UpdateDocumentCommand>.Handle(UpdateDocumentCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

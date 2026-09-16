@@ -13,7 +13,6 @@ using ContractorBackend.Domain.Enums.Core;
 using ContractorBackend.WebApiClient.Filters;
 using ContractorBackend.WebApiClient.Filters.SwaggerFilters;
 using DNTCommon.Web.Core;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -79,7 +78,7 @@ namespace ContractorBackend.WebApiClient.Extensions
                     //options.Filters.Add(typeof(HttpResponseExceptionFilter));
                     options.Filters.Add<ApiExceptionFilterAttribute>();
                 })
-                .AddFluentValidation()
+                //.AddFluentValidation()
                 .AddJsonOptions(options =>
                 {
                     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());

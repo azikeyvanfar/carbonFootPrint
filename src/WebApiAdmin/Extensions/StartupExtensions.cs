@@ -13,7 +13,6 @@ using ContractorBackend.Domain.Enums.Core;
 using ContractorBackend.WebApiAdmin.Filters;
 using ContractorBackend.WebApiAdmin.Filters.SwaggerFilters;
 using DNTCommon.Web.Core;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -63,7 +62,7 @@ namespace ContractorBackend.WebApiAdmin.Extensions
                     options.Filters.Add(typeof(DynamicAuthorizeFilter));
 
                     options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
-                   
+
                     options.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status200OK));
                     options.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
                     options.Filters.Add(new ProducesDefaultResponseTypeAttribute());
@@ -81,7 +80,7 @@ namespace ContractorBackend.WebApiAdmin.Extensions
                     //options.Filters.Add(typeof(HttpResponseExceptionFilter));
                     options.Filters.Add<ApiExceptionFilterAttribute>();
                 })
-                .AddFluentValidation()
+              //  .AddFluentValidation()
                 .AddJsonOptions(options =>
                 {
                     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
@@ -141,13 +140,13 @@ namespace ContractorBackend.WebApiAdmin.Extensions
                     new List<string>()
                   }
                 });
-                
+
 
                 var xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, "*.xml", SearchOption.TopDirectoryOnly).ToList();
                 xmlFiles.ForEach(xmlFile => c.IncludeXmlComments(xmlFile));
-                
+
             });
-           
+
         }
 
         public static void UserCustomStaticFileStorage(this IApplicationBuilder app,

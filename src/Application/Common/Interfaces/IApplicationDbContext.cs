@@ -54,6 +54,23 @@ namespace ContractorBackend.Application.Common.Interfaces
         #endregion
 
 
+        #region Ghg (ردپای کربن - ISO 14064-1 / ISO 14067)
+        DbSet<Domain.Entities.Ghg.GhgArea> GhgAreas { get; set; }
+        DbSet<Domain.Entities.Ghg.CostCenter> CostCenters { get; set; }
+        DbSet<Domain.Entities.Ghg.GhgGas> GhgGases { get; set; }
+        DbSet<Domain.Entities.Ghg.GlobalWarmingPotential> GlobalWarmingPotentials { get; set; }
+        DbSet<Domain.Entities.Ghg.EmissionCategory> EmissionCategories { get; set; }
+        DbSet<Domain.Entities.Ghg.GhgParameter> GhgParameters { get; set; }
+        DbSet<Domain.Entities.Ghg.Fuel> Fuels { get; set; }
+        DbSet<Domain.Entities.Ghg.EmissionFactor> EmissionFactors { get; set; }
+        DbSet<Domain.Entities.Ghg.CalculationFormula> CalculationFormulas { get; set; }
+        DbSet<Domain.Entities.Ghg.GhgPeriod> GhgPeriods { get; set; }
+        DbSet<Domain.Entities.Ghg.ActivityDataEntry> ActivityDataEntries { get; set; }
+        DbSet<Domain.Entities.Ghg.EmissionResult> EmissionResults { get; set; }
+        DbSet<Domain.Entities.Ghg.ProductFootprint> ProductFootprints { get; set; }
+        #endregion
+
+
 
 
         #region BusinessUnitChildren

@@ -49,7 +49,7 @@ namespace ContractorBackend.Application.Mapping
                  //.ForMember(d => d.DesAssistance, m => m.MapFrom(s => s.UserDetails.DesAssistance))
                  //.ForMember(d => d.DesPost, m => m.MapFrom(s => s.UserDetails.DesPost))
                  //.ForMember(d => d.ProfileImage, m => m.MapFrom(s => s.UserDetails.ProfileImage != null ? Convert.ToBase64String(s.UserDetails.ProfileImage) : string.Empty))
-                 .ForAllOtherMembers(x => x.Ignore());
+                 .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
 
             CreateMap<RegisterAccountCommand, User>();
@@ -67,7 +67,7 @@ namespace ContractorBackend.Application.Mapping
                 .ForMember(d => d.PhoneNumber, m => m.MapFrom(s => s.num_mobil_emply.ToString()))
                 .ForMember(d => d.Email, m => m.MapFrom(s => s.des_email_emply))
                 .ForMember(d => d.UpLevel, m => m.MapFrom(s => s.up_lvl_emp))
-            .ForAllOtherMembers(opt => opt.Ignore());
+            .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
             CreateMap<UserInfoNoImageDto, User>()
               .ForMember(d => d.PersonnelCode, m => m.MapFrom(s => s.num_prsn_emply))
@@ -82,7 +82,7 @@ namespace ContractorBackend.Application.Mapping
               .ForMember(d => d.PhoneNumber, m => m.MapFrom(s => s.num_mobil_emply.ToString()))
               .ForMember(d => d.Email, m => m.MapFrom(s => s.des_email_emply))
               .ForMember(d => d.UpLevel, m => m.MapFrom(s => s.up_lvl_emp))
-              .ForAllOtherMembers(opt => opt.Ignore());
+              .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
             CreateMap<User, UserInfoDto>()
                 .ForMember(d => d.num_prsn_emply, m => m.MapFrom(s => s.PersonnelCode))
@@ -95,7 +95,7 @@ namespace ContractorBackend.Application.Mapping
                 .ForMember(d => d.dat_birth_emply, m => m.MapFrom(s => s.BirthDate))
                 .ForMember(d => d.des_email_emply, m => m.MapFrom(s => s.Email))
                 .ForMember(d => d.up_lvl_emp, m => m.MapFrom(s => s.UpLevel))
-                .ForAllOtherMembers(opt => opt.Ignore());
+                .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
 
             CreateMap<User, UserProfileDto>()
@@ -151,7 +151,7 @@ namespace ContractorBackend.Application.Mapping
                //.ForMember(d => d.CodCostCenter, m => m.MapFrom(s => s.UserDetails.CodCostCenter))
                //.ForMember(d => d.DesJob, m => m.MapFrom(s => s.UserDetails.DesJob))
                //.ForMember(d => d.DesCostCenter, m => m.MapFrom(s => s.UserDetails.DesCostCenter))
-               .ForAllOtherMembers(opt => opt.Ignore());
+               .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
         }
 

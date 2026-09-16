@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Serilog.Events;
 using Serilog.Sinks.MSSqlServer;
 
 namespace ContractorBackend.WebApiAdmin
@@ -35,11 +36,20 @@ namespace ContractorBackend.WebApiAdmin
                 Log.Information("Starting up");
                 var host = CreateHostBuilder(args).Build();
                 host.Services.InitializeDb();
-                host.Run();
+                try
+                {
+                    host.Run();
+                }
+                catch (Exception runEx)
+                {
+                    System.IO.File.WriteAllText(System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ghg-host-crash.log"), runEx.ToString());
+                    throw;
+                }
             }
             catch (Exception ex)
             {
                 Log.Fatal(ex, "Application start-up failed");
+                try { System.IO.File.WriteAllText(System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ghg-startup-crash.log"), ex.ToString()); } catch { }
             }
             finally
             {
@@ -67,42 +77,33 @@ namespace ContractorBackend.WebApiAdmin
                 new SqlColumn("Data", SqlDbType.NVarChar, dataLength: -1) // -1  nvarchar(max)
             };
 
-            return
-                Host.CreateDefaultBuilder(args)
+            var sinkOptions = new MSSqlServerSinkOptions
+            {
+                TableName = tableName,
+                SchemaName = "dbo",
+                AutoCreateSqlTable = true
+            };
+
+            // Serilog Logger
+            //Log.Logger = new LoggerConfiguration()
+            //    .ReadFrom.Configuration(builder.Configuration)
+            //    .WriteTo.MSSqlServer(
+            //        connectionString: connectionString,
+            //        sinkOptions: sinkOptions,
+            //        restrictedToMinimumLevel: LogEventLevel.Warning,
+            //        columnOptions: columnOptions
+            //    )
+            //    .CreateLogger();
+
+
+            return Host.CreateDefaultBuilder(args)
+                .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.ConfigureLogging((hostingContext, logging) =>
-                    {
-                        logging.ClearProviders();
-                        logging.AddSerilog();
-
-                        if (hostingContext.HostingEnvironment.IsDevelopment())
-                        {
-                            logging.AddConsole();
-                            logging.AddDebug();
-                        }
-
-                        //logging.AddDbLogger(); // You can change its Log Level using the `appsettings.json` file -> Logging -> LogLevel -> Default
-                        //logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
-                    })
-                        //.UseSerilog()
-                        .UseSerilog((ctx, lc) =>
-                            lc.ReadFrom.Configuration(ctx.Configuration)
-                            .WriteTo.MSSqlServer(
-                                connectionString: connectionString,
-                                restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information,
-                                columnOptions: columnOptions,
-                                sinkOptions: new MSSqlServerSinkOptions
-                                {
-                                    TableName = tableName,
-                                    SchemaName = "dbo",
-                                    AutoCreateSqlTable = true
-                                }
-                            )
-                        )
-
-                        .UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>();
                 });
+
+
         }
     }
 }

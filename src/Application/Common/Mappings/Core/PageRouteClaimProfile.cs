@@ -20,7 +20,7 @@ namespace ContractorBackend.Application.Mapping.Core
                 .ForMember(c => c.ClaimRoleType, x => x.MapFrom(d => d.GeneralClaim.RoleType))
                 .ForMember(c => c.Route, x => x.MapFrom(d => d.PageRoute.Route))
                 .ForMember(c => c.RouteName, x => x.MapFrom(d => d.PageRoute.RouteName))
-                .ForAllOtherMembers(x => x.Ignore());
+                .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
             CreateMap<UpdatePageRouteClaimCommand, PageRouteClaim>()
                .ForMember(c => c.Id, x => x.MapFrom(d => d.Id))
@@ -28,7 +28,7 @@ namespace ContractorBackend.Application.Mapping.Core
                 .ForMember(c => c.GeneralClaimsId, x => x.MapFrom(d => d.ClaimId))
                   //.ForMember(c => c.ClaimValue, x => x.MapFrom(d => d.ClaimValue))
                   //.ForMember(c => c.ClaimName, x => x.MapFrom(d => d.ClaimName))
-                  .ForAllOtherMembers(x => x.Ignore());
+                  .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
         }
     }
 }

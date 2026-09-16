@@ -18,7 +18,7 @@ namespace ContractorBackend.Application.Mappings.Shared
       .ForMember(d => d.IsActive, m => m.MapFrom(s => s.IsActive))
       //.ForMember(c => c.LastModifiedByUserId, x => x.MapFrom(d => EF.Property<long?>(d, "ModifiedByUserId")))
       //.ForMember(c => c.LastModifiedDateTime, x => x.MapFrom(d => EF.Property<DateTimeOffset?>(d, "ModifiedDateTime")))
-      .ForAllOtherMembers(x => x.Ignore());
+      .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
 
             // DO NOT REMOVE THIS COMMENT:NG02
@@ -28,7 +28,7 @@ namespace ContractorBackend.Application.Mappings.Shared
             .ForMember(s => s.Id, m => m.MapFrom(_ => Guid.NewGuid()))
             .ForMember(s => s.SubjectName, m => m.MapFrom(s => s.SubjectName))
             .ForMember(s => s.IsActive, m => m.MapFrom(s => s.IsActive))
-            .ForAllOtherMembers(opt => opt.Ignore());
+            .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
             // DO NOT REMOVE THIS COMMENT:NG04
 
             CreateMap<UpdateQASubjectCommand, QASubject>()
@@ -36,7 +36,7 @@ namespace ContractorBackend.Application.Mappings.Shared
             .ForMember(d => d.Id, m => m.MapFrom(s => s.Id))
             .ForMember(d => d.SubjectName, m => m.MapFrom(s => s.SubjectName))
             .ForMember(d => d.IsActive, m => m.MapFrom(s => s.IsActive))
-            .ForAllOtherMembers(x => x.Ignore());
+            .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
             // DO NOT REMOVE THIS COMMENT:NG06
         }

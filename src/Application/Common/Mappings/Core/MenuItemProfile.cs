@@ -49,7 +49,7 @@ namespace ContractorBackend.Application.Common.Mappings.Core
                 //.ForMember(d => d.UserAvatar, m => m.MapFrom(s => s.Owner != null ? s.Owner.UserDetails.ProfileImage.ToString() : null))
                 .ForMember(d => d.UserFullName, m => m.MapFrom(s => s.Owner != null ? s.Owner.FirstName + " " + s.Owner.LastName : string.Empty))
                 .ForMember(d => d.Children, m => m.MapFrom(s => s.Children))
-                .ForAllOtherMembers(x => x.Ignore());
+                .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
             CreateMap<CreateMenuItemCommand, MenuItem>()
                 .ForMember(d => d.Id, m => m.MapFrom(_ => Guid.NewGuid()))
@@ -66,7 +66,7 @@ namespace ContractorBackend.Application.Common.Mappings.Core
                 .ForMember(s => s.MenuId, m => m.MapFrom(s => s.MenuId))
                 .ForMember(s => s.ParentId, m => m.MapFrom(s => s.ParentId))
                 .ForMember(s => s.IsActive, m => m.MapFrom(s => s.IsActive))
-                .ForAllOtherMembers(x => x.Ignore());
+                .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
             CreateMap<UpdateMenuItemCommand, MenuItem>()
                 .ForMember(d => d.Id, m => m.MapFrom(s => s.Id))
@@ -83,7 +83,7 @@ namespace ContractorBackend.Application.Common.Mappings.Core
                 .ForMember(s => s.Priority, m => m.MapFrom(s => s.Priority))
                 .ForMember(s => s.ParentId, m => m.MapFrom(s => s.ParentId))
                 .ForMember(s => s.IsActive, m => m.MapFrom(s => s.IsActive))
-                .ForAllOtherMembers(x => x.Ignore());
+                .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
         }
     }
 }

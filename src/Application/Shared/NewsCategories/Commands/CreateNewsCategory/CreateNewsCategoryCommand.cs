@@ -56,5 +56,10 @@ namespace ContractorBackend.Application.Shared.NewsCategories.Commands.CreateNew
 
             return Unit.Value;
         }
+
+        Task IRequestHandler<CreateNewsCategoryCommand>.Handle(CreateNewsCategoryCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

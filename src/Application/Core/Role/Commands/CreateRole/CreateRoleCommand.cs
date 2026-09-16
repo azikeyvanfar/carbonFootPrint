@@ -57,5 +57,10 @@ namespace ContractorBackend.Application.Core.Role.Commands.CreateRole
             //}
             return await Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<CreateRoleCommand>.Handle(CreateRoleCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -25,5 +25,10 @@ namespace ContractorBackend.Application.Common.Behaviours
 
             return response;
         }
+
+        public Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+        {
+            return Handle(request, cancellationToken, next);
+        }
     }
 }

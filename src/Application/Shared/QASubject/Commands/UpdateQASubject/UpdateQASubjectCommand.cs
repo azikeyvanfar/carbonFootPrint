@@ -37,5 +37,10 @@ namespace ContractorBackend.Application.QASubjects.Commands.UpdateQASubject
 
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<UpdateQASubjectCommand>.Handle(UpdateQASubjectCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

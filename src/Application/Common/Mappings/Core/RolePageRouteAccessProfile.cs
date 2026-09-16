@@ -13,7 +13,7 @@ namespace ContractorBackend.Application.Mapping.Core
             .ForMember(c => c.RoleId, x => x.MapFrom(d => d.RoleId))
             .ForMember(c => c.PageRouteId, x => x.MapFrom(d => d.PageRouteId))
             .ForMember(c => c.IsActive, x => x.MapFrom(d => d.IsActive))
-            .ForAllOtherMembers(c => c.Ignore());
+            .IgnoreAllSourcePropertiesWithAnInaccessibleSetter();
 
         }
     }

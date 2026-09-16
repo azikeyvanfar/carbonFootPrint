@@ -43,44 +43,30 @@ namespace ContractorBackend.Application.Core.Account.Commands.LoginDevelop
 
         public async Task<TokenInfo> Handle(LoginDevelopCommand request, CancellationToken cancellationToken)
         {
-            try
+            User user = await _userManager.Users
+                .FirstOrDefaultAsync(_ => _.UserName == request.Username && _.IsActive, cancellationToken);
+
+            if (user is null || !await _userManager.CheckPasswordAsync(user, request.Password))
             {
-                User user;
-                user = await _userManager.Users
-                   .FirstOrDefaultAsync(_ => _.UserName == request.Username && _.IsActive, cancellationToken);
-
-                if (user is null)
-                {
-                    throw new CustomException("نام کاربری و یا کلمه‌ی عبور وارد شده معتبر نیستند.");
-                }
-
-                if (!await _userManager.CheckPasswordAsync(user, request.Password))
-                {
-                    throw new CustomException("نام کاربری و یا کلمه‌ی عبور وارد شده معتبر نیستند.");
-                }
-
-                var result = await _tokenFactoryService.CreateJwtTokensAsync(user);
-                await _tokenStoreService.AddUserTokenAsync(user, result.RefreshTokenSerial, result.AccessToken, null);
-                await _context.SaveChangesAsync(cancellationToken);
-
-                //await _userService.UpdateUserFromIsSuiteAfterThresholdTime(user.Id); 
-
-                await _userManager.UpdateUserLastActivityDateAsync(user.Id);
-
-                var returnObject = new TokenInfo
-                {
-                    AccessToken = result.AccessToken,
-                    RefreshToken = result.RefreshToken,
-
-                };
-
-                return returnObject;
-
+                throw new UnauthorizedAccessException("نام کاربری و یا کلمه‌ی عبور وارد شده معتبر نیستند.");
             }
-            catch (Exception e)
+
+            var result = await _tokenFactoryService.CreateJwtTokensAsync(user);
+            await _tokenStoreService.AddUserTokenAsync(user, result.RefreshTokenSerial, result.AccessToken, null);
+            await _context.SaveChangesAsync(cancellationToken);
+
+            //await _userService.UpdateUserFromIsSuiteAfterThresholdTime(user.Id); 
+
+            await _userManager.UpdateUserLastActivityDateAsync(user.Id);
+
+            var returnObject = new TokenInfo
             {
-                throw new Exception(e.Message + " inner " + e.InnerException?.Message ?? "");
-            }
+                AccessToken = result.AccessToken,
+                RefreshToken = result.RefreshToken,
+
+            };
+
+            return returnObject;
         }
     }
 }

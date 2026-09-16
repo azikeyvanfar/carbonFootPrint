@@ -71,5 +71,10 @@ namespace ContractorBackend.Application.Shared.QuestionAnswers.Commands.UpdateQA
             _repository.Update(entity);
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<UpdateQuestionAnswersCommand>.Handle(UpdateQuestionAnswersCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

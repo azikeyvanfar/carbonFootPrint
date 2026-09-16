@@ -35,6 +35,12 @@ namespace ContractorBackend.Persistence
             services.AddScoped<INewsCategoryService, NewsCategoryService>();
             services.AddScoped<ISeedService, SeedService>();
 
+            // Ghg (Carbon Footprint) services
+            services.AddScoped<Application.Ghg.Services.GhgCalculationService>();
+            services.AddScoped<IGhgCalculationService>(sp => sp.GetRequiredService<Application.Ghg.Services.GhgCalculationService>());
+            services.AddSingleton<IActivityDataProvider, ReferenceFileActivityDataProvider>();
+            services.AddScoped<GhgReferenceSeeder>();
+
             
 
 

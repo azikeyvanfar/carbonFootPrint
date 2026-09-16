@@ -110,5 +110,10 @@ namespace ContractorBackend.Application.Core.MenuItems.Commands.UpdateMenuItem
             _repository.Update(entity);
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<UpdateMenuItemCommand>.Handle(UpdateMenuItemCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

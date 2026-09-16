@@ -137,6 +137,11 @@ namespace ContractorBackend.Application.Core.UserRolePageRouteAccess.Commands.Ro
 
             return await Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<RolePageRouteAccessCreateCommand>.Handle(RolePageRouteAccessCreateCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

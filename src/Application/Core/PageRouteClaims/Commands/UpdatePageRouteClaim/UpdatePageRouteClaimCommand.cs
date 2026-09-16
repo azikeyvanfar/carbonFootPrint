@@ -40,5 +40,10 @@ namespace ContractorBackend.Application.Core.PageRouteClaims.Commands.UpdatePage
             return Task.FromResult(Unit.Value);
 
         }
+
+        Task IRequestHandler<UpdatePageRouteClaimCommand>.Handle(UpdatePageRouteClaimCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -36,5 +36,10 @@ namespace ContractorBackend.Application.Core.Menus.Commands.DeleteMenu
 
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<DeleteMenuCommand>.Handle(DeleteMenuCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

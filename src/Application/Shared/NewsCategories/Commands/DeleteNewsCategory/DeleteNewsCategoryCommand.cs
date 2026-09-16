@@ -51,5 +51,9 @@ namespace ContractorBackend.Application.Shared.NewsCategories.Commands.DeleteNew
             return Task.FromResult(Unit.Value);
         }
 
+        Task IRequestHandler<DeleteNewsCategoryCommand>.Handle(DeleteNewsCategoryCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

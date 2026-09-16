@@ -84,7 +84,7 @@ namespace ContractorBackend.WebApiAdmin.Areas.Core
                 return new OkApiResult<bool>(false);
             }
 
-            var res = await Mediator.Send(command);
+            await Mediator.Send(command);
             return new OkApiResult<bool>(true);
         }
 
@@ -97,7 +97,7 @@ namespace ContractorBackend.WebApiAdmin.Areas.Core
                 return new OkApiResult<bool>(false);
             }
 
-            var res = await Mediator.Send(command);
+            await Mediator.Send(command);
             return new OkApiResult<bool>(true);
         }
 
@@ -106,14 +106,14 @@ namespace ContractorBackend.WebApiAdmin.Areas.Core
         [DisplayName("ثبت کاربر")]
         public async Task<OkApiResult<bool>> Register(RegisterAccountCommand command)
         {
-            var res = await Mediator.Send(command);
+            await Mediator.Send(command);
             return new OkApiResult<bool>(true);
         }
 
         [HttpPost]
         public async Task<OkApiResult<bool>> Update(UpdateAccountCommand command)
         {
-            var res = await Mediator.Send(command);
+            await Mediator.Send(command);
             return new OkApiResult<bool>(true);
         }
 
@@ -135,8 +135,6 @@ namespace ContractorBackend.WebApiAdmin.Areas.Core
             {
                 return new OkApiResult<TokenInfo>(new TokenInfo());
             }
-
-            var text = _localizer["LoginDevelop"];
 
             var res = await Mediator.Send(command);
             return new OkApiResult<TokenInfo>(res);

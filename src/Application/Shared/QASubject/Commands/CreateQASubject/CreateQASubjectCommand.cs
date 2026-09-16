@@ -41,5 +41,10 @@ namespace ContractorBackend.Application.QASubjects.Commands.CreateQASubject
 
             return Unit.Value;
         }
+
+        Task IRequestHandler<CreateQASubjectCommand>.Handle(CreateQASubjectCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

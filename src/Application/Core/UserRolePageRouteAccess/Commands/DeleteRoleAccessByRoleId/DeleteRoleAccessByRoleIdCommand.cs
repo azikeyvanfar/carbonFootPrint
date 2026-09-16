@@ -54,5 +54,10 @@ namespace ContractorBackend.Application.Core.UserRolePageRouteAccess.Commands.De
 
             return await Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<DeleteRoleAccessByRoleIdCommand>.Handle(DeleteRoleAccessByRoleIdCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

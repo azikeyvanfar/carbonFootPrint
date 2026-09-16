@@ -37,5 +37,10 @@ namespace ContractorBackend.Application.Core.Menus.Commands.UpdateMenu
             _repository.Update(entity);
             return Task.FromResult(Unit.Value);
         }
+
+        Task IRequestHandler<UpdateMenuCommand>.Handle(UpdateMenuCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

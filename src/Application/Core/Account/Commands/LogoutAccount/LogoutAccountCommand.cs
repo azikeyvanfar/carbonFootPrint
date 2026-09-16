@@ -82,5 +82,10 @@ namespace ContractorBackend.Application.Core.Account.Commands.LogoutAccount
                 }
             }
         }
+
+        Task IRequestHandler<LogoutAccountCommand>.Handle(LogoutAccountCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
